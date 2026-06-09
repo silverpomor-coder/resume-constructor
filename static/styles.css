@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #eeeeee;
+  color: #222222;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.topbar {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #d0d0d0;
+  background: #ffffff;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+h2 {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 10px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #dddddd;
+  font-size: 15px;
+}
+
+#status {
+  margin-top: 4px;
+  color: #666666;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+button,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid #999999;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #222222;
+  cursor: pointer;
+  font: inherit;
+}
+
+button:disabled {
+  color: #999999;
+  cursor: default;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 6px minmax(260px, 1fr) 6px minmax(280px, 0.9fr);
+  gap: 0;
+  height: calc(100vh - 72px);
+  padding: 12px;
+}
+
+.pane {
+  min-width: 0;
+  overflow: auto;
+  padding: 0 12px 12px;
+  background: #ffffff;
+  border: 1px solid #d8d8d8;
+}
+
+.resizer {
+  cursor: col-resize;
+  background: #eeeeee;
+  border-top: 1px solid #d8d8d8;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.resizer:hover {
+  background: #d6e7f5;
+}
+
+#sourceText {
+  margin: 12px 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.45;
+}
+
+.preview {
+  padding-top: 12px;
+  line-height: 1.45;
+}
+
+.preview-block {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.preview-title {
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.preview-value {
+  white-space: pre-wrap;
+}
+
+.field {
+  display: block;
+  padding: 10px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.field span {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+textarea {
+  width: 100%;
+  min-height: 38px;
+  resize: vertical;
+  padding: 8px;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  font: inherit;
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    height: auto;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .workspace {
+    display: block;
+    height: auto;
+  }
+
+  .pane {
+    height: 420px;
+    margin-bottom: 12px;
+  }
+
+  .resizer {
+    display: none;
+  }
+}

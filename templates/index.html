@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Конструктор резюме</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Конструктор резюме</h1>
+      <p id="status">Загрузите исходный файл резюме</p>
+    </div>
+    <div class="actions">
+      <label class="button">
+        Загрузить
+        <input id="fileInput" type="file" accept=".doc,.docx,.rtf,.txt,.odt">
+      </label>
+      <button id="saveButton" disabled>Сохранить</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="pane source-pane">
+      <h2>Исходный текст</h2>
+      <pre id="sourceText">Файл пока не загружен.</pre>
+    </section>
+    <div class="resizer" data-left="source" data-right="preview"></div>
+    <section class="pane preview-pane">
+      <h2>Финальный документ</h2>
+      <div id="preview" class="preview">После загрузки здесь появятся распознанные данные.</div>
+    </section>
+    <div class="resizer" data-left="preview" data-right="editor"></div>
+    <section class="pane editor-pane">
+      <h2>Редактирование</h2>
+      <form id="editorForm">
+        {% for field in fields %}
+        <label class="field">
+          <span>{{ field.label }}</span>
+          <textarea name="{{ field.key }}" rows="2"></textarea>
+        </label>
+        {% endfor %}
+      </form>
+    </section>
+  </main>
+
+  <script>
+    window.FIELD_DEFS = {{ fields|tojson }};
+  </script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
