@@ -17,10 +17,13 @@ from flask import Flask, jsonify, render_template, request, send_file
 BASE_DIR = Path(__file__).resolve().parent
 RESOURCE_DIR = Path(getattr(sys, "_MEIPASS", BASE_DIR))
 RUNTIME_DIR = Path(sys.executable).resolve().parent if getattr(sys, "frozen", False) else BASE_DIR
-TEMPLATE_DOCX = RESOURCE_DIR / "CV_sample_v2.docx"
 START_DIR = RUNTIME_DIR / "Start"
 READY_DIR = RUNTIME_DIR / "готовые резюме"
 UPLOAD_DIR = RUNTIME_DIR / "uploads"
+TEMPLATE_DOCX_NAME = "CV_sample_v2.docx"
+TEMPLATE_DOCX = RESOURCE_DIR / TEMPLATE_DOCX_NAME
+if not TEMPLATE_DOCX.exists():
+    TEMPLATE_DOCX = START_DIR / TEMPLATE_DOCX_NAME
 
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 NS = {"w": W_NS}
