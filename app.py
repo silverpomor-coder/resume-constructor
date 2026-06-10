@@ -1,8 +1,7 @@
-import json
-import os
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 import uuid
 import zipfile
@@ -14,10 +13,12 @@ from flask import Flask, jsonify, render_template, request, send_file
 
 
 BASE_DIR = Path(__file__).resolve().parent
-TEMPLATE_DOCX = BASE_DIR / "CV_эталон.docx"
-START_DIR = BASE_DIR / "Start"
-READY_DIR = BASE_DIR / "готовые резюме"
-UPLOAD_DIR = BASE_DIR / "uploads"
+RESOURCE_DIR = Path(getattr(sys, "_MEIPASS", BASE_DIR))
+RUNTIME_DIR = Path(sys.executable).resolve().parent if getattr(sys, "frozen", False) else BASE_DIR
+TEMPLATE_DOCX = RESOURCE_DIR / "CV_эталон.docx"
+START_DIR = RUNTIME_DIR / "Start"
+READY_DIR = RUNTIME_DIR / "готовые резюме"
+UPLOAD_DIR = RUNTIME_DIR / "uploads"
 
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 NS = {"w": W_NS}
@@ -74,7 +75,30 @@ def ensure_dirs():
 def normalize_to_text(source_path):
     suffix = source_path.suffix.lower()
     if suffix == ".txt":
-        return source_path.read_text(encoding="utf-8", errors="ignore")
+        return read_text_file(source_path)
+    if shutil.which("textutil"):
+        return normalize_with_textutil(source_path)
+    if suffix == ".docx":
+        return docx_to_text(source_path)
+    if suffix == ".odt":
+        return odt_to_text(source_path)
+    if suffix == ".rtf":
+        return rtf_to_text(source_path)
+    if suffix == ".doc":
+        return binary_doc_to_text(source_path)
+    raise RuntimeError("Формат файла не поддерживается")
+
+
+def read_text_file(source_path):
+    for encoding in ("utf-8", "cp1251", "utf-16"):
+        try:
+            return source_path.read_text(encoding=encoding)
+        except UnicodeError:
+            continue
+    return source_path.read_text(encoding="utf-8", errors="ignore")
+
+
+def normalize_with_textutil(source_path):
     with tempfile.TemporaryDirectory() as temp_dir:
         out_dir = Path(temp_dir)
         result = subprocess.run(
@@ -85,6 +109,48 @@ def normalize_to_text(source_path):
         if result.returncode != 0:
             raise RuntimeError(result.stderr.strip() or "Не удалось прочитать файл")
         return (out_dir / "out.txt").read_text(encoding="utf-8", errors="ignore")
+
+
+def xml_text_from_zip(source_path, xml_name):
+    with zipfile.ZipFile(source_path, "r") as archive:
+        root = ET.fromstring(archive.read(xml_name))
+    parts = []
+    for node in root.iter():
+        if node.tag.endswith("}t") or node.tag.endswith("}tab"):
+            parts.append(node.text or "\t")
+        elif node.tag.endswith("}br") or node.tag.endswith("}p"):
+            parts.append("\n")
+    return "\n".join(line.strip() for line in "".join(parts).splitlines() if line.strip())
+
+
+def docx_to_text(source_path):
+    return xml_text_from_zip(source_path, "word/document.xml")
+
+
+def odt_to_text(source_path):
+    return xml_text_from_zip(source_path, "content.xml")
+
+
+def rtf_to_text(source_path):
+    text = read_text_file(source_path)
+    text = re.sub(r"\\'[0-9a-fA-F]{2}", " ", text)
+    text = re.sub(r"\\[a-zA-Z]+-?\d* ?", " ", text)
+    text = text.replace("{", " ").replace("}", " ").replace("\\", " ")
+    return "\n".join(line.strip() for line in text.splitlines() if line.strip())
+
+
+def binary_doc_to_text(source_path):
+    data = source_path.read_bytes()
+    variants = []
+    for encoding in ("utf-16le", "cp1251", "utf-8"):
+        text = data.decode(encoding, errors="ignore")
+        text = re.sub(r"[^\w\s@.,:;()+\-/«»\"№А-Яа-яЁё]", "\n", text)
+        lines = [line.strip() for line in text.splitlines() if len(line.strip()) > 1]
+        variants.append("\n".join(lines))
+    text = max(variants, key=len)
+    if not re.search(r"[А-Яа-яЁё]{3,}", text):
+        raise RuntimeError("Не удалось прочитать старый DOC-файл")
+    return text
 
 
 def compact_lines(text):
