@@ -5,7 +5,9 @@ import sys
 import tempfile
 import uuid
 import zipfile
+from io import BytesIO
 from copy import deepcopy
+from datetime import date
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
@@ -15,7 +17,7 @@ from flask import Flask, jsonify, render_template, request, send_file
 BASE_DIR = Path(__file__).resolve().parent
 RESOURCE_DIR = Path(getattr(sys, "_MEIPASS", BASE_DIR))
 RUNTIME_DIR = Path(sys.executable).resolve().parent if getattr(sys, "frozen", False) else BASE_DIR
-TEMPLATE_DOCX = RESOURCE_DIR / "CV_эталон.docx"
+TEMPLATE_DOCX = RESOURCE_DIR / "CV_sample_v2.docx"
 START_DIR = RUNTIME_DIR / "Start"
 READY_DIR = RUNTIME_DIR / "готовые резюме"
 UPLOAD_DIR = RUNTIME_DIR / "uploads"
@@ -23,6 +25,32 @@ UPLOAD_DIR = RUNTIME_DIR / "uploads"
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 NS = {"w": W_NS}
 ET.register_namespace("w", W_NS)
+MONTHS = {
+    "январь": 1,
+    "января": 1,
+    "февраль": 2,
+    "февраля": 2,
+    "март": 3,
+    "марта": 3,
+    "апрель": 4,
+    "апреля": 4,
+    "май": 5,
+    "мая": 5,
+    "июнь": 6,
+    "июня": 6,
+    "июль": 7,
+    "июля": 7,
+    "август": 8,
+    "августа": 8,
+    "сентябрь": 9,
+    "сентября": 9,
+    "октябрь": 10,
+    "октября": 10,
+    "ноябрь": 11,
+    "ноября": 11,
+    "декабрь": 12,
+    "декабря": 12,
+}
 
 app = Flask(__name__)
 SESSIONS = {}
@@ -35,11 +63,14 @@ FIELDS = [
     {"key": "phone", "label": "Телефон"},
     {"key": "email", "label": "Электронная почта"},
     {"key": "citizenship", "label": "Гражданство"},
-    {"key": "family", "label": "Семейное положение / дети"},
     {"key": "birth_place_date", "label": "Место и дата рождения"},
+    {"key": "family", "label": "Семейное положение / дети"},
     {"key": "registration", "label": "Место регистрации"},
     {"key": "location", "label": "Фактическое местонахождение"},
     {"key": "metro", "label": "Метро / станция электрички"},
+    {"key": "criminal_record", "label": "Наличие судимости"},
+    {"key": "languages", "label": "Знание иностранных языков"},
+    {"key": "medical_book", "label": "Наличие медицинской книжки"},
     {"key": "driving", "label": "Водительские права, стаж, собственный автомобиль"},
     {"key": "about", "label": "Кандидат о себе"},
     {"key": "agency_comment", "label": "Комментарий Агентства"},
@@ -209,6 +240,64 @@ def collect_numbered_answer(lines, question_fragment, stop_at_next_number=True):
     return "\n".join(values).strip()
 
 
+def block_after_label(lines, labels, stop_labels):
+    start = None
+    for index, line in enumerate(lines):
+        clean = line.lower().strip(": ")
+        if any(clean == label.lower().strip(": ") for label in labels):
+            start = index + 1
+            break
+    if start is None:
+        return ""
+    end = len(lines)
+    stop_set = {label.lower().strip(": ") for label in stop_labels}
+    for index in range(start, len(lines)):
+        clean = lines[index].lower().strip(": ")
+        if clean in stop_set:
+            end = index
+            break
+    return "\n".join(lines[start:end]).strip()
+
+
+def block_after_section(lines, labels, stop_labels):
+    start = None
+    for index, line in enumerate(lines):
+        clean = line.lower().strip(": ")
+        if any(clean == label.lower().strip(": ") for label in labels):
+            start = index + 1
+            break
+    if start is None:
+        return ""
+    end = len(lines)
+    stop_set = {label.lower().strip(": ") for label in stop_labels}
+    for index in range(start, len(lines)):
+        clean = lines[index].lower().strip(": ")
+        if clean in stop_set:
+            end = index
+            break
+    return "\n".join(lines[start:end]).strip()
+
+
+def education_details(lines, education_level):
+    details = (
+        collect_numbered_answer(lines, "Наименование учебного заведения")
+        or block_after_label(
+            lines,
+            ["Учебное заведение"],
+            ["Курсы и тренинги", "Повышение квалификации", "Повышение квалификации, курсы", "Дополнительное образование", "Иностранные языки и компьютерные навыки", "Иностранные языки", "Навыки", "Дополнительная информация"],
+        )
+        or block_after_section(
+            lines,
+            ["Образование"],
+            ["Курсы и тренинги", "Повышение квалификации", "Повышение квалификации, курсы", "Дополнительное образование", "Иностранные языки и компьютерные навыки", "Иностранные языки", "Навыки", "Дополнительная информация"],
+        )
+    )
+    detail_lines = details.splitlines()
+    if detail_lines and detail_lines[0].strip().lower() == str(education_level or "").strip().lower():
+        detail_lines = detail_lines[1:]
+    return "\n".join(detail_lines).strip()
+
+
 def first_match(pattern, text):
     match = re.search(pattern, text, re.IGNORECASE | re.MULTILINE)
     return match.group(1).strip() if match else ""
@@ -272,10 +361,7 @@ def parse_resume(text):
             if line.lower().startswith("неоконченное высшее") and index + 1 < len(lines):
                 data["education_level"] = lines[index + 1]
                 break
-    data["education"] = (
-        collect_numbered_answer(lines, "Наименование учебного заведения")
-        or block_between(lines, ["Образование"], ["Повышение квалификации", "Курсы и тренинги", "Дополнительное образование", "Иностранные языки", "Навыки", "Дополнительная информация"])
-    )
+    data["education"] = education_details(lines, data["education_level"])
     data["courses"] = (
         block_between(lines, ["Повышение квалификации", "Курсы и тренинги"], ["Тесты", "Навыки", "Иностранные языки", "Дополнительная информация", "Опыт работы"])
         or collect_numbered_answer(lines, "Дополнительное образование")
@@ -411,6 +497,15 @@ def set_run_bold(run, enabled):
         rpr.remove(bold)
 
 
+def register_document_namespaces(xml_content):
+    for _, namespace in ET.iterparse(BytesIO(xml_content), events=("start-ns",)):
+        prefix, uri = namespace
+        try:
+            ET.register_namespace(prefix, uri)
+        except ValueError:
+            continue
+
+
 def set_cell_text(cell, value, bold_first_line=False):
     paragraphs = cell.findall("./w:p", NS)
     template_paragraph = deepcopy(paragraphs[0]) if paragraphs else ET.Element(f"{{{W_NS}}}p")
@@ -448,17 +543,124 @@ def count_jobs(data):
     return max(indexes) if indexes else 0
 
 
+def parse_ru_date(value, default_day=1):
+    value = str(value or "").lower()
+    match = re.search(r"(\d{1,2})[./-](\d{1,2})[./-](\d{4})", value)
+    if match:
+        day, month, year = map(int, match.groups())
+        try:
+            return date(year, month, day)
+        except ValueError:
+            return None
+    match = re.search(r"(?<!\d)(\d{1,2})[./-](\d{4})(?!\d)", value)
+    if match:
+        month, year = map(int, match.groups())
+        try:
+            return date(year, month, default_day)
+        except ValueError:
+            return None
+    month_names = "|".join(MONTHS)
+    match = re.search(rf"(\d{{1,2}})\s+({month_names})\s+(\d{{4}})", value)
+    if match:
+        day = int(match.group(1))
+        month = MONTHS[match.group(2)]
+        year = int(match.group(3))
+        try:
+            return date(year, month, day)
+        except ValueError:
+            return None
+    match = re.search(rf"({month_names})\s+(\d{{4}})", value)
+    if match:
+        month = MONTHS[match.group(1)]
+        year = int(match.group(2))
+        try:
+            return date(year, month, default_day)
+        except ValueError:
+            return None
+    return None
+
+
+def clean_birth_date_text(value):
+    return re.sub(r"\s*\(\s*\d+\s*(?:год|года|лет)\s*\)\s*", "", str(value or ""), flags=re.IGNORECASE).strip()
+
+
+def age_text(value, today=None):
+    cleaned = clean_birth_date_text(value)
+    birthday = parse_ru_date(cleaned)
+    if not birthday:
+        return cleaned
+    today = today or date.today()
+    years = today.year - birthday.year - ((today.month, today.day) < (birthday.month, birthday.day))
+    return "\n".join(line for line in [cleaned, f"Полных лет: {years}"] if line)
+
+
+def find_job_period_dates(period):
+    date_pattern = r"\d{1,2}[./-]\d{1,2}[./-]\d{4}|\d{1,2}[./-]\d{4}|[А-Яа-яЁё]+\s+\d{4}"
+    values = re.findall(date_pattern, period)
+    if len(values) == 1 and re.search(r"настоящее время|по наст", period, re.IGNORECASE):
+        return parse_ru_date(values[0]), date.today()
+    if len(values) < 2:
+        return None, None
+    return parse_ru_date(values[0]), parse_ru_date(values[1])
+
+
+def strip_job_duration(period):
+    cleaned = re.sub(r"\s*\(\s*\d+\s*(?:г\.?|год(?:а|ов)?|лет)\s*(?:\d+\s*(?:мес\.?|месяц(?:а|ев)?))?\s*\)\s*$", "", period, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\s*\(\s*\d+\s*(?:мес\.?|месяц(?:а|ев)?)\s*\)\s*$", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\s+[1-9]\d?\s*(?:г\.?|год(?:а|ов)?|лет)\s+[1-9]\d?\s*(?:мес\.?|месяц(?:а|ев)?)\s*$", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\s+[1-9]\d?\s*(?:мес\.?|месяц(?:а|ев)?)\s*$", "", cleaned, flags=re.IGNORECASE)
+    return cleaned.strip()
+
+
+def job_duration_text(period, today=None):
+    start, end = find_job_period_dates(period)
+    if start and not end and re.search(r"настоящее время|по наст", period, re.IGNORECASE):
+        end = today or date.today()
+    if not start or not end or end < start:
+        return ""
+    total_months = (end.year - start.year) * 12 + (end.month - start.month)
+    years, months = divmod(total_months, 12)
+    parts = []
+    if years:
+        parts.append(f"{years} г.")
+    if months or not parts:
+        parts.append(f"{months} мес.")
+    return " ".join(parts)
+
+
+def period_with_duration(period):
+    base_period = strip_job_duration(str(period or ""))
+    duration = job_duration_text(base_period)
+    if not duration:
+        return base_period
+    return f"{base_period}\n({duration})"
+
+
+def job_summary(data, index):
+    city = str(data.get(f"job{index}_city", "") or "").strip()
+    site = str(data.get(f"job{index}_site", "") or "").strip()
+    description = str(data.get(f"job{index}_description", "") or "").strip()
+    lines = []
+    if city:
+        lines.append(f"Место работы: {city}")
+    if site:
+        lines.append(f"Сайт / информация: {site}")
+    if description:
+        lines.append(f"Функционал:\n{description}")
+    return "\n".join(lines)
+
+
 def expand_employment_table(table, job_count):
     rows = table.findall("./w:tr", NS)
-    if len(rows) < 7:
+    if len(rows) < 2:
         return
-    for row in rows[7:]:
+    needed = max(job_count, 1)
+    template_row = deepcopy(rows[-1])
+    for row in rows[needed + 1 :]:
         table.remove(row)
-    needed = max(job_count, 2)
-    template_block = [deepcopy(row) for row in rows[4:7]]
-    for _ in range(3, needed + 1):
-        for row in template_block:
-            table.append(deepcopy(row))
+    current_rows = table.findall("./w:tr", NS)
+    for _ in range(len(current_rows) - 1, needed):
+        table.append(deepcopy(template_row))
 
 
 def fill_template(data, output_path):
@@ -467,6 +669,7 @@ def fill_template(data, output_path):
         shutil.copy2(TEMPLATE_DOCX, temp_docx)
         with zipfile.ZipFile(temp_docx, "r") as zin:
             files = {name: zin.read(name) for name in zin.namelist()}
+        register_document_namespaces(files["word/document.xml"])
         root = ET.fromstring(files["word/document.xml"])
         tables = root.findall(".//w:tbl", NS)
 
@@ -482,12 +685,19 @@ def fill_template(data, output_path):
         set_by_pos(0, 1, 1, "salary")
         set_by_pos(0, 3, 1, "fio")
         set_by_pos(0, 4, 1, "citizenship")
-        set_by_pos(0, 5, 1, "family")
-        set_by_pos(1, 1, 1, "birth_place_date")
+        try:
+            birth_cell = tables[0].findall("./w:tr", NS)[5].findall("./w:tc", NS)[1]
+            set_cell_text(birth_cell, age_text(data.get("birth_place_date", "")))
+        except IndexError:
+            pass
+        set_by_pos(1, 1, 1, "family")
         set_by_pos(1, 2, 1, "registration")
         set_by_pos(1, 3, 1, "location")
         set_by_pos(1, 4, 1, "metro")
-        set_by_pos(1, 5, 1, "driving")
+        set_by_pos(1, 5, 1, "criminal_record")
+        set_by_pos(1, 6, 1, "languages")
+        set_by_pos(1, 7, 1, "medical_book")
+        set_by_pos(1, 8, 1, "driving")
         set_by_pos(2, 1, 0, "about")
         set_by_pos(2, 3, 0, "agency_comment")
         set_by_pos(3, 1, 0, "education_level")
@@ -495,12 +705,14 @@ def fill_template(data, output_path):
         set_by_pos(3, 2, 1, "courses")
         job_count = count_jobs(data)
         expand_employment_table(tables[4], job_count)
-        for index in range(1, max(job_count, 2) + 1):
-            row_base = 1 + (index - 1) * 3
-            set_by_pos(4, row_base, 0, f"job{index}_period")
-            set_by_pos(4, row_base, 1, f"job{index}_city", bold_first_line=True)
-            set_by_pos(4, row_base + 1, 1, f"job{index}_site")
-            set_by_pos(4, row_base + 2, 1, f"job{index}_description")
+        for index in range(1, max(job_count, 1) + 1):
+            try:
+                row = tables[4].findall("./w:tr", NS)[index]
+                cells = row.findall("./w:tc", NS)
+            except IndexError:
+                continue
+            set_cell_text(cells[0], period_with_duration(data.get(f"job{index}_period", "")))
+            set_cell_text(cells[1], job_summary(data, index), bold_first_line=True)
         set_by_pos(5, 1, 1, "recommendations")
 
         files["word/document.xml"] = ET.tostring(root, encoding="utf-8", xml_declaration=True)
