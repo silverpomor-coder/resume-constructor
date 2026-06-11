@@ -1,4 +1,5 @@
 const fileInput = document.getElementById("fileInput");
+const sourceButtons = document.querySelectorAll(".source-button");
 const saveButton = document.getElementById("saveButton");
 const statusLine = document.getElementById("status");
 const sourceText = document.getElementById("sourceText");
@@ -7,6 +8,7 @@ const preview = document.getElementById("preview");
 const workspace = document.querySelector(".workspace");
 
 let currentSession = "";
+let currentSource = "auto";
 
 function rebuildForm(fields) {
   window.FIELD_DEFS = fields;
@@ -58,12 +60,20 @@ function renderPreview() {
   }
 }
 
-fileInput.addEventListener("change", async () => {
+function setSource(source) {
+  currentSource = source;
+  sourceButtons.forEach((button) => {
+    button.classList.toggle("active", button.dataset.source === currentSource);
+  });
+}
+
+async function uploadSelectedFile() {
   const file = fileInput.files[0];
   if (!file) return;
   statusLine.textContent = "Файл загружается и распознается...";
   const formData = new FormData();
   formData.append("file", file);
+  formData.append("source", currentSource);
   const response = await fetch("/upload", { method: "POST", body: formData });
   const result = await response.json();
   if (!response.ok) {
@@ -76,7 +86,17 @@ fileInput.addEventListener("change", async () => {
   fillForm(result.data || {});
   saveButton.disabled = false;
   statusLine.textContent = `Загружен файл: ${result.filename}`;
+}
+
+sourceButtons.forEach((button) => {
+  button.addEventListener("click", async () => {
+    if (button.dataset.source === currentSource) return;
+    setSource(button.dataset.source);
+    await uploadSelectedFile();
+  });
 });
+
+fileInput.addEventListener("change", uploadSelectedFile);
 
 editorForm.addEventListener("input", renderPreview);
 

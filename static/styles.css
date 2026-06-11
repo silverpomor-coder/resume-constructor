@@ -73,6 +73,11 @@ button:disabled {
   cursor: default;
 }
 
+.source-button.active {
+  background: #222222;
+  color: #ffffff;
+}
+
 input[type="file"] {
   display: none;
 }

@@ -306,6 +306,158 @@ def first_match(pattern, text):
     return match.group(1).strip() if match else ""
 
 
+def line_after_exact(lines, label):
+    target = label.lower().strip(": ")
+    for index, line in enumerate(lines):
+        if line.lower().strip(": ") == target:
+            return lines[index + 1] if index + 1 < len(lines) else ""
+    return ""
+
+
+def block_after_exact(lines, start_label, stop_labels):
+    target = start_label.lower().strip(": ")
+    start = None
+    for index, line in enumerate(lines):
+        if line.lower().strip(": ") == target:
+            start = index + 1
+            break
+    if start is None:
+        return ""
+    stop_set = {label.lower().strip(": ") for label in stop_labels}
+    end = len(lines)
+    for index in range(start, len(lines)):
+        if lines[index].lower().strip(": ") in stop_set:
+            end = index
+            break
+    return "\n".join(lines[start:end]).strip()
+
+
+def hh_experience_block(lines):
+    start = None
+    for index, line in enumerate(lines):
+        if line.lower().startswith("опыт работы"):
+            start = index + 1
+            break
+    if start is None:
+        return ""
+    end = len(lines)
+    for index in range(start, len(lines)):
+        if lines[index].lower().strip(": ") == "образование":
+            end = index
+            break
+    return "\n".join(lines[start:end]).strip()
+
+
+def hh_salary(lines):
+    start = None
+    for index, line in enumerate(lines):
+        if line.lower().strip(": ") == "желаемая должность и зарплата":
+            start = index + 1
+            break
+    if start is None:
+        return ""
+    for line in lines[start:]:
+        lowered = line.lower()
+        if lowered.startswith("опыт работы"):
+            break
+        if "₽" in line or "руб" in lowered or "на руки" in lowered:
+            return line
+    return ""
+
+
+def hh_location(lines):
+    value = first_match(r"^Проживает:\s*(.+)$", "\n".join(lines))
+    if not value:
+        return "", ""
+    parts = re.split(r",\s*м\.\s*", value, maxsplit=1, flags=re.IGNORECASE)
+    location = parts[0].strip()
+    metro = parts[1].strip() if len(parts) > 1 else ""
+    return location, metro
+
+
+def hh_fio(lines):
+    for index, line in enumerate(lines):
+        if re.match(r"^(женщина|мужчина),", line.lower()):
+            for previous in reversed(lines[:index]):
+                if previous.strip():
+                    return previous.strip()
+    return ""
+
+
+def is_hh_period(line):
+    month_names = "январь|февраль|март|апрель|май|июнь|июль|август|сентябрь|октябрь|ноябрь|декабрь"
+    return bool(re.fullmatch(rf"({month_names})\s+\d{{4}}\s+—\s+(настоящее время|({month_names})\s+\d{{4}})", line.lower()))
+
+
+def is_hh_duration(line):
+    return bool(re.search(r"\d+\s+(?:год|года|лет|месяц|месяца|месяцев)", line.lower()))
+
+
+def split_hh_jobs(lines):
+    starts = [index for index, line in enumerate(lines) if is_hh_period(line)]
+    jobs = []
+    role_words = r"(директор|гуверн|нян|воспит|репетитор|учитель|педагог|домработ|помощ)"
+    for pos, start in enumerate(starts):
+        end = starts[pos + 1] if pos + 1 < len(starts) else len(lines)
+        chunk = [line for line in lines[start:end] if line.strip()]
+        if not chunk:
+            continue
+        period = chunk[0]
+        cursor = 1
+        if cursor < len(chunk) and is_hh_duration(chunk[cursor]):
+            period = f"{period}\n{chunk[cursor]}"
+            cursor += 1
+        company = chunk[cursor] if cursor < len(chunk) else ""
+        cursor += 1
+        city = ""
+        if cursor < len(chunk) and not re.search(role_words, chunk[cursor].lower()) and len(chunk[cursor]) < 80:
+            city = chunk[cursor]
+            cursor += 1
+        place = "\n".join(line for line in [company, city] if line)
+        jobs.append({
+            "period": period,
+            "city": place,
+            "site": "",
+            "description": "\n".join(chunk[cursor:]).strip(),
+        })
+    return jobs
+
+
+def parse_hh_resume(text):
+    lines = compact_lines(text)
+    data = {field["key"]: "" for field in fields_for_job_count(2)}
+
+    data["fio"] = hh_fio(lines)
+    data["email"] = first_match(r"([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})", text)
+    data["phone"] = first_match(r"((?:\+7|8|\(?\d{3}\)?)[\d \u00a0()\-]{7,}(?:\s*\([^)]*\))?)", text)
+    data["role"] = line_after_exact(lines, "Желаемая должность и зарплата")
+    data["salary"] = hh_salary(lines)
+    data["citizenship"] = value_after_label(lines, ["Гражданство"])
+    data["birth_place_date"] = first_match(r"(?:родился|родилась)\s+(.+)", text)
+    data["location"], data["metro"] = hh_location(lines)
+    data["education_level"] = line_after_exact(lines, "Образование")
+
+    education = block_after_exact(lines, "Образование", ["Навыки", "Повышение квалификации, курсы"])
+    education_lines = education.splitlines()
+    if education_lines and education_lines[0] == data["education_level"]:
+        education_lines = education_lines[1:]
+    data["education"] = "\n".join(education_lines).strip()
+    data["courses"] = block_after_exact(lines, "Повышение квалификации, курсы", ["Навыки"])
+    data["languages"] = block_after_exact(lines, "Знание языков", ["Навыки", "Опыт вождения"])
+    data["driving"] = block_after_exact(lines, "Опыт вождения", ["Дополнительная информация"])
+    data["about"] = block_after_exact(lines, "Обо мне", ["Комментарии к резюме", "История общения с кандидатом"])
+
+    jobs = split_hh_jobs(hh_experience_block(lines).splitlines())
+    for index, job in enumerate(jobs, 1):
+        data[f"job{index}_period"] = job.get("period", "")
+        data[f"job{index}_city"] = job.get("city", "")
+        data[f"job{index}_site"] = job.get("site", "")
+        data[f"job{index}_description"] = job.get("description", "")
+    data["_job_count"] = len(jobs)
+
+    return data
+
+
 def parse_resume(text):
     lines = compact_lines(text)
     data = {field["key"]: "" for field in fields_for_job_count(2)}
@@ -319,6 +471,7 @@ def parse_resume(text):
     data["fio"] = (
         value_after_label(lines, ["Ф.И.О.", "ФИО"])
         or first_match(r"^([А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+)$", "\n".join(lines[:8]))
+        or hh_fio(lines)
     )
     role_from_form = first_match(r"Анкета на вакансию\s+[«\"]([^»\"]+)[»\"]", text)
     data["role"] = value_after_label(lines, ["Желаемая должность"]) or role_from_form
@@ -740,13 +893,14 @@ def upload():
     uploaded = request.files.get("file")
     if not uploaded:
         return jsonify({"error": "Файл не выбран"}), 400
+    source = request.form.get("source", "auto")
     original_name = safe_filename(uploaded.filename)
     session_id = uuid.uuid4().hex
     saved_path = UPLOAD_DIR / f"{session_id}_{original_name}"
     uploaded.save(saved_path)
     shutil.copy2(saved_path, START_DIR / original_name)
     text = normalize_to_text(saved_path)
-    data = parse_resume(text)
+    data = parse_hh_resume(text) if source == "hh" else parse_resume(text)
     SESSIONS[session_id] = {"source": str(saved_path), "filename": original_name, "text": text, "data": data}
     return jsonify({
         "session_id": session_id,
