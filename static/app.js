@@ -1,6 +1,7 @@
 const fileInput = document.getElementById("fileInput");
 const sourceButtons = document.querySelectorAll(".source-button");
 const saveButton = document.getElementById("saveButton");
+const openFolderButton = document.getElementById("openFolderButton");
 const statusLine = document.getElementById("status");
 const sourceText = document.getElementById("sourceText");
 const editorForm = document.getElementById("editorForm");
@@ -85,6 +86,7 @@ async function uploadSelectedFile() {
   rebuildForm(result.fields || window.FIELD_DEFS);
   fillForm(result.data || {});
   saveButton.disabled = false;
+  openFolderButton.disabled = true;
   statusLine.textContent = `Загружен файл: ${result.filename}`;
 }
 
@@ -109,11 +111,31 @@ saveButton.addEventListener("click", async () => {
     body: JSON.stringify({ session_id: currentSession, data: collectFormData() }),
   });
   const result = await response.json();
+  if (result.cancelled) {
+    openFolderButton.disabled = true;
+    statusLine.textContent = result.message || "Сохранение отменено";
+    return;
+  }
   if (!response.ok) {
+    openFolderButton.disabled = true;
     statusLine.textContent = result.error || "Не удалось сохранить файл";
     return;
   }
-  statusLine.textContent = `Сохранено: ${result.path}`;
+  openFolderButton.disabled = false;
+  statusLine.textContent = `Сохранено: ${result.filename}`;
+});
+
+openFolderButton.addEventListener("click", async () => {
+  if (!currentSession) return;
+  const response = await fetch("/open-output-folder", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ session_id: currentSession }),
+  });
+  const result = await response.json();
+  if (!response.ok) {
+    statusLine.textContent = result.error || "Не удалось открыть папку";
+  }
 });
 
 let drag = null;

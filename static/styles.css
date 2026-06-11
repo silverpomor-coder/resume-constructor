@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background: #eeeeee;
+  background: #11b2d0;
   color: #222222;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -88,6 +88,7 @@ input[type="file"] {
   gap: 0;
   height: calc(100vh - 72px);
   padding: 12px;
+  background: #11b2d0;
 }
 
 .pane {
@@ -100,7 +101,7 @@ input[type="file"] {
 
 .resizer {
   cursor: col-resize;
-  background: #eeeeee;
+  background: #11b2d0;
   border-top: 1px solid #d8d8d8;
   border-bottom: 1px solid #d8d8d8;
 }

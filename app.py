@@ -1,4 +1,5 @@
 import re
+import json
 import shutil
 import subprocess
 import sys
@@ -20,6 +21,7 @@ RUNTIME_DIR = Path(sys.executable).resolve().parent if getattr(sys, "frozen", Fa
 START_DIR = RUNTIME_DIR / "Start"
 READY_DIR = RUNTIME_DIR / "готовые резюме"
 UPLOAD_DIR = RUNTIME_DIR / "uploads"
+SETTINGS_PATH = RUNTIME_DIR / "app_settings.json"
 TEMPLATE_DOCX_NAME = "CV_sample_v2.docx"
 TEMPLATE_DOCX = RESOURCE_DIR / TEMPLATE_DOCX_NAME
 if not TEMPLATE_DOCX.exists():
@@ -877,6 +879,78 @@ def fill_template(data, output_path):
                 zout.writestr(name, content)
 
 
+def load_settings():
+    if not SETTINGS_PATH.exists():
+        return {}
+    try:
+        return json.loads(SETTINGS_PATH.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def save_settings(settings):
+    SETTINGS_PATH.write_text(json.dumps(settings, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def last_save_dir():
+    value = load_settings().get("last_save_dir")
+    if value and Path(value).exists():
+        return Path(value)
+    return READY_DIR
+
+
+def remember_save_dir(path):
+    settings = load_settings()
+    settings["last_save_dir"] = str(Path(path).parent)
+    save_settings(settings)
+
+
+def apple_script_text(value):
+    return '"' + str(value).replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
+def choose_save_path_macos(initial_dir, initial_file):
+    script = (
+        "set chosenFile to choose file name "
+        "with prompt " + apple_script_text("Сохранить резюме") + " "
+        "default name " + apple_script_text(initial_file) + " "
+        "default location POSIX file " + apple_script_text(str(initial_dir)) + "\n"
+        "POSIX path of chosenFile"
+    )
+    result = subprocess.run(["osascript", "-e", script], capture_output=True, text=True)
+    if result.returncode != 0:
+        if "-128" in result.stderr:
+            return ""
+        raise RuntimeError(result.stderr.strip() or "Не удалось открыть окно сохранения")
+    return result.stdout.strip()
+
+
+def choose_save_path_tk(initial_dir, initial_file):
+    import tkinter as tk
+    from tkinter import filedialog
+
+    root = tk.Tk()
+    root.withdraw()
+    try:
+        root.attributes("-topmost", True)
+        return filedialog.asksaveasfilename(
+            parent=root,
+            initialdir=str(initial_dir),
+            initialfile=initial_file,
+            defaultextension=".docx",
+            filetypes=[("Word document", "*.docx")],
+            title="Сохранить резюме",
+        )
+    finally:
+        root.destroy()
+
+
+def choose_save_path(initial_dir, initial_file):
+    if sys.platform == "darwin":
+        return choose_save_path_macos(initial_dir, initial_file)
+    return choose_save_path_tk(initial_dir, initial_file)
+
+
 def safe_filename(name):
     cleaned = re.sub(r"[^\wа-яА-ЯёЁ ._-]+", "_", name, flags=re.UNICODE).strip()
     return cleaned or "resume"
@@ -921,11 +995,43 @@ def save():
         return jsonify({"error": "Сначала загрузите файл"}), 400
     fio = data.get("fio") or Path(SESSIONS[session_id]["filename"]).stem
     output_name = "CV_" + safe_filename(fio).replace(" ", "_") + ".docx"
-    output_path = READY_DIR / output_name
-    fill_template(data, output_path)
+    temp_output = Path(tempfile.gettempdir()) / f"{uuid.uuid4().hex}_{output_name}"
+    fill_template(data, temp_output)
+    selected_path = choose_save_path(last_save_dir(), output_name)
+    if not selected_path:
+        temp_output.unlink(missing_ok=True)
+        SESSIONS[session_id].pop("output", None)
+        return jsonify({"cancelled": True, "message": "Сохранение отменено"})
+    output_path = Path(selected_path)
+    if output_path.suffix.lower() != ".docx":
+        output_path = output_path.with_suffix(".docx")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(temp_output, output_path)
+    temp_output.unlink(missing_ok=True)
+    remember_save_dir(output_path)
     SESSIONS[session_id]["data"] = data
     SESSIONS[session_id]["output"] = str(output_path)
     return jsonify({"filename": output_name, "path": str(output_path)})
+
+
+@app.post("/open-output-folder")
+def open_output_folder():
+    payload = request.get_json(force=True)
+    session_id = payload.get("session_id")
+    session = SESSIONS.get(session_id)
+    if not session or not session.get("output"):
+        return jsonify({"error": "Сначала сохраните файл"}), 400
+    output_path = Path(session["output"])
+    if not output_path.exists():
+        return jsonify({"error": "Сохраненный файл не найден"}), 404
+    folder = output_path.parent
+    if sys.platform == "darwin":
+        subprocess.Popen(["open", str(folder)])
+    elif sys.platform.startswith("win"):
+        subprocess.Popen(["explorer", str(folder)])
+    else:
+        subprocess.Popen(["xdg-open", str(folder)])
+    return jsonify({"ok": True})
 
 
 @app.get("/download/<session_id>")
