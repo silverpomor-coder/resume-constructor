@@ -7,6 +7,11 @@ const sourceText = document.getElementById("sourceText");
 const editorForm = document.getElementById("editorForm");
 const preview = document.getElementById("preview");
 const workspace = document.querySelector(".workspace");
+const photoInput = document.getElementById("photoInput");
+const photoPreview = document.getElementById("photoPreview");
+const photoPlaceholder = document.getElementById("photoPlaceholder");
+const photoStatus = document.getElementById("photoStatus");
+const deletePhotoButton = document.getElementById("deletePhotoButton");
 
 let currentSession = "";
 let currentSource = "auto";
@@ -66,6 +71,23 @@ function renderPreview() {
   }
 }
 
+function resetPhotoBlock() {
+  photoInput.value = "";
+  photoPreview.hidden = true;
+  photoPreview.removeAttribute("src");
+  photoPlaceholder.hidden = false;
+  photoStatus.textContent = "Фото не загружено";
+  deletePhotoButton.disabled = true;
+}
+
+function showPhoto(url, filename) {
+  photoPreview.src = url;
+  photoPreview.hidden = false;
+  photoPlaceholder.hidden = true;
+  photoStatus.textContent = filename ? `Фото загружено: ${filename}` : "Фото загружено";
+  deletePhotoButton.disabled = false;
+}
+
 function setSource(source) {
   currentSource = source;
   sourceButtons.forEach((button) => {
@@ -90,6 +112,7 @@ async function uploadSelectedFile() {
   sourceText.textContent = result.text || "";
   rebuildForm(result.fields || window.FIELD_DEFS);
   fillForm(result.data || {});
+  resetPhotoBlock();
   saveButton.disabled = false;
   openFolderButton.disabled = true;
   statusLine.textContent = `Загружен файл: ${result.filename}`;
@@ -106,6 +129,43 @@ sourceButtons.forEach((button) => {
 fileInput.addEventListener("change", uploadSelectedFile);
 
 editorForm.addEventListener("input", renderPreview);
+
+photoInput.addEventListener("change", async () => {
+  const file = photoInput.files[0];
+  if (!file) return;
+  if (!currentSession) {
+    photoStatus.textContent = "Сначала загрузите резюме";
+    photoInput.value = "";
+    return;
+  }
+  photoStatus.textContent = "Фото загружается...";
+  const formData = new FormData();
+  formData.append("session_id", currentSession);
+  formData.append("photo", file);
+  const response = await fetch("/upload-photo", { method: "POST", body: formData });
+  const result = await response.json();
+  if (!response.ok) {
+    photoStatus.textContent = result.error || "Не удалось загрузить фото";
+    photoInput.value = "";
+    return;
+  }
+  showPhoto(result.url, result.filename);
+});
+
+deletePhotoButton.addEventListener("click", async () => {
+  if (!currentSession) return;
+  const response = await fetch("/delete-photo", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ session_id: currentSession }),
+  });
+  const result = await response.json();
+  if (!response.ok) {
+    photoStatus.textContent = result.error || "Не удалось удалить фото";
+    return;
+  }
+  resetPhotoBlock();
+});
 
 saveButton.addEventListener("click", async () => {
   if (!currentSession) return;

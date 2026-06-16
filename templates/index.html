@@ -37,6 +37,21 @@
     <div class="resizer" data-left="preview" data-right="editor"></div>
     <section class="pane editor-pane">
       <h2>Редактирование</h2>
+      <div class="photo-block">
+        <span class="photo-title">Фото кандидата</span>
+        <div class="photo-preview">
+          <img id="photoPreview" alt="Фото кандидата" hidden>
+          <span id="photoPlaceholder">Фото не загружено</span>
+        </div>
+        <div class="photo-actions">
+          <label class="button">
+            Загрузить фото
+            <input id="photoInput" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png">
+          </label>
+          <button id="deletePhotoButton" type="button" disabled>Удалить фото</button>
+        </div>
+        <div id="photoStatus" class="photo-status">Фото не загружено</div>
+      </div>
       <form id="editorForm">
         {% for field in fields %}
         <label class="field">

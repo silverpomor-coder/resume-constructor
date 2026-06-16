@@ -161,6 +161,49 @@ textarea {
   line-height: 1.35;
 }
 
+.photo-block {
+  padding: 10px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.photo-title {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.photo-preview {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  border: 1px solid #bbbbbb;
+  background: #f7f7f7;
+  color: #666666;
+  text-align: center;
+}
+
+.photo-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.photo-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.photo-status {
+  min-height: 20px;
+  margin-top: 6px;
+  color: #666666;
+}
+
 .login-page {
   min-height: 100vh;
   display: flex;

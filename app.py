@@ -30,6 +30,7 @@ UPLOAD_DIR = Path(tempfile.gettempdir()) / "constructor_resume_uploads" if IS_CL
 SETTINGS_PATH = RUNTIME_DIR / "app_settings.json"
 APP_PASSWORD = os.environ.get("APP_PASSWORD")
 MAX_UPLOAD_MB = int(os.environ.get("MAX_UPLOAD_MB", "16"))
+MAX_PHOTO_MB = int(os.environ.get("MAX_PHOTO_MB", "5"))
 CLEANUP_MAX_AGE_SECONDS = int(os.environ.get("CLEANUP_MAX_AGE_SECONDS", str(3 * 60 * 60)))
 CLEANUP_INTERVAL_SECONDS = 15 * 60
 TEMPLATE_DOCX_NAME = "CV_sample_v2.docx"
@@ -40,6 +41,23 @@ if not TEMPLATE_DOCX.exists():
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 NS = {"w": W_NS}
 ET.register_namespace("w", W_NS)
+A_NS = "http://schemas.openxmlformats.org/drawingml/2006/main"
+WP_NS = "http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+R_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+REL_NS = "http://schemas.openxmlformats.org/package/2006/relationships"
+PIC_NS = "http://schemas.openxmlformats.org/drawingml/2006/picture"
+ET.register_namespace("a", A_NS)
+ET.register_namespace("wp", WP_NS)
+ET.register_namespace("r", R_NS)
+ET.register_namespace("pic", PIC_NS)
+PHOTO_REL_ID = "rId8"
+PHOTO_MEDIA_PREFIX = "word/media/candidate_photo"
+PHOTO_BOX_EMU = 1967865
+IMAGE_CONTENT_TYPES = {
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".png": "image/png",
+}
 MONTHS = {
     "январь": 1,
     "января": 1,
@@ -92,7 +110,6 @@ FIELDS = [
     {"key": "languages", "label": "Знание иностранных языков"},
     {"key": "medical_book", "label": "Наличие медицинской книжки"},
     {"key": "driving", "label": "Водительские права, стаж, собственный автомобиль"},
-    {"key": "about", "label": "Кандидат о себе"},
     {"key": "agency_comment", "label": "Комментарий Агентства"},
     {"key": "education_level", "label": "Образование"},
     {"key": "education", "label": "Учебное заведение, год окончания"},
@@ -133,16 +150,30 @@ def cleanup_old_files(force=False):
         return
     LAST_CLEANUP_AT = now
     cutoff = now - CLEANUP_MAX_AGE_SECONDS
+    protected_paths = set()
+    for session_id, data in list(SESSIONS.items()):
+        if data.get("updated_at", data.get("created_at", now)) < cutoff:
+            for key in ("source", "output", "photo_path"):
+                value = data.get(key)
+                if value:
+                    Path(value).unlink(missing_ok=True)
+            SESSIONS.pop(session_id, None)
+            continue
+        for key in ("source", "output", "photo_path"):
+            value = data.get(key)
+            if value:
+                protected_paths.add(str(Path(value)))
     for directory in (UPLOAD_DIR, READY_DIR):
         if not directory.exists():
             continue
         for path in directory.iterdir():
-            if path.is_file() and path.stat().st_mtime < cutoff:
+            if path.is_file() and str(path) not in protected_paths and path.stat().st_mtime < cutoff:
                 path.unlink(missing_ok=True)
     for session_id, data in list(SESSIONS.items()):
         output = data.get("output")
         source = data.get("source")
-        if (output and not Path(output).exists()) or (source and not Path(source).exists()):
+        photo = data.get("photo_path")
+        if (output and not Path(output).exists()) or (source and not Path(source).exists()) or (photo and not Path(photo).exists()):
             SESSIONS.pop(session_id, None)
 
 
@@ -166,6 +197,66 @@ def before_request():
 @app.errorhandler(RequestEntityTooLarge)
 def upload_too_large(error):
     return jsonify({"error": f"Файл слишком большой. Максимум: {MAX_UPLOAD_MB} МБ"}), 413
+
+
+def jpeg_size(data):
+    if not data.startswith(b"\xff\xd8"):
+        return None
+    index = 2
+    while index < len(data) - 9:
+        if data[index] != 0xFF:
+            index += 1
+            continue
+        marker = data[index + 1]
+        index += 2
+        if marker in (0xD8, 0xD9):
+            continue
+        length = int.from_bytes(data[index:index + 2], "big")
+        if 0xC0 <= marker <= 0xC3:
+            height = int.from_bytes(data[index + 3:index + 5], "big")
+            width = int.from_bytes(data[index + 5:index + 7], "big")
+            return width, height
+        index += length
+    return None
+
+
+def png_size(data):
+    if data[:8] != b"\x89PNG\r\n\x1a\n" or len(data) < 24:
+        return None
+    width = int.from_bytes(data[16:20], "big")
+    height = int.from_bytes(data[20:24], "big")
+    return width, height
+
+
+def image_info(data):
+    size = png_size(data)
+    if size:
+        return ".png", "image/png", size
+    size = jpeg_size(data)
+    if size:
+        return ".jpeg", "image/jpeg", size
+    return "", "", None
+
+
+def photo_dimensions(photo_path):
+    data = Path(photo_path).read_bytes()
+    _, _, size = image_info(data)
+    return size or (PHOTO_BOX_EMU, PHOTO_BOX_EMU)
+
+
+def fitted_photo_extent(width, height):
+    if not width or not height:
+        return PHOTO_BOX_EMU, PHOTO_BOX_EMU
+    scale = min(PHOTO_BOX_EMU / width, PHOTO_BOX_EMU / height)
+    return max(1, int(width * scale)), max(1, int(height * scale))
+
+
+def delete_session_photo(session_data):
+    photo_path = session_data.get("photo_path")
+    if photo_path:
+        Path(photo_path).unlink(missing_ok=True)
+    session_data.pop("photo_path", None)
+    session_data.pop("photo_filename", None)
 
 
 def normalize_to_text(source_path):
@@ -368,6 +459,93 @@ def first_match(pattern, text):
     return match.group(1).strip() if match else ""
 
 
+def normalize_spaces(value):
+    return re.sub(r"\s+", " ", str(value or "").replace("\u00a0", " ")).strip()
+
+
+def extract_email(text):
+    return first_match(r"\b([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})\b", text)
+
+
+def phone_digits(value):
+    return re.sub(r"\D", "", value or "")
+
+
+def is_valid_phone(value):
+    digits = phone_digits(value)
+    if len(digits) == 10:
+        return digits.startswith("9")
+    if len(digits) == 11:
+        return digits.startswith(("7", "8")) and digits[1] == "9"
+    return False
+
+
+def extract_phone(text):
+    pattern = re.compile(
+        r"(?<!\d)(?:\+?\s*[78][\s\u00a0-]*)?\(?\d{3}\)?[\s\u00a0-]*\d{3}[\s\u00a0-]*\d{2}[\s\u00a0-]*\d{2}(?!\d)"
+    )
+    for match in pattern.finditer(text):
+        candidate = normalize_spaces(match.group(0))
+        if is_valid_phone(candidate):
+            return candidate
+    return ""
+
+
+def value_after_label_filtered(lines, labels, validator=None, max_lookahead=3):
+    validator = validator or (lambda value: True)
+    lowered = [line.lower().strip(": ") for line in lines]
+    for label in labels:
+        target = label.lower().strip(": ")
+        for index, clean in enumerate(lowered):
+            if clean == target or clean.startswith(target + ":"):
+                original = lines[index]
+                candidates = []
+                if ":" in original:
+                    candidates.append(original.split(":", 1)[1].strip())
+                candidates.extend(lines[index + 1:index + 1 + max_lookahead])
+                for candidate in candidates:
+                    candidate = normalize_spaces(candidate)
+                    if candidate and not re.fullmatch(r"\d+\.?", candidate) and validator(candidate):
+                        return candidate
+    return ""
+
+
+def amount_from_text(value):
+    digits = re.sub(r"\D", "", value or "")
+    return int(digits) if digits else 0
+
+
+def is_money_value(value):
+    text = normalize_spaces(value)
+    lowered = text.lower()
+    if not re.search(r"\d", text):
+        return False
+    has_money_word = any(token in lowered for token in ("₽", "руб", "р.", "р ", "на руки"))
+    has_large_amount = bool(re.search(r"\b\d{2,3}(?:[ \u00a0]\d{3})+\b|\b\d{5,}\b", text))
+    return (has_money_word or has_large_amount) and amount_from_text(text) >= 10000
+
+
+def clean_salary_value(value):
+    value = normalize_spaces(value)
+    if ":" in value:
+        after = value.split(":", 1)[1].strip()
+        if is_money_value(after):
+            return after
+    return value
+
+
+def extract_salary_from_lines(lines, labels):
+    value = value_after_label_filtered(lines, labels, is_money_value)
+    if value:
+        return clean_salary_value(value)
+    for index, line in enumerate(lines):
+        if any(label.lower() in line.lower() for label in labels):
+            for candidate in lines[index:index + 4]:
+                if is_money_value(candidate):
+                    return clean_salary_value(candidate)
+    return ""
+
+
 def line_after_exact(lines, label):
     target = label.lower().strip(": ")
     for index, line in enumerate(lines):
@@ -422,18 +600,129 @@ def hh_salary(lines):
         lowered = line.lower()
         if lowered.startswith("опыт работы"):
             break
-        if "₽" in line or "руб" in lowered or "на руки" in lowered:
-            return line
+        if is_money_value(line):
+            return normalize_spaces(line)
     return ""
+
+
+def split_location_metro(value):
+    value = normalize_spaces(value)
+    if not value:
+        return "", ""
+    metro = ""
+    location = value
+    match = re.search(r"(?:^|[,;]\s*)(?:м\.|метро)\s*([^,;]+)", value, re.IGNORECASE)
+    if match:
+        metro = clean_metro_value(match.group(1))
+        location = value[:match.start()].strip(" ,;")
+    return location.strip(), metro.strip()
+
+
+def clean_metro_value(value):
+    value = normalize_spaces(value)
+    value = re.sub(r"^(?:м\.|метро|станция метро|ст\.?\s*м\.?)\s*", "", value, flags=re.IGNORECASE)
+    return value.strip(" ,;")
 
 
 def hh_location(lines):
     value = first_match(r"^Проживает:\s*(.+)$", "\n".join(lines))
     if not value:
         return "", ""
-    parts = re.split(r",\s*м\.\s*", value, maxsplit=1, flags=re.IGNORECASE)
-    location = parts[0].strip()
-    metro = parts[1].strip() if len(parts) > 1 else ""
+    return split_location_metro(value)
+
+
+def is_driving_line(value):
+    lowered = normalize_spaces(value).lower()
+    return any(token in lowered for token in (
+        "права категории",
+        "водительские права",
+        "водительское удостоверение",
+        "опыт вождения",
+        "наличие в/у",
+        "в/у",
+        "собственный автомобиль",
+        "личный автомобиль",
+        "имеется автомобиль",
+        "категория b",
+        "категория в",
+    ))
+
+
+def extract_driving(lines, text, hh=False):
+    if hh:
+        block = block_after_exact(lines, "Опыт вождения", ["Дополнительная информация"])
+        if block:
+            return block
+
+    labels = [
+        "Наличие водительских прав",
+        "Водительские права",
+        "Права категории",
+        "Опыт вождения",
+        "Наличие В/У",
+        "В/У",
+        "Водительское удостоверение",
+        "Наличие водительских прав. Фактический опыт вождения автомобиля.",
+    ]
+    value = value_after_label_filtered(lines, labels, lambda item: bool(item and not item.endswith("?")), max_lookahead=4)
+    found = []
+    if value:
+        if re.fullmatch(r"[A-ZА-ЯЁ](?:\s*,\s*[A-ZА-ЯЁ])*", value, re.IGNORECASE):
+            value = f"Права категории {value}"
+        found.append(value)
+    for line in lines:
+        if is_driving_line(line):
+            found.append(line)
+    unique = []
+    for item in found:
+        item = normalize_spaces(item)
+        if item and item.lower() not in {saved.lower() for saved in unique}:
+            unique.append(item)
+    return "\n".join(unique[:4]).strip()
+
+
+def extract_registration(lines):
+    return value_after_label_filtered(lines, [
+        "Место регистрации",
+        "Регистрация",
+        "Адрес регистрации",
+        "Постоянная регистрация",
+        "Прописка",
+        "Прописка по паспорту",
+        "Место регистрации по паспорту",
+    ], lambda value: not is_money_value(value))
+
+
+def extract_location_and_metro(lines, text):
+    raw_location = value_after_label_filtered(lines, [
+        "Фактическое местонахождение",
+        "Фактическое местонахождения",
+        "Адрес фактического проживания",
+        "Фактический адрес",
+        "Место жительства",
+        "Адрес проживания",
+        "Проживает",
+        "Город проживания",
+        "Место рождения и жительства",
+    ], lambda value: not is_money_value(value), max_lookahead=3)
+    if not raw_location:
+        raw_location = first_match(r"^Проживает:\s*(.+)$", "\n".join(lines))
+    location, metro_from_location = split_location_metro(raw_location)
+
+    district = value_after_label_filtered(lines, ["Район проживания"], lambda value: not is_money_value(value))
+    if district and location:
+        location = f"{location}; {district}"
+
+    raw_metro = value_after_label_filtered(lines, [
+        "Метро",
+        "Станция метро",
+        "Ближайшее метро",
+        "Ближайшая станция метро",
+        "Метро / станция электрички",
+        "Станция электрички",
+        "м.",
+    ], lambda value: not is_money_value(value), max_lookahead=2)
+    metro = clean_metro_value(raw_metro) or metro_from_location
     return location, metro
 
 
@@ -490,8 +779,8 @@ def parse_hh_resume(text):
     data = {field["key"]: "" for field in fields_for_job_count(2)}
 
     data["fio"] = hh_fio(lines)
-    data["email"] = first_match(r"([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})", text)
-    data["phone"] = first_match(r"((?:\+7|8|\(?\d{3}\)?)[\d \u00a0()\-]{7,}(?:\s*\([^)]*\))?)", text)
+    data["email"] = extract_email(text)
+    data["phone"] = extract_phone(text)
     data["role"] = line_after_exact(lines, "Желаемая должность и зарплата")
     data["salary"] = hh_salary(lines)
     data["citizenship"] = value_after_label(lines, ["Гражданство"])
@@ -506,9 +795,7 @@ def parse_hh_resume(text):
     data["education"] = "\n".join(education_lines).strip()
     data["courses"] = block_after_exact(lines, "Повышение квалификации, курсы", ["Навыки"])
     data["languages"] = block_after_exact(lines, "Знание языков", ["Навыки", "Опыт вождения"])
-    data["driving"] = block_after_exact(lines, "Опыт вождения", ["Дополнительная информация"])
-    data["about"] = block_after_exact(lines, "Обо мне", ["Комментарии к резюме", "История общения с кандидатом"])
-
+    data["driving"] = extract_driving(lines, text, hh=True)
     jobs = split_hh_jobs(hh_experience_block(lines).splitlines())
     for index, job in enumerate(jobs, 1):
         data[f"job{index}_period"] = job.get("period", "")
@@ -524,10 +811,10 @@ def parse_resume(text):
     lines = compact_lines(text)
     data = {field["key"]: "" for field in fields_for_job_count(2)}
 
-    data["email"] = first_match(r"([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})", text)
+    data["email"] = extract_email(text)
     data["phone"] = (
-        value_after_label(lines, ["Контактный телефон", "Телефон"])
-        or first_match(r"((?:\+7|8|\(?\d{3}\)?)[\d \u00a0()\-]{7,}(?:\s*\([^)]*\))?)", text)
+        value_after_label_filtered(lines, ["Контактный телефон", "Телефон"], is_valid_phone)
+        or extract_phone(text)
     )
 
     data["fio"] = (
@@ -540,7 +827,13 @@ def parse_resume(text):
     if not data["role"] and "Желаемая должность и зарплата" in text:
         data["role"] = value_after_label(lines, ["Желаемая должность и зарплата"])
 
-    data["salary"] = collect_numbered_answer(lines, "Желаемый уровень заработной платы") or value_after_label(lines, ["Зарплата"])
+    data["salary"] = extract_salary_from_lines(lines, [
+        "Зарплата",
+        "Ожидаемый размер оплаты",
+        "Желаемый доход",
+        "Уровень дохода",
+        "Желаемый уровень заработной платы",
+    ])
     data["citizenship"] = value_after_label(lines, ["Гражданство", "Гражданство сейчас"]) or first_match(r"Гражданство:\s*(.+)", text)
     if data["citizenship"].lower().startswith("гражданство ранее"):
         for index, line in enumerate(lines):
@@ -560,19 +853,9 @@ def parse_resume(text):
         value_after_label(lines, ["Дата рождения", "Дата рождения. Возраст"])
         or first_match(r"(?:родился|родилась)\s+(.+)", text)
     )
-    data["registration"] = value_after_label(lines, ["Прописка по паспорту", "Место регистрации"])
-    data["location"] = (
-        value_after_label(lines, ["Адрес фактического проживания", "Город проживания"])
-        or first_match(r"Проживает:\s*(.+)", text)
-    )
-    district = value_after_label(lines, ["Район проживания"])
-    if district and data["location"]:
-        data["location"] = f"{data['location']}; {district}"
-    data["metro"] = value_after_label(lines, ["Ближайшее метро", "Ближайшая станция метро", "Метро / станция электрички"])
-    data["driving"] = (
-        value_after_label(lines, ["Наличие водительских прав", "Опыт вождения", "Наличие водительских прав. Фактический опыт вождения автомобиля."])
-        or block_between(lines, ["Опыт вождения"], ["Дополнительная информация", "Обо мне"])
-    )
+    data["registration"] = extract_registration(lines)
+    data["location"], data["metro"] = extract_location_and_metro(lines, text)
+    data["driving"] = extract_driving(lines, text)
     data["education_level"] = value_after_label(lines, ["Образование"])
     if data["education_level"].endswith(",") or "среднее" in data["education_level"].lower():
         for index, line in enumerate(lines):
@@ -583,11 +866,6 @@ def parse_resume(text):
     data["courses"] = (
         block_between(lines, ["Повышение квалификации", "Курсы и тренинги"], ["Тесты", "Навыки", "Иностранные языки", "Дополнительная информация", "Опыт работы"])
         or collect_numbered_answer(lines, "Дополнительное образование")
-    )
-    data["about"] = (
-        block_between(lines, ["Обо мне", "Дополнительные сведения"], ["Комментарии к резюме", "История общения", "Занятия в свободное время"])
-        or collect_numbered_answer(lines, "Ваша Презентация")
-        or value_after_label(lines, ["Дополнительные сведения"])
     )
     data["agency_comment"] = ""
     recommendations = value_after_label(lines, ["Рекомендации и ссылки", "Рекомендации прежних работодателей"])
@@ -881,7 +1159,120 @@ def expand_employment_table(table, job_count):
         table.append(deepcopy(template_row))
 
 
-def fill_template(data, output_path):
+def clear_row_height(row):
+    trpr = row.find("./w:trPr", NS)
+    if trpr is None:
+        return
+    for height in list(trpr.findall("./w:trHeight", NS)):
+        trpr.remove(height)
+
+
+def remove_table_rows(table, start_index, count):
+    rows = table.findall("./w:tr", NS)
+    for row in rows[start_index:start_index + count]:
+        table.remove(row)
+
+
+def insert_label_value_rows(table, insert_index, items):
+    rows = table.findall("./w:tr", NS)
+    if not rows:
+        return
+    template_row = deepcopy(rows[min(insert_index, len(rows) - 1)])
+    for offset, (label, value) in enumerate(items):
+        row = deepcopy(template_row)
+        cells = row.findall("./w:tc", NS)
+        if len(cells) >= 2:
+            set_cell_text(cells[0], label)
+            set_cell_text(cells[1], value)
+        table.insert(insert_index + offset, row)
+
+
+def ensure_content_type(files, extension, content_type):
+    content_types_name = "[Content_Types].xml"
+    if content_types_name not in files:
+        return
+    ns = {"ct": "http://schemas.openxmlformats.org/package/2006/content-types"}
+    root = ET.fromstring(files[content_types_name])
+    clean_extension = extension.lstrip(".")
+    for node in root.findall("./ct:Default", ns):
+        if node.attrib.get("Extension", "").lower() == clean_extension:
+            node.set("ContentType", content_type)
+            files[content_types_name] = ET.tostring(root, encoding="utf-8", xml_declaration=True)
+            return
+    ET.SubElement(root, "{http://schemas.openxmlformats.org/package/2006/content-types}Default", {
+        "Extension": clean_extension,
+        "ContentType": content_type,
+    })
+    files[content_types_name] = ET.tostring(root, encoding="utf-8", xml_declaration=True)
+
+
+def document_relationships(files):
+    rels_name = "word/_rels/document.xml.rels"
+    root = ET.fromstring(files[rels_name])
+    return rels_name, root
+
+
+def remove_photo_relationship(rels_root):
+    for rel in list(rels_root):
+        if rel.attrib.get("Id") == PHOTO_REL_ID:
+            rels_root.remove(rel)
+            return
+
+
+def set_photo_relationship(rels_root, target):
+    for rel in rels_root:
+        if rel.attrib.get("Id") == PHOTO_REL_ID:
+            rel.set("Target", target)
+            return
+    ET.SubElement(rels_root, f"{{{REL_NS}}}Relationship", {
+        "Id": PHOTO_REL_ID,
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": target,
+    })
+
+
+def update_photo_drawing_size(photo_cell, width, height):
+    cx, cy = fitted_photo_extent(width, height)
+    for extent in photo_cell.findall(f".//{{{WP_NS}}}extent"):
+        extent.set("cx", str(cx))
+        extent.set("cy", str(cy))
+    for extent in photo_cell.findall(f".//{{{PIC_NS}}}spPr/{{{A_NS}}}xfrm/{{{A_NS}}}ext"):
+        extent.set("cx", str(cx))
+        extent.set("cy", str(cy))
+
+
+def update_template_photo(files, tables, photo_path):
+    try:
+        photo_cell = tables[0].findall("./w:tr", NS)[2].findall("./w:tc", NS)[1]
+    except IndexError:
+        return
+    rels_name, rels_root = document_relationships(files)
+    files.pop("word/media/image1.jpeg", None)
+    files.pop("word/media/candidate_photo.jpeg", None)
+    files.pop("word/media/candidate_photo.png", None)
+
+    if not photo_path:
+        set_cell_text(photo_cell, "")
+        remove_photo_relationship(rels_root)
+        files[rels_name] = ET.tostring(rels_root, encoding="utf-8", xml_declaration=True)
+        return
+
+    photo_bytes = Path(photo_path).read_bytes()
+    extension, content_type, dimensions = image_info(photo_bytes)
+    if not dimensions:
+        set_cell_text(photo_cell, "")
+        remove_photo_relationship(rels_root)
+        files[rels_name] = ET.tostring(rels_root, encoding="utf-8", xml_declaration=True)
+        return
+    media_name = f"{PHOTO_MEDIA_PREFIX}{extension}"
+    files[media_name] = photo_bytes
+    set_photo_relationship(rels_root, media_name.replace("word/", ""))
+    ensure_content_type(files, extension, content_type)
+    update_photo_drawing_size(photo_cell, *dimensions)
+    files[rels_name] = ET.tostring(rels_root, encoding="utf-8", xml_declaration=True)
+
+
+def fill_template(data, output_path, photo_path=None):
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_docx = Path(temp_dir) / "work.docx"
         shutil.copy2(TEMPLATE_DOCX, temp_docx)
@@ -890,6 +1281,7 @@ def fill_template(data, output_path):
         register_document_namespaces(files["word/document.xml"])
         root = ET.fromstring(files["word/document.xml"])
         tables = root.findall(".//w:tbl", NS)
+        update_template_photo(files, tables, photo_path)
 
         def set_by_pos(table_index, row_index, cell_index, key, bold_first_line=False):
             try:
@@ -916,8 +1308,15 @@ def fill_template(data, output_path):
         set_by_pos(1, 6, 1, "languages")
         set_by_pos(1, 7, 1, "medical_book")
         set_by_pos(1, 8, 1, "driving")
-        set_by_pos(2, 1, 0, "about")
+        insert_label_value_rows(tables[1], 1, [
+            ("Телефон", data.get("phone", "")),
+            ("Электронная почта", data.get("email", "")),
+        ])
         set_by_pos(2, 3, 0, "agency_comment")
+        try:
+            remove_table_rows(tables[2], 0, 2)
+        except IndexError:
+            pass
         set_by_pos(3, 1, 0, "education_level")
         set_by_pos(3, 1, 1, "education")
         set_by_pos(3, 2, 1, "courses")
@@ -929,6 +1328,7 @@ def fill_template(data, output_path):
                 cells = row.findall("./w:tc", NS)
             except IndexError:
                 continue
+            clear_row_height(row)
             set_cell_text(cells[0], period_with_duration(data.get(f"job{index}_period", "")))
             set_cell_text(cells[1], job_summary(data, index), bold_first_line=True)
         set_by_pos(5, 1, 1, "recommendations")
@@ -1067,7 +1467,8 @@ def upload():
         shutil.copy2(saved_path, START_DIR / original_name)
     text = normalize_to_text(saved_path)
     data = parse_hh_resume(text) if source == "hh" else parse_resume(text)
-    SESSIONS[session_id] = {"source": str(saved_path), "filename": original_name, "text": text, "data": data}
+    now = time.time()
+    SESSIONS[session_id] = {"source": str(saved_path), "filename": original_name, "text": text, "data": data, "created_at": now, "updated_at": now}
     return jsonify({
         "session_id": session_id,
         "filename": original_name,
@@ -1075,6 +1476,64 @@ def upload():
         "data": data,
         "fields": fields_for_job_count(data.get("_job_count", 0)),
     })
+
+
+@app.post("/upload-photo")
+def upload_photo():
+    ensure_dirs()
+    session_id = request.form.get("session_id", "")
+    if session_id not in SESSIONS:
+        return jsonify({"error": "Сначала загрузите резюме"}), 400
+    uploaded = request.files.get("photo")
+    if not uploaded:
+        return jsonify({"error": "Фото не выбрано"}), 400
+    original_name = uploaded.filename or ""
+    extension = Path(original_name).suffix.lower()
+    if extension not in IMAGE_CONTENT_TYPES:
+        return jsonify({"error": "Поддерживаются только JPG и PNG"}), 400
+    data = uploaded.read()
+    if len(data) > MAX_PHOTO_MB * 1024 * 1024:
+        return jsonify({"error": f"Фото слишком большое. Максимум: {MAX_PHOTO_MB} МБ"}), 413
+    real_extension, content_type, dimensions = image_info(data)
+    if real_extension not in IMAGE_CONTENT_TYPES or not dimensions:
+        return jsonify({"error": "Файл не похож на корректное JPG/PNG фото"}), 400
+    session_data = SESSIONS[session_id]
+    delete_session_photo(session_data)
+    photo_name = f"{session_id}_{uuid.uuid4().hex}{real_extension}"
+    photo_path = UPLOAD_DIR / photo_name
+    photo_path.write_bytes(data)
+    session_data["photo_path"] = str(photo_path)
+    session_data["photo_filename"] = safe_filename(original_name)
+    session_data["updated_at"] = time.time()
+    return jsonify({
+        "ok": True,
+        "filename": session_data["photo_filename"],
+        "url": url_for("photo_preview", session_id=session_id, _=uuid.uuid4().hex),
+        "width": dimensions[0],
+        "height": dimensions[1],
+    })
+
+
+@app.post("/delete-photo")
+def delete_photo():
+    payload = request.get_json(force=True)
+    session_id = payload.get("session_id", "")
+    if session_id not in SESSIONS:
+        return jsonify({"error": "Сначала загрузите резюме"}), 400
+    delete_session_photo(SESSIONS[session_id])
+    SESSIONS[session_id]["updated_at"] = time.time()
+    return jsonify({"ok": True})
+
+
+@app.get("/photo/<session_id>")
+def photo_preview(session_id):
+    session_data = SESSIONS.get(session_id)
+    if not session_data or not session_data.get("photo_path"):
+        return jsonify({"error": "Фото не загружено"}), 404
+    photo_path = Path(session_data["photo_path"])
+    if not photo_path.exists() or photo_path.parent != UPLOAD_DIR:
+        return jsonify({"error": "Фото не найдено"}), 404
+    return send_file(photo_path)
 
 
 @app.post("/save")
@@ -1085,15 +1544,17 @@ def save():
     data = payload.get("data") or {}
     if session_id not in SESSIONS:
         return jsonify({"error": "Сначала загрузите файл"}), 400
+    session_data = SESSIONS[session_id]
     fio = data.get("fio") or Path(SESSIONS[session_id]["filename"]).stem
     output_name = "CV_" + safe_filename(fio).replace(" ", "_") + ".docx"
     temp_output = Path(tempfile.gettempdir()) / f"{uuid.uuid4().hex}_{output_name}"
-    fill_template(data, temp_output)
+    fill_template(data, temp_output, session_data.get("photo_path"))
     if IS_CLOUD:
         output_path = READY_DIR / f"{uuid.uuid4().hex}_{output_name}"
         shutil.move(str(temp_output), output_path)
-        SESSIONS[session_id]["data"] = data
-        SESSIONS[session_id]["output"] = str(output_path)
+        session_data["data"] = data
+        session_data["output"] = str(output_path)
+        session_data["updated_at"] = time.time()
         return send_file(
             output_path,
             as_attachment=True,
@@ -1112,8 +1573,9 @@ def save():
     shutil.copy2(temp_output, output_path)
     temp_output.unlink(missing_ok=True)
     remember_save_dir(output_path)
-    SESSIONS[session_id]["data"] = data
-    SESSIONS[session_id]["output"] = str(output_path)
+    session_data["data"] = data
+    session_data["output"] = str(output_path)
+    session_data["updated_at"] = time.time()
     return jsonify({"filename": output_name, "path": str(output_path)})
 
 
