@@ -10,6 +10,11 @@ const workspace = document.querySelector(".workspace");
 
 let currentSession = "";
 let currentSource = "auto";
+const isCloudMode = window.APP_MODE === "cloud";
+
+if (isCloudMode) {
+  openFolderButton.hidden = true;
+}
 
 function rebuildForm(fields) {
   window.FIELD_DEFS = fields;
@@ -110,6 +115,22 @@ saveButton.addEventListener("click", async () => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ session_id: currentSession, data: collectFormData() }),
   });
+  const contentType = response.headers.get("Content-Type") || "";
+  if (response.ok && contentType.includes("application/vnd.openxmlformats-officedocument")) {
+    const blob = await response.blob();
+    const disposition = response.headers.get("Content-Disposition") || "";
+    const match = disposition.match(/filename\*=UTF-8''([^;]+)|filename="?([^"]+)"?/);
+    const filename = match ? decodeURIComponent(match[1] || match[2]) : "resume.docx";
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    URL.revokeObjectURL(link.href);
+    link.remove();
+    statusLine.textContent = `Скачано: ${filename}`;
+    return;
+  }
   const result = await response.json();
   if (result.cancelled) {
     openFolderButton.disabled = true;

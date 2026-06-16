@@ -1,9 +1,12 @@
 import re
 import json
+import hmac
+import os
 import shutil
 import subprocess
 import sys
 import tempfile
+import time
 import uuid
 import zipfile
 from io import BytesIO
@@ -12,16 +15,23 @@ from datetime import date
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
-from flask import Flask, jsonify, render_template, request, send_file
+from flask import Flask, jsonify, redirect, render_template, request, send_file, session, url_for
+from werkzeug.exceptions import RequestEntityTooLarge
 
 
 BASE_DIR = Path(__file__).resolve().parent
 RESOURCE_DIR = Path(getattr(sys, "_MEIPASS", BASE_DIR))
 RUNTIME_DIR = Path(sys.executable).resolve().parent if getattr(sys, "frozen", False) else BASE_DIR
+APP_MODE = os.environ.get("APP_MODE", "local").lower()
+IS_CLOUD = APP_MODE == "cloud"
 START_DIR = RUNTIME_DIR / "Start"
-READY_DIR = RUNTIME_DIR / "готовые резюме"
-UPLOAD_DIR = RUNTIME_DIR / "uploads"
+READY_DIR = Path(tempfile.gettempdir()) / "constructor_resume_ready" if IS_CLOUD else RUNTIME_DIR / "готовые резюме"
+UPLOAD_DIR = Path(tempfile.gettempdir()) / "constructor_resume_uploads" if IS_CLOUD else RUNTIME_DIR / "uploads"
 SETTINGS_PATH = RUNTIME_DIR / "app_settings.json"
+APP_PASSWORD = os.environ.get("APP_PASSWORD")
+MAX_UPLOAD_MB = int(os.environ.get("MAX_UPLOAD_MB", "16"))
+CLEANUP_MAX_AGE_SECONDS = int(os.environ.get("CLEANUP_MAX_AGE_SECONDS", str(3 * 60 * 60)))
+CLEANUP_INTERVAL_SECONDS = 15 * 60
 TEMPLATE_DOCX_NAME = "CV_sample_v2.docx"
 TEMPLATE_DOCX = RESOURCE_DIR / TEMPLATE_DOCX_NAME
 if not TEMPLATE_DOCX.exists():
@@ -58,7 +68,12 @@ MONTHS = {
 }
 
 app = Flask(__name__)
+app.secret_key = os.environ.get("APP_SECRET_KEY", uuid.uuid4().hex)
+app.config["MAX_CONTENT_LENGTH"] = MAX_UPLOAD_MB * 1024 * 1024
 SESSIONS = {}
+LAST_CLEANUP_AT = 0
+if IS_CLOUD and not APP_PASSWORD:
+    app.logger.warning("APP_MODE=cloud запущен без APP_PASSWORD. Доступ не защищен паролем.")
 
 
 FIELDS = [
@@ -103,9 +118,54 @@ def fields_for_job_count(job_count):
 
 
 def ensure_dirs():
-    START_DIR.mkdir(exist_ok=True)
+    if not IS_CLOUD:
+        START_DIR.mkdir(exist_ok=True)
     READY_DIR.mkdir(exist_ok=True)
     UPLOAD_DIR.mkdir(exist_ok=True)
+
+
+def cleanup_old_files(force=False):
+    global LAST_CLEANUP_AT
+    if not IS_CLOUD:
+        return
+    now = time.time()
+    if not force and now - LAST_CLEANUP_AT < CLEANUP_INTERVAL_SECONDS:
+        return
+    LAST_CLEANUP_AT = now
+    cutoff = now - CLEANUP_MAX_AGE_SECONDS
+    for directory in (UPLOAD_DIR, READY_DIR):
+        if not directory.exists():
+            continue
+        for path in directory.iterdir():
+            if path.is_file() and path.stat().st_mtime < cutoff:
+                path.unlink(missing_ok=True)
+    for session_id, data in list(SESSIONS.items()):
+        output = data.get("output")
+        source = data.get("source")
+        if (output and not Path(output).exists()) or (source and not Path(source).exists()):
+            SESSIONS.pop(session_id, None)
+
+
+@app.before_request
+def before_request():
+    cleanup_old_files()
+    if not IS_CLOUD or not APP_PASSWORD:
+        return None
+    allowed = {"login", "health", "static"}
+    if request.endpoint in allowed:
+        return None
+    if session.get("authenticated"):
+        return None
+    if request.path.startswith("/static/"):
+        return None
+    if request.accept_mimetypes.accept_html and request.method == "GET":
+        return redirect(url_for("login"))
+    return jsonify({"error": "Требуется пароль"}), 401
+
+
+@app.errorhandler(RequestEntityTooLarge)
+def upload_too_large(error):
+    return jsonify({"error": f"Файл слишком большой. Максимум: {MAX_UPLOAD_MB} МБ"}), 413
 
 
 def normalize_to_text(source_path):
@@ -958,7 +1018,38 @@ def safe_filename(name):
 
 @app.route("/")
 def index():
-    return render_template("index.html", fields=fields_for_job_count(2))
+    return render_template("index.html", fields=fields_for_job_count(2), app_mode=APP_MODE)
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if not IS_CLOUD or not APP_PASSWORD:
+        return redirect(url_for("index"))
+    error = ""
+    if request.method == "POST":
+        password = request.form.get("password", "")
+        if hmac.compare_digest(password, APP_PASSWORD):
+            session["authenticated"] = True
+            return redirect(url_for("index"))
+        error = "Неверный пароль"
+    return f"""<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вход</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="login-page">
+  <form class="login-form" method="post">
+    <h1>Конструктор резюме</h1>
+    <p>Введите пароль доступа</p>
+    <input name="password" type="password" autofocus>
+    <button type="submit">Войти</button>
+    <div class="login-error">{error}</div>
+  </form>
+</body>
+</html>"""
 
 
 @app.post("/upload")
@@ -972,7 +1063,8 @@ def upload():
     session_id = uuid.uuid4().hex
     saved_path = UPLOAD_DIR / f"{session_id}_{original_name}"
     uploaded.save(saved_path)
-    shutil.copy2(saved_path, START_DIR / original_name)
+    if not IS_CLOUD:
+        shutil.copy2(saved_path, START_DIR / original_name)
     text = normalize_to_text(saved_path)
     data = parse_hh_resume(text) if source == "hh" else parse_resume(text)
     SESSIONS[session_id] = {"source": str(saved_path), "filename": original_name, "text": text, "data": data}
@@ -997,6 +1089,17 @@ def save():
     output_name = "CV_" + safe_filename(fio).replace(" ", "_") + ".docx"
     temp_output = Path(tempfile.gettempdir()) / f"{uuid.uuid4().hex}_{output_name}"
     fill_template(data, temp_output)
+    if IS_CLOUD:
+        output_path = READY_DIR / f"{uuid.uuid4().hex}_{output_name}"
+        shutil.move(str(temp_output), output_path)
+        SESSIONS[session_id]["data"] = data
+        SESSIONS[session_id]["output"] = str(output_path)
+        return send_file(
+            output_path,
+            as_attachment=True,
+            download_name=output_name,
+            mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        )
     selected_path = choose_save_path(last_save_dir(), output_name)
     if not selected_path:
         temp_output.unlink(missing_ok=True)
@@ -1016,6 +1119,8 @@ def save():
 
 @app.post("/open-output-folder")
 def open_output_folder():
+    if IS_CLOUD:
+        return jsonify({"error": "В cloud-режиме папка открывается на устройстве пользователя"}), 400
     payload = request.get_json(force=True)
     session_id = payload.get("session_id")
     session = SESSIONS.get(session_id)
@@ -1049,4 +1154,6 @@ def health():
 
 if __name__ == "__main__":
     ensure_dirs()
-    app.run(host="127.0.0.1", port=5000, debug=False)
+    host = "0.0.0.0" if IS_CLOUD else "127.0.0.1"
+    port = int(os.environ.get("PORT", "5000"))
+    app.run(host=host, port=port, debug=False)

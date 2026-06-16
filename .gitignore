@@ -1,0 +1,14 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+app_settings.json
+uploads/
+готовые резюме/
+WIN_relise/
+
+CV_*.docx
+*.log
