@@ -1,0 +1,54 @@
+<div id="resume-constructor-widget">
+  <link rel="stylesheet" href="./style.css">
+  <div class="rc-shell">
+    <div class="rc-topbar">
+      <div>
+        <h2 class="rc-title">Конструктор резюме</h2>
+        <p class="rc-status" data-rc-status>Загрузите исходный файл резюме</p>
+      </div>
+      <div class="rc-actions">
+        <button type="button" class="rc-button rc-active" data-rc-source="auto">Авто</button>
+        <button type="button" class="rc-button" data-rc-source="hh">HH</button>
+        <label class="rc-file-button">
+          Загрузить
+          <input class="rc-hidden-input" data-rc-file type="file" accept=".doc,.docx,.rtf,.txt,.odt">
+        </label>
+        <button type="button" class="rc-button" data-rc-save disabled>Сохранить DOCX</button>
+        <button type="button" class="rc-button" data-rc-health>Проверить backend</button>
+      </div>
+    </div>
+
+    <div class="rc-workspace">
+      <section class="rc-pane">
+        <h3 class="rc-pane-title">Исходный текст</h3>
+        <pre class="rc-source-text" data-rc-source-text>Файл пока не загружен.</pre>
+      </section>
+
+      <section class="rc-pane">
+        <h3 class="rc-pane-title">Финальный документ</h3>
+        <div class="rc-preview" data-rc-preview></div>
+      </section>
+
+      <section class="rc-pane">
+        <h3 class="rc-pane-title">Редактирование</h3>
+        <div class="rc-photo-block">
+          <span class="rc-photo-title">Фото кандидата</span>
+          <div class="rc-photo-preview">
+            <img data-rc-photo-preview alt="Фото кандидата" hidden>
+            <span data-rc-photo-placeholder>Фото не загружено</span>
+          </div>
+          <div class="rc-photo-actions">
+            <label class="rc-file-button">
+              Загрузить фото
+              <input class="rc-hidden-input" data-rc-photo type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png">
+            </label>
+            <button type="button" class="rc-button" data-rc-delete-photo disabled>Удалить фото</button>
+          </div>
+          <div class="rc-photo-status" data-rc-photo-status>Фото не загружено</div>
+        </div>
+        <form data-rc-editor></form>
+      </section>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</div>

@@ -31,6 +31,7 @@ SETTINGS_PATH = RUNTIME_DIR / "app_settings.json"
 APP_PASSWORD = os.environ.get("APP_PASSWORD")
 MAX_UPLOAD_MB = int(os.environ.get("MAX_UPLOAD_MB", "16"))
 MAX_PHOTO_MB = int(os.environ.get("MAX_PHOTO_MB", "5"))
+CORS_ALLOWED_ORIGINS = os.environ.get("CORS_ALLOWED_ORIGINS", "*")
 CLEANUP_MAX_AGE_SECONDS = int(os.environ.get("CLEANUP_MAX_AGE_SECONDS", str(3 * 60 * 60)))
 CLEANUP_INTERVAL_SECONDS = 15 * 60
 TEMPLATE_DOCX_NAME = "CV_sample_v2.docx"
@@ -92,6 +93,15 @@ SESSIONS = {}
 LAST_CLEANUP_AT = 0
 if IS_CLOUD and not APP_PASSWORD:
     app.logger.warning("APP_MODE=cloud запущен без APP_PASSWORD. Доступ не защищен паролем.")
+
+
+def allowed_cors_origin(origin):
+    allowed = [item.strip() for item in CORS_ALLOWED_ORIGINS.split(",") if item.strip()]
+    if not allowed:
+        return ""
+    if "*" in allowed:
+        return origin or "*"
+    return origin if origin in allowed else ""
 
 
 FIELDS = [
@@ -180,6 +190,8 @@ def cleanup_old_files(force=False):
 @app.before_request
 def before_request():
     cleanup_old_files()
+    if request.method == "OPTIONS":
+        return None
     if not IS_CLOUD or not APP_PASSWORD:
         return None
     allowed = {"login", "health", "static"}
@@ -192,6 +204,19 @@ def before_request():
     if request.accept_mimetypes.accept_html and request.method == "GET":
         return redirect(url_for("login"))
     return jsonify({"error": "Требуется пароль"}), 401
+
+
+@app.after_request
+def add_cors_headers(response):
+    origin = allowed_cors_origin(request.headers.get("Origin", ""))
+    if origin:
+        response.headers["Access-Control-Allow-Origin"] = origin
+        response.headers["Vary"] = "Origin"
+        response.headers["Access-Control-Allow-Credentials"] = "true"
+        response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+        response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization, X-Access-Key"
+        response.headers["Access-Control-Expose-Headers"] = "Content-Disposition"
+    return response
 
 
 @app.errorhandler(RequestEntityTooLarge)

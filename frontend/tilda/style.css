@@ -1,0 +1,205 @@
+#resume-constructor-widget {
+  width: 100%;
+  color: #222222;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+#resume-constructor-widget * {
+  box-sizing: border-box;
+}
+
+#resume-constructor-widget .rc-shell {
+  width: 100%;
+  min-height: 760px;
+  background: #11b2d0;
+  border: 1px solid #0f9bb5;
+}
+
+#resume-constructor-widget .rc-topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  background: #ffffff;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+#resume-constructor-widget .rc-title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+#resume-constructor-widget .rc-status {
+  margin: 4px 0 0;
+  color: #666666;
+}
+
+#resume-constructor-widget .rc-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#resume-constructor-widget .rc-button,
+#resume-constructor-widget .rc-file-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid #999999;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #222222;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: none;
+}
+
+#resume-constructor-widget .rc-button:disabled {
+  color: #999999;
+  cursor: default;
+}
+
+#resume-constructor-widget .rc-active {
+  background: #222222;
+  color: #ffffff;
+}
+
+#resume-constructor-widget .rc-hidden-input {
+  display: none;
+}
+
+#resume-constructor-widget .rc-workspace {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(260px, 1fr) minmax(280px, 0.9fr);
+  gap: 10px;
+  padding: 10px;
+}
+
+#resume-constructor-widget .rc-pane {
+  min-width: 0;
+  height: 660px;
+  overflow: auto;
+  padding: 0 12px 12px;
+  background: #ffffff;
+  border: 1px solid #d8d8d8;
+}
+
+#resume-constructor-widget .rc-pane-title {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 10px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #dddddd;
+  font-size: 15px;
+}
+
+#resume-constructor-widget .rc-source-text {
+  margin: 12px 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.45;
+}
+
+#resume-constructor-widget .rc-preview {
+  padding-top: 12px;
+  line-height: 1.45;
+}
+
+#resume-constructor-widget .rc-preview-block {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+#resume-constructor-widget .rc-preview-title {
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+#resume-constructor-widget .rc-preview-value {
+  white-space: pre-wrap;
+}
+
+#resume-constructor-widget .rc-photo-block,
+#resume-constructor-widget .rc-field {
+  display: block;
+  padding: 10px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+#resume-constructor-widget .rc-photo-title,
+#resume-constructor-widget .rc-field span {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+#resume-constructor-widget .rc-photo-preview {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  border: 1px solid #bbbbbb;
+  background: #f7f7f7;
+  color: #666666;
+  text-align: center;
+}
+
+#resume-constructor-widget .rc-photo-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+#resume-constructor-widget .rc-photo-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#resume-constructor-widget .rc-photo-status {
+  min-height: 20px;
+  margin-top: 6px;
+  color: #666666;
+}
+
+#resume-constructor-widget textarea {
+  width: 100%;
+  min-height: 38px;
+  resize: vertical;
+  padding: 8px;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  font: inherit;
+  line-height: 1.35;
+}
+
+@media (max-width: 980px) {
+  #resume-constructor-widget .rc-topbar {
+    display: block;
+  }
+
+  #resume-constructor-widget .rc-actions {
+    margin-top: 10px;
+  }
+
+  #resume-constructor-widget .rc-workspace {
+    display: block;
+  }
+
+  #resume-constructor-widget .rc-pane {
+    height: 420px;
+    margin-bottom: 10px;
+  }
+}
