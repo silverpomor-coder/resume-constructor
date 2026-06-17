@@ -38,6 +38,10 @@ TEMPLATE_DOCX_NAME = "CV_sample_v2.docx"
 TEMPLATE_DOCX = RESOURCE_DIR / TEMPLATE_DOCX_NAME
 if not TEMPLATE_DOCX.exists():
     TEMPLATE_DOCX = START_DIR / TEMPLATE_DOCX_NAME
+SHABLON_DOCX_NAME = "shablon.docx"
+SHABLON_DOCX = RESOURCE_DIR / SHABLON_DOCX_NAME
+if not SHABLON_DOCX.exists():
+    SHABLON_DOCX = START_DIR / SHABLON_DOCX_NAME
 
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 NS = {"w": W_NS}
@@ -48,11 +52,13 @@ WP_NS = "http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
 R_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
 REL_NS = "http://schemas.openxmlformats.org/package/2006/relationships"
 PIC_NS = "http://schemas.openxmlformats.org/drawingml/2006/picture"
+MC_NS = "http://schemas.openxmlformats.org/markup-compatibility/2006"
 ET.register_namespace("a", A_NS)
 ET.register_namespace("w14", W14_NS)
 ET.register_namespace("wp", WP_NS)
 ET.register_namespace("r", R_NS)
 ET.register_namespace("pic", PIC_NS)
+ET.register_namespace("mc", MC_NS)
 PHOTO_REL_ID = "rId8"
 PHOTO_MEDIA_PREFIX = "word/media/candidate_photo"
 PHOTO_BOX_EMU = 1967865
@@ -1052,6 +1058,10 @@ def remove_word_generated_ids(root):
         element.attrib.pop(f"{{{W14_NS}}}textId", None)
 
 
+def remove_markup_compatibility_ignorable(root):
+    root.attrib.pop(f"{{{MC_NS}}}Ignorable", None)
+
+
 def remove_empty_row_properties(root):
     removed = 0
     for row in root.findall(".//w:tr", NS):
@@ -1349,6 +1359,30 @@ def set_photo_relationship(rels_root, target):
     })
 
 
+def next_relationship_id(rels_root):
+    used = {rel.attrib.get("Id", "") for rel in rels_root}
+    index = 1
+    while f"rId{index}" in used:
+        index += 1
+    return f"rId{index}"
+
+
+def remove_relationships_by_target_prefix(rels_root, target_prefix):
+    for rel in list(rels_root):
+        if rel.attrib.get("Target", "").startswith(target_prefix):
+            rels_root.remove(rel)
+
+
+def add_image_relationship(rels_root, target):
+    rel_id = next_relationship_id(rels_root)
+    ET.SubElement(rels_root, f"{{{REL_NS}}}Relationship", {
+        "Id": rel_id,
+        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+        "Target": target,
+    })
+    return rel_id
+
+
 def update_photo_drawing_size(photo_cell, width, height):
     cx, cy = fitted_photo_extent(width, height)
     for extent in photo_cell.findall(f".//{{{WP_NS}}}extent"):
@@ -1390,7 +1424,92 @@ def update_template_photo(files, tables, photo_path):
     files[rels_name] = ET.tostring(rels_root, encoding="utf-8", xml_declaration=True)
 
 
-def fill_template(data, output_path, photo_path=None):
+def build_inline_picture(rel_id, width, height, name="candidate_photo"):
+    cx, cy = fitted_photo_extent(width, height)
+    drawing = ET.Element(f"{{{W_NS}}}drawing")
+    inline = ET.SubElement(drawing, f"{{{WP_NS}}}inline", {
+        "distT": "0",
+        "distB": "0",
+        "distL": "0",
+        "distR": "0",
+    })
+    ET.SubElement(inline, f"{{{WP_NS}}}extent", {"cx": str(cx), "cy": str(cy)})
+    ET.SubElement(inline, f"{{{WP_NS}}}effectExtent", {"l": "0", "t": "0", "r": "0", "b": "0"})
+    ET.SubElement(inline, f"{{{WP_NS}}}docPr", {"id": str(uuid.uuid4().int % 100000), "name": name})
+    frame = ET.SubElement(inline, f"{{{WP_NS}}}cNvGraphicFramePr")
+    ET.SubElement(frame, f"{{{A_NS}}}graphicFrameLocks", {"noChangeAspect": "1"})
+    graphic = ET.SubElement(inline, f"{{{A_NS}}}graphic")
+    graphic_data = ET.SubElement(graphic, f"{{{A_NS}}}graphicData", {
+        "uri": "http://schemas.openxmlformats.org/drawingml/2006/picture",
+    })
+    picture = ET.SubElement(graphic_data, f"{{{PIC_NS}}}pic")
+    non_visual = ET.SubElement(picture, f"{{{PIC_NS}}}nvPicPr")
+    ET.SubElement(non_visual, f"{{{PIC_NS}}}cNvPr", {"id": "1", "name": name})
+    ET.SubElement(non_visual, f"{{{PIC_NS}}}cNvPicPr")
+    blip_fill = ET.SubElement(picture, f"{{{PIC_NS}}}blipFill")
+    blip = ET.SubElement(blip_fill, f"{{{A_NS}}}blip")
+    blip.set(f"{{{R_NS}}}embed", rel_id)
+    stretch = ET.SubElement(blip_fill, f"{{{A_NS}}}stretch")
+    ET.SubElement(stretch, f"{{{A_NS}}}fillRect")
+    shape = ET.SubElement(picture, f"{{{PIC_NS}}}spPr")
+    transform = ET.SubElement(shape, f"{{{A_NS}}}xfrm")
+    ET.SubElement(transform, f"{{{A_NS}}}off", {"x": "0", "y": "0"})
+    ET.SubElement(transform, f"{{{A_NS}}}ext", {"cx": str(cx), "cy": str(cy)})
+    geometry = ET.SubElement(shape, f"{{{A_NS}}}prstGeom", {"prst": "rect"})
+    ET.SubElement(geometry, f"{{{A_NS}}}avLst")
+    return drawing
+
+
+def set_cell_picture(cell, rel_id, width, height, name="candidate_photo"):
+    for child in list(cell):
+        if child.tag == f"{{{W_NS}}}p":
+            cell.remove(child)
+    paragraph = ET.SubElement(cell, f"{{{W_NS}}}p")
+    paragraph_properties = ET.SubElement(paragraph, f"{{{W_NS}}}pPr")
+    ET.SubElement(paragraph_properties, f"{{{W_NS}}}jc", {f"{{{W_NS}}}val": "center"})
+    run = ET.SubElement(paragraph, f"{{{W_NS}}}r")
+    run.append(build_inline_picture(rel_id, width, height, name=name))
+
+
+def update_template_photo_v3(files, tables, photo_path):
+    try:
+        photo_cell = tables[0].findall("./w:tr", NS)[2].findall("./w:tc", NS)[1]
+    except IndexError:
+        return
+    rels_name, rels_root = document_relationships(files)
+    remove_relationships_by_target_prefix(rels_root, "media/candidate_photo")
+    files.pop("word/media/candidate_photo.jpeg", None)
+    files.pop("word/media/candidate_photo.png", None)
+
+    if not photo_path:
+        set_cell_text(photo_cell, "")
+        files[rels_name] = ET.tostring(rels_root, encoding="utf-8", xml_declaration=True)
+        return
+
+    photo_bytes = Path(photo_path).read_bytes()
+    extension, content_type, dimensions = image_info(photo_bytes)
+    if not dimensions:
+        set_cell_text(photo_cell, "")
+        files[rels_name] = ET.tostring(rels_root, encoding="utf-8", xml_declaration=True)
+        return
+    media_name = f"{PHOTO_MEDIA_PREFIX}{extension}"
+    files[media_name] = photo_bytes
+    rel_id = add_image_relationship(rels_root, media_name.replace("word/", ""))
+    ensure_content_type(files, extension, content_type)
+    set_cell_picture(photo_cell, rel_id, *dimensions)
+    files[rels_name] = ET.tostring(rels_root, encoding="utf-8", xml_declaration=True)
+
+
+def sanitize_document_xml(root, files):
+    remove_word_generated_ids(root)
+    remove_markup_compatibility_ignorable(root)
+    remove_empty_row_properties(root)
+    remove_empty_text_runs(root)
+    files["word/document.xml"] = ET.tostring(root, encoding="utf-8", xml_declaration=True)
+    clean_word_generated_ids_in_parts(files)
+
+
+def fill_template_legacy(data, output_path, photo_path=None):
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_docx = Path(temp_dir) / "work.docx"
         shutil.copy2(TEMPLATE_DOCX, temp_docx)
@@ -1449,14 +1568,86 @@ def fill_template(data, output_path, photo_path=None):
             set_cell_text(cells[1], job_summary(data, index), bold_first_line=True)
         set_by_pos(5, 1, 1, "recommendations")
 
-        remove_word_generated_ids(root)
-        remove_empty_row_properties(root)
-        remove_empty_text_runs(root)
-        files["word/document.xml"] = ET.tostring(root, encoding="utf-8", xml_declaration=True)
-        clean_word_generated_ids_in_parts(files)
+        sanitize_document_xml(root, files)
         with zipfile.ZipFile(output_path, "w", zipfile.ZIP_DEFLATED) as zout:
             for name, content in files.items():
                 zout.writestr(name, content)
+
+
+def fill_template_v3(data, output_path, photo_path=None):
+    with tempfile.TemporaryDirectory() as temp_dir:
+        temp_docx = Path(temp_dir) / "work.docx"
+        shutil.copy2(SHABLON_DOCX, temp_docx)
+        with zipfile.ZipFile(temp_docx, "r") as zin:
+            files = {name: zin.read(name) for name in zin.namelist()}
+        register_document_namespaces(files["word/document.xml"])
+        root = ET.fromstring(files["word/document.xml"])
+        tables = root.findall(".//w:tbl", NS)
+
+        def set_by_pos(table_index, row_index, cell_index, key, bold_first_line=False, transform=None):
+            try:
+                row = tables[table_index].findall("./w:tr", NS)[row_index]
+                cell = row.findall("./w:tc", NS)[cell_index]
+            except IndexError:
+                return
+            value = data.get(key, "")
+            if transform:
+                value = transform(value)
+            set_cell_text(cell, value, bold_first_line=bold_first_line)
+
+        update_template_photo_v3(files, tables, photo_path)
+
+        set_by_pos(0, 0, 0, "role", bold_first_line=True)
+        set_by_pos(0, 1, 1, "salary")
+        set_by_pos(0, 3, 1, "fio")
+        set_by_pos(0, 4, 1, "citizenship")
+        set_by_pos(0, 5, 1, "birth_place_date", transform=age_text)
+
+        set_by_pos(1, 1, 1, "family")
+        set_by_pos(1, 2, 1, "registration")
+        set_by_pos(1, 3, 1, "location")
+        set_by_pos(1, 4, 1, "metro")
+        set_by_pos(1, 5, 1, "criminal_record")
+        set_by_pos(1, 6, 1, "languages")
+        set_by_pos(1, 7, 1, "driving")
+
+        set_by_pos(2, 1, 0, "education_level")
+        set_by_pos(2, 1, 1, "education")
+        try:
+            course_row = tables[2].findall("./w:tr", NS)[2]
+            course_cells = course_row.findall("./w:tc", NS)
+            if len(course_cells) >= 2:
+                set_cell_text(course_cells[0], "Повышение квалификации, курсы")
+                set_cell_text(course_cells[1], data.get("courses", ""))
+        except IndexError:
+            pass
+
+        job_count = count_jobs(data)
+        expand_employment_table(tables[3], job_count)
+        for index in range(1, max(job_count, 1) + 1):
+            try:
+                row = tables[3].findall("./w:tr", NS)[index]
+                cells = row.findall("./w:tc", NS)
+            except IndexError:
+                continue
+            clear_row_height(row)
+            if len(cells) >= 2:
+                set_cell_text(cells[0], period_with_duration(data.get(f"job{index}_period", "")))
+                set_cell_text(cells[1], job_summary(data, index), bold_first_line=True)
+
+        set_by_pos(4, 1, 1, "recommendations")
+        set_by_pos(4, 3, 0, "agency_comment")
+
+        sanitize_document_xml(root, files)
+        with zipfile.ZipFile(output_path, "w", zipfile.ZIP_DEFLATED) as zout:
+            for name, content in files.items():
+                zout.writestr(name, content)
+
+
+def fill_template(data, output_path, photo_path=None):
+    if SHABLON_DOCX.exists():
+        return fill_template_v3(data, output_path, photo_path)
+    return fill_template_legacy(data, output_path, photo_path)
 
 
 def load_settings():
