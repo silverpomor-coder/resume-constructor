@@ -1,0 +1,23 @@
+Archive:  tests/reports/stage2_1/CV_stage2_1_generated.docx
+    testing: [Content_Types].xml      OK
+    testing: _rels/.rels              OK
+    testing: word/document.xml        OK
+    testing: word/_rels/document.xml.rels   OK
+    testing: word/footnotes.xml       OK
+    testing: word/endnotes.xml        OK
+    testing: word/header1.xml         OK
+    testing: word/header2.xml         OK
+    testing: word/_rels/header2.xml.rels   OK
+    testing: word/media/image2.png    OK
+    testing: word/theme/theme1.xml    OK
+    testing: word/settings.xml        OK
+    testing: customXml/item1.xml      OK
+    testing: customXml/itemProps1.xml   OK
+    testing: word/numbering.xml       OK
+    testing: word/styles.xml          OK
+    testing: word/webSettings.xml     OK
+    testing: word/fontTable.xml       OK
+    testing: docProps/core.xml        OK
+    testing: docProps/app.xml         OK
+    testing: customXml/_rels/item1.xml.rels   OK
+No errors detected in compressed data of tests/reports/stage2_1/CV_stage2_1_generated.docx.

@@ -1,0 +1,199 @@
+# FILE LIST
+original 21
+  [Content_Types].xml 2199 f017e0e00bb80e56
+  _rels/.rels 590 e19238d7a71fa7a2
+  customXml/_rels/item1.xml.rels 296 80482f86e196171d
+  customXml/item1.xml 270 c8092edbb672f8c9
+  customXml/itemProps1.xml 341 00428ef9a2b7bb20
+  docProps/app.xml 1012 014db872a4f5ebf5
+  docProps/core.xml 677 36e984908953f630
+  word/_rels/document.xml.rels 1664 6fd5d2f248c8480c
+  word/_rels/header2.xml.rels 289 945fc39fce65dd01
+  word/document.xml 245357 4aa1490fb98f0b10
+  word/endnotes.xml 3190 7fde097b8250bc74
+  word/fontTable.xml 3985 a48d4766926f04fd
+  word/footnotes.xml 3196 961d60ff198132d7
+  word/header1.xml 2899 31b2cae5c63a195f
+  word/header2.xml 14957 870b0d2232a7bdb9
+  word/media/image2.png 82857 20959ac36acf6347
+  word/numbering.xml 127827 95b200cca9f9a7ca
+  word/settings.xml 16025 8e9559b88c28e196
+  word/styles.xml 43303 0d8aed1d560bec9d
+  word/theme/theme1.xml 7043 705585663ba72fb9
+  word/webSettings.xml 244226 5748986f4b9190f3
+recovered 21
+  [Content_Types].xml 2147 52a9b45498fd4e4a
+  _rels/.rels 590 e19238d7a71fa7a2
+  customXml/_rels/item1.xml.rels 296 80482f86e196171d
+  customXml/item1.xml 270 c8092edbb672f8c9
+  customXml/itemProps1.xml 341 00428ef9a2b7bb20
+  docProps/app.xml 1017 4883d7c76b5e09bb
+  docProps/core.xml 677 55d2f644494383b7
+  word/_rels/document.xml.rels 1614 36d815b28a922fc6
+  word/_rels/header2.xml.rels 289 94bca6aec3177c3b
+  word/document.xml 242872 a6e2b31f5afff368
+  word/endnotes.xml 3102 668f0d28768f15ca
+  word/fontTable.xml 3985 a48d4766926f04fd
+  word/footnotes.xml 3108 e2bca5ef76790e79
+  word/header1.xml 2811 009445e244b4c44d
+  word/header2.xml 14209 e715a7db7ac13b98
+  word/media/image1.png 82857 20959ac36acf6347
+  word/numbering.xml 127827 95b200cca9f9a7ca
+  word/settings.xml 16098 ba1cbc4e0a474c89
+  word/styles.xml 43303 0d8aed1d560bec9d
+  word/theme/theme1.xml 7043 705585663ba72fb9
+  word/webSettings.xml 244226 5748986f4b9190f3
+
+# CONTENT TYPES
+original ([('jpeg', 'image/jpeg'), ('png', 'image/png'), ('rels', 'application/vnd.openxmlformats-package.relationships+xml'), ('xml', 'application/xml')], [('/customXml/itemProps1.xml', 'application/vnd.openxmlformats-officedocument.customXmlProperties+xml'), ('/docProps/app.xml', 'application/vnd.openxmlformats-officedocument.extended-properties+xml'), ('/docProps/core.xml', 'application/vnd.openxmlformats-package.core-properties+xml'), ('/word/document.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml'), ('/word/endnotes.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml'), ('/word/fontTable.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.fontTable+xml'), ('/word/footnotes.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml'), ('/word/header1.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml'), ('/word/header2.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml'), ('/word/numbering.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml'), ('/word/settings.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml'), ('/word/styles.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml'), ('/word/theme/theme1.xml', 'application/vnd.openxmlformats-officedocument.theme+xml'), ('/word/webSettings.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.webSettings+xml')])
+recovered ([('png', 'image/png'), ('rels', 'application/vnd.openxmlformats-package.relationships+xml'), ('xml', 'application/xml')], [('/customXml/itemProps1.xml', 'application/vnd.openxmlformats-officedocument.customXmlProperties+xml'), ('/docProps/app.xml', 'application/vnd.openxmlformats-officedocument.extended-properties+xml'), ('/docProps/core.xml', 'application/vnd.openxmlformats-package.core-properties+xml'), ('/word/document.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml'), ('/word/endnotes.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml'), ('/word/fontTable.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.fontTable+xml'), ('/word/footnotes.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml'), ('/word/header1.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml'), ('/word/header2.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml'), ('/word/numbering.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml'), ('/word/settings.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml'), ('/word/styles.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml'), ('/word/theme/theme1.xml', 'application/vnd.openxmlformats-officedocument.theme+xml'), ('/word/webSettings.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.webSettings+xml')])
+
+# RELATIONSHIPS
+original missing= none duplicate= none
+  ('_rels/.rels', 'rId3', 'extended-properties', 'docProps/app.xml', 'docProps/app.xml')
+  ('_rels/.rels', 'rId2', 'core-properties', 'docProps/core.xml', 'docProps/core.xml')
+  ('_rels/.rels', 'rId1', 'officeDocument', 'word/document.xml', 'word/document.xml')
+  ('customXml/_rels/item1.xml.rels', 'rId1', 'customXmlProps', 'itemProps1.xml', 'customXml/itemProps1.xml')
+  ('word/_rels/document.xml.rels', 'rId3', 'styles', 'styles.xml', 'word/styles.xml')
+  ('word/_rels/document.xml.rels', 'rId7', 'endnotes', 'endnotes.xml', 'word/endnotes.xml')
+  ('word/_rels/document.xml.rels', 'rId12', 'theme', 'theme/theme1.xml', 'word/theme/theme1.xml')
+  ('word/_rels/document.xml.rels', 'rId2', 'numbering', 'numbering.xml', 'word/numbering.xml')
+  ('word/_rels/document.xml.rels', 'rId1', 'customXml', '../customXml/item1.xml', 'customXml/item1.xml')
+  ('word/_rels/document.xml.rels', 'rId6', 'footnotes', 'footnotes.xml', 'word/footnotes.xml')
+  ('word/_rels/document.xml.rels', 'rId11', 'fontTable', 'fontTable.xml', 'word/fontTable.xml')
+  ('word/_rels/document.xml.rels', 'rId5', 'webSettings', 'webSettings.xml', 'word/webSettings.xml')
+  ('word/_rels/document.xml.rels', 'rId10', 'header', 'header2.xml', 'word/header2.xml')
+  ('word/_rels/document.xml.rels', 'rId4', 'settings', 'settings.xml', 'word/settings.xml')
+  ('word/_rels/document.xml.rels', 'rId9', 'header', 'header1.xml', 'word/header1.xml')
+  ('word/_rels/header2.xml.rels', 'rId1', 'image', 'media/image2.png', 'word/media/image2.png')
+recovered missing= none duplicate= none
+  ('_rels/.rels', 'rId3', 'extended-properties', 'docProps/app.xml', 'docProps/app.xml')
+  ('_rels/.rels', 'rId2', 'core-properties', 'docProps/core.xml', 'docProps/core.xml')
+  ('_rels/.rels', 'rId1', 'officeDocument', 'word/document.xml', 'word/document.xml')
+  ('customXml/_rels/item1.xml.rels', 'rId1', 'customXmlProps', 'itemProps1.xml', 'customXml/itemProps1.xml')
+  ('word/_rels/document.xml.rels', 'rId8', 'header', 'header1.xml', 'word/header1.xml')
+  ('word/_rels/document.xml.rels', 'rId3', 'styles', 'styles.xml', 'word/styles.xml')
+  ('word/_rels/document.xml.rels', 'rId7', 'endnotes', 'endnotes.xml', 'word/endnotes.xml')
+  ('word/_rels/document.xml.rels', 'rId2', 'numbering', 'numbering.xml', 'word/numbering.xml')
+  ('word/_rels/document.xml.rels', 'rId1', 'customXml', '../customXml/item1.xml', 'customXml/item1.xml')
+  ('word/_rels/document.xml.rels', 'rId6', 'footnotes', 'footnotes.xml', 'word/footnotes.xml')
+  ('word/_rels/document.xml.rels', 'rId11', 'theme', 'theme/theme1.xml', 'word/theme/theme1.xml')
+  ('word/_rels/document.xml.rels', 'rId5', 'webSettings', 'webSettings.xml', 'word/webSettings.xml')
+  ('word/_rels/document.xml.rels', 'rId10', 'fontTable', 'fontTable.xml', 'word/fontTable.xml')
+  ('word/_rels/document.xml.rels', 'rId4', 'settings', 'settings.xml', 'word/settings.xml')
+  ('word/_rels/document.xml.rels', 'rId9', 'header', 'header2.xml', 'word/header2.xml')
+  ('word/_rels/header2.xml.rels', 'rId1', 'image', 'media/image1.png', 'word/media/image1.png')
+
+# DOCUMENT SUMMARY
+original ids= {'paraId': (0, 0, 0), 'textId': (0, 0, 0)} altChunk= 0 blips= [] docPr= [] sect= [[('headerReference', 'default', 'rId9'), ('headerReference', 'first', 'rId10')]]
+ table 0 rows 6
+  row 0 cells 1 spans ['3'] vMerge [''] text Исполнительный директор
+  row 1 cells 2 spans ['', '2'] vMerge ['', ''] text Ожидаемый размер оплаты:|
+  row 2 cells 2 spans ['2', ''] vMerge ['', 'restart'] text СВЕДЕНИЯ О КАНДИДАТЕ|
+  row 3 cells 3 spans ['', '', ''] vMerge ['', '', 'continue'] text ФИО|Васин Вадим Сергеевич|
+  row 4 cells 3 spans ['', '', ''] vMerge ['', '', 'continue'] text ГРАЖДАНСТВО|Россия, есть разрешение на работу: Россия|
+  row 5 cells 3 spans ['', '', ''] vMerge ['', '', 'continue'] text ДАТА РОЖДЕНИЯ И ВОЗРАСТ|30 июля 1988Полных лет: 37|
+ table 1 rows 9
+  row 0 cells 1 spans ['2'] vMerge [''] text ПЕРСОНАЛЬНЫЕ ДАННЫЕ **обрабатываются и хранятся в строжайшем соответствии AP “О 
+  row 1 cells 2 spans ['', ''] vMerge ['', ''] text Семейное положение, дети|
+  row 2 cells 2 spans ['', ''] vMerge ['', ''] text Место регистрации|
+  row 3 cells 2 spans ['', ''] vMerge ['', ''] text Фактическое местонахождения|Тольятти
+  row 4 cells 2 spans ['', ''] vMerge ['', ''] text Метро / станция электрички|
+  row 5 cells 2 spans ['', ''] vMerge ['', ''] text Наличие судимости|
+  row 6 cells 2 spans ['', ''] vMerge ['', ''] text Знание иностранных языков|Русский — Родной
+  row 7 cells 2 spans ['', ''] vMerge ['', ''] text Наличие медицинской книжки|
+  row 8 cells 2 spans ['', ''] vMerge ['', ''] text Водительские права, стаж, собственный автомобиль|Имеется собственный автомобильПрава категории B
+ table 2 rows 2
+  row 0 cells 1 spans [''] vMerge [''] text Комментарий Агентства:
+  row 1 cells 1 spans [''] vMerge [''] text 
+ table 3 rows 3
+  row 0 cells 2 spans ['', ''] vMerge ['', ''] text ОБРАЗОВАНИЕ|УЧЕБНОЕ ЗАВЕДЕНИЕ, ГОД ОКОНЧАНИЯ
+  row 1 cells 2 spans ['', ''] vMerge ['', ''] text Высшее|2013ВысшееРоссийский институт политических технологий и бизнеса (Институт мировы
+  row 2 cells 2 spans ['', ''] vMerge ['', ''] text Повышение квалификации, курсы:|2022Управление маркетингомЧУ ДПО "Открытая школа управления"2018«Требования и пр
+ table 4 rows 14
+  row 0 cells 1 spans ['2'] vMerge [''] text СВЕДЕНИЯ О ПРЕДЫДУЩЕЙ ЗАНЯТОСТИ
+  row 1 cells 2 spans ['', ''] vMerge ['', ''] text Ноябрь 2025 — настоящее время(7 мес.)|Место работы: Индустрия ПоволжьяТольяттиФункционал:Металлургия, металлообработка
+  row 2 cells 2 spans ['', ''] vMerge ['', ''] text Февраль 2024 — Сентябрь 2025(1 г. 7 мес.)|Место работы: Балткабель ГК Акрон ХолдингСосновый Бор (Ленинградская область)Фун
+  row 3 cells 2 spans ['', ''] vMerge ['', ''] text Май 2023 — Февраль 2024(9 мес.)|Место работы: АКРОН ХОЛДИНГТольяттиФункционал:Директор по проектной деятельности
+  row 4 cells 2 spans ['', ''] vMerge ['', ''] text Октябрь 2017 — Август 2023(5 г. 10 мес.)|Место работы: ЗАО "Автополимер"ПензаФункционал:Автомобильный бизнес• Автокомпоне
+  row 5 cells 2 spans ['', ''] vMerge ['', ''] text Октябрь 2020 — Май 2023(2 г. 7 мес.)|Место работы: Полад, АОТольяттиФункционал:Автомобильный бизнес• Легковые, грузов
+  row 6 cells 2 spans ['', ''] vMerge ['', ''] text Сентябрь 2020 — Ноябрь 2022(2 г. 2 мес.)|Место работы: АО "ПСМ"Отрадный (Самарская область)Функционал:Тяжелое машинострое
+  row 7 cells 2 spans ['', ''] vMerge ['', ''] text Июнь 2017 — Октябрь 2020(3 г. 4 мес.)|Место работы: Полад, ЗАОТольяттиФункционал:Автомобильный бизнес• Легковые, грузо
+  row 8 cells 2 spans ['', ''] vMerge ['', ''] text Октябрь 2016 — Июнь 2017(8 мес.)|Место работы: Берг-ХолдингФункционал:Автомобильный бизнес• Автозапчасти, шины (р
+  row 9 cells 2 spans ['', ''] vMerge ['', ''] text Сентябрь 2015 — Октябрь 2016(1 г. 1 мес.)|Место работы: АлькорФункционал:Директор......
+  row 10 cells 2 spans ['', ''] vMerge ['', ''] text Август 2014 — Сентябрь 2015(1 г. 1 мес.)|Место работы: Сбер.ru/Функционал:Финансовый сектор• БанкЗаместитель руководителя
+  row 11 cells 2 spans ['', ''] vMerge ['', ''] text Июнь 2012 — Август 2013(1 г. 2 мес.)|Место работы: МАГНИТ, Розничная сетьФункционал:Розничная торговля• Розничная сет
+  row 12 cells 2 spans ['', ''] vMerge ['', ''] text Ноябрь 2011 — Июнь 2012(7 мес.)|Место работы: Компания "Поставка" (Дубки)Супервайзер торговых представителейФунк
+  row 13 cells 2 spans ['', ''] vMerge ['', ''] text Май 2010 — Сентябрь 2011(1 г. 4 мес.)|Место работы: Росинтер РесторантсФункционал:Гостиницы, рестораны, общепит, кейте
+ table 5 rows 2
+  row 0 cells 1 spans ['2'] vMerge [''] text РЕКОМЕНДАЦИИ ПРЕЖНИХ РАБОТОДАТЕЛЕЙ
+  row 1 cells 2 spans ['', ''] vMerge ['', ''] text Наличие|
+recovered ids= {'paraId': (0, 0, 0), 'textId': (0, 0, 0)} altChunk= 0 blips= [] docPr= [] sect= [[('headerReference', 'default', 'rId8'), ('headerReference', 'first', 'rId9')]]
+ table 0 rows 6
+  row 0 cells 1 spans ['3'] vMerge [''] text Исполнительный директор
+  row 1 cells 2 spans ['', '2'] vMerge ['', ''] text Ожидаемый размер оплаты:|
+  row 2 cells 2 spans ['2', ''] vMerge ['', 'restart'] text СВЕДЕНИЯ О КАНДИДАТЕ|
+  row 3 cells 3 spans ['', '', ''] vMerge ['', '', 'continue'] text ФИО|Васин Вадим Сергеевич|
+  row 4 cells 3 spans ['', '', ''] vMerge ['', '', 'continue'] text ГРАЖДАНСТВО|Россия, есть разрешение на работу: Россия|
+  row 5 cells 3 spans ['', '', ''] vMerge ['', '', 'continue'] text ДАТА РОЖДЕНИЯ И ВОЗРАСТ|30 июля 1988Полных лет: 37|
+ table 1 rows 9
+  row 0 cells 1 spans ['2'] vMerge [''] text ПЕРСОНАЛЬНЫЕ ДАННЫЕ **обрабатываются и хранятся в строжайшем соответствии AP “О 
+  row 1 cells 2 spans ['', ''] vMerge ['', ''] text Семейное положение, дети|
+  row 2 cells 2 spans ['', ''] vMerge ['', ''] text Место регистрации|
+  row 3 cells 2 spans ['', ''] vMerge ['', ''] text Фактическое местонахождения|Тольятти
+  row 4 cells 2 spans ['', ''] vMerge ['', ''] text Метро / станция электрички|
+  row 5 cells 2 spans ['', ''] vMerge ['', ''] text Наличие судимости|
+  row 6 cells 2 spans ['', ''] vMerge ['', ''] text Знание иностранных языков|Русский — Родной
+  row 7 cells 2 spans ['', ''] vMerge ['', ''] text Наличие медицинской книжки|
+  row 8 cells 2 spans ['', ''] vMerge ['', ''] text Водительские права, стаж, собственный автомобиль|Имеется собственный автомобильПрава категории B
+ table 2 rows 2
+  row 0 cells 1 spans [''] vMerge [''] text Комментарий Агентства:
+  row 1 cells 1 spans [''] vMerge [''] text 
+ table 3 rows 3
+  row 0 cells 2 spans ['', ''] vMerge ['', ''] text ОБРАЗОВАНИЕ|УЧЕБНОЕ ЗАВЕДЕНИЕ, ГОД ОКОНЧАНИЯ
+  row 1 cells 2 spans ['', ''] vMerge ['', ''] text Высшее|2013ВысшееРоссийский институт политических технологий и бизнеса (Институт мировы
+  row 2 cells 2 spans ['', ''] vMerge ['', ''] text Повышение квалификации, курсы:|2022Управление маркетингомЧУ ДПО "Открытая школа управления"2018«Требования и пр
+ table 4 rows 14
+  row 0 cells 1 spans ['2'] vMerge [''] text СВЕДЕНИЯ О ПРЕДЫДУЩЕЙ ЗАНЯТОСТИ
+  row 1 cells 2 spans ['', ''] vMerge ['', ''] text Ноябрь 2025 — настоящее время(7 мес.)|Место работы: Индустрия ПоволжьяТольяттиФункционал:Металлургия, металлообработка
+  row 2 cells 2 spans ['', ''] vMerge ['', ''] text Февраль 2024 — Сентябрь 2025(1 г. 7 мес.)|Место работы: Балткабель ГК Акрон ХолдингСосновый Бор (Ленинградская область)Фун
+  row 3 cells 2 spans ['', ''] vMerge ['', ''] text Май 2023 — Февраль 2024(9 мес.)|Место работы: АКРОН ХОЛДИНГТольяттиФункционал:Директор по проектной деятельности
+  row 4 cells 2 spans ['', ''] vMerge ['', ''] text Октябрь 2017 — Август 2023(5 г. 10 мес.)|Место работы: ЗАО "Автополимер"ПензаФункционал:Автомобильный бизнес• Автокомпоне
+  row 5 cells 2 spans ['', ''] vMerge ['', ''] text Октябрь 2020 — Май 2023(2 г. 7 мес.)|Место работы: Полад, АОТольяттиФункционал:Автомобильный бизнес• Легковые, грузов
+  row 6 cells 2 spans ['', ''] vMerge ['', ''] text Сентябрь 2020 — Ноябрь 2022(2 г. 2 мес.)|Место работы: АО "ПСМ"Отрадный (Самарская область)Функционал:Тяжелое машинострое
+  row 7 cells 2 spans ['', ''] vMerge ['', ''] text Июнь 2017 — Октябрь 2020(3 г. 4 мес.)|Место работы: Полад, ЗАОТольяттиФункционал:Автомобильный бизнес• Легковые, грузо
+  row 8 cells 2 spans ['', ''] vMerge ['', ''] text Октябрь 2016 — Июнь 2017(8 мес.)|Место работы: Берг-ХолдингФункционал:Автомобильный бизнес• Автозапчасти, шины (р
+  row 9 cells 2 spans ['', ''] vMerge ['', ''] text Сентябрь 2015 — Октябрь 2016(1 г. 1 мес.)|Место работы: АлькорФункционал:Директор......
+  row 10 cells 2 spans ['', ''] vMerge ['', ''] text Август 2014 — Сентябрь 2015(1 г. 1 мес.)|Место работы: Сбер.ru/Функционал:Финансовый сектор• БанкЗаместитель руководителя
+  row 11 cells 2 spans ['', ''] vMerge ['', ''] text Июнь 2012 — Август 2013(1 г. 2 мес.)|Место работы: МАГНИТ, Розничная сетьФункционал:Розничная торговля• Розничная сет
+  row 12 cells 2 spans ['', ''] vMerge ['', ''] text Ноябрь 2011 — Июнь 2012(7 мес.)|Место работы: Компания "Поставка" (Дубки)Супервайзер торговых представителейФунк
+  row 13 cells 2 spans ['', ''] vMerge ['', ''] text Май 2010 — Сентябрь 2011(1 г. 4 мес.)|Место работы: Росинтер РесторантсФункционал:Гостиницы, рестораны, общепит, кейте
+ table 5 rows 2
+  row 0 cells 1 spans ['2'] vMerge [''] text РЕКОМЕНДАЦИИ ПРЕЖНИХ РАБОТОДАТЕЛЕЙ
+  row 1 cells 2 spans ['', ''] vMerge ['', ''] text Наличие|
+
+# TAG COUNT DIFFS
+word/document.xml
+ tags {'bCs': (520, 519), 'bdr': (432, 431), 'color': (464, 463), 'lang': (2, 1), 'lastRenderedPageBreak': (2, 19), 'noProof': (6, 5), 'r': (315, 307), 'rFonts': (627, 619), 'rPr': (629, 621), 'sz': (541, 540), 'szCs': (541, 540), 't': (315, 307), 'trPr': (30, 17)}
+ attrs {'ascii': (627, 619), 'color': (833, 832), 'cs': (627, 619), 'eastAsia': (465, 464), 'frame': (432, 431), 'hAnsi': (627, 619), 'sz': (585, 584), 'val': (2628, 2623)}
+word/styles.xml
+ tags same
+ attrs same
+word/settings.xml
+ tags {'docId': (2, 1), 'rsid': (482, 486)}
+ attrs {'val': (508, 511)}
+word/numbering.xml
+ tags same
+ attrs same
+word/header1.xml
+ tags same
+ attrs {'paraId': (2, 0), 'textId': (2, 0)}
+word/header2.xml
+ tags same
+ attrs {'paraId': (17, 0), 'textId': (17, 0)}
+word/footnotes.xml
+ tags same
+ attrs {'paraId': (2, 0), 'textId': (2, 0)}
+word/endnotes.xml
+ tags same
+ attrs {'paraId': (2, 0), 'textId': (2, 0)}

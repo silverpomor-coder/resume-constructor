@@ -1,0 +1,2143 @@
+--- original/word/document.xml
+
++++ recovered/word/document.xml
+
+@@ -1,3 +1,3 @@
+
+-<?xml version='1.0' encoding='utf-8'?>
+-<w:document xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" mc:Ignorable="w14 w15 w16se w16cid w16 w16cex w16sdtdh w16sdtfl w16du wp14">
++<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
++<w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" mc:Ignorable="w14 w15 w16se w16cid w16 w16cex w16sdtdh w16sdtfl w16du wp14">
+ <w:body>
+@@ -5,6 +5,6 @@
+
+ <w:pPr>
+-<w:spacing w:after="0" w:line="240" w:lineRule="auto" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:lang w:val="en-US" />
++<w:spacing w:after="0" w:line="240" w:lineRule="auto"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:lang w:val="en-US"/>
+ </w:rPr>
+@@ -14,22 +14,22 @@
+
+ <w:tblPr>
+-<w:tblStyle w:val="a9" />
+-<w:tblW w:w="0" w:type="auto" />
++<w:tblStyle w:val="a9"/>
++<w:tblW w:w="0" w:type="auto"/>
+ <w:tblBorders>
+-<w:top w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:left w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:right w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:insideH w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:insideV w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:top w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:insideH w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:insideV w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tblBorders>
+ <w:tblCellMar>
+-<w:top w:w="57" w:type="dxa" />
+-<w:bottom w:w="57" w:type="dxa" />
++<w:top w:w="57" w:type="dxa"/>
++<w:bottom w:w="57" w:type="dxa"/>
+ </w:tblCellMar>
+-<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1" />
++<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
+ </w:tblPr>
+ <w:tblGrid>
+-<w:gridCol w:w="2122" />
+-<w:gridCol w:w="4900" />
+-<w:gridCol w:w="3316" />
++<w:gridCol w:w="2122"/>
++<w:gridCol w:w="4900"/>
++<w:gridCol w:w="3316"/>
+ </w:tblGrid>
+@@ -37,3 +37,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="20" />
++<w:trHeight w:val="20"/>
+ </w:trPr>
+@@ -41,6 +41,6 @@
+
+ <w:tcPr>
+-<w:tcW w:w="0" w:type="auto" />
+-<w:gridSpan w:val="3" />
+-<w:shd w:val="clear" w:color="auto" w:fill="DBE5F1" w:themeFill="accent1" w:themeFillTint="33" />
+-<w:vAlign w:val="center" />
++<w:tcW w:w="0" w:type="auto"/>
++<w:gridSpan w:val="3"/>
++<w:shd w:val="clear" w:color="auto" w:fill="DBE5F1" w:themeFill="accent1" w:themeFillTint="33"/>
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -48,8 +48,8 @@
+
+ <w:pPr>
+-<w:jc w:val="center" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:noProof />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:jc w:val="center"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:noProof/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -58,6 +58,6 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:noProof />
+-<w:sz w:val="32" />
+-<w:szCs w:val="32" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:noProof/>
++<w:sz w:val="32"/>
++<w:szCs w:val="32"/>
+ </w:rPr>
+@@ -70,3 +70,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="20" />
++<w:trHeight w:val="20"/>
+ </w:trPr>
+@@ -74,4 +74,4 @@
+
+ <w:tcPr>
+-<w:tcW w:w="2122" w:type="dxa" />
+-<w:vAlign w:val="center" />
++<w:tcW w:w="2122" w:type="dxa"/>
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -79,10 +79,10 @@
+
+ <w:pPr>
+-<w:jc w:val="center" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:noProof />
+-<w:sz w:val="24" />
+-<w:szCs w:val="24" />
++<w:jc w:val="center"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:noProof/>
++<w:sz w:val="24"/>
++<w:szCs w:val="24"/>
+ </w:rPr>
+@@ -91,8 +91,8 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:noProof />
+-<w:sz w:val="24" />
+-<w:szCs w:val="24" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:noProof/>
++<w:sz w:val="24"/>
++<w:szCs w:val="24"/>
+ </w:rPr>
+@@ -104,4 +104,4 @@
+
+ <w:tcPr>
+-<w:tcW w:w="8216" w:type="dxa" />
+-<w:gridSpan w:val="2" />
++<w:tcW w:w="8216" w:type="dxa"/>
++<w:gridSpan w:val="2"/>
+ </w:tcPr>
+@@ -110,14 +110,8 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:noProof />
+-<w:sz w:val="32" />
+-<w:szCs w:val="32" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-<w:t />
+-</w:r>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:noProof/>
++<w:sz w:val="32"/>
++<w:szCs w:val="32"/>
++</w:rPr>
++</w:pPr>
+ </w:p>
+@@ -128,5 +122,5 @@
+
+ <w:tcPr>
+-<w:tcW w:w="7022" w:type="dxa" />
+-<w:gridSpan w:val="2" />
+-<w:shd w:val="clear" w:color="auto" w:fill="DBE5F1" w:themeFill="accent1" w:themeFillTint="33" />
++<w:tcW w:w="7022" w:type="dxa"/>
++<w:gridSpan w:val="2"/>
++<w:shd w:val="clear" w:color="auto" w:fill="DBE5F1" w:themeFill="accent1" w:themeFillTint="33"/>
+ </w:tcPr>
+@@ -134,9 +128,9 @@
+
+ <w:pPr>
+-<w:jc w:val="center" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:jc w:val="center"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -145,7 +139,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -157,4 +151,4 @@
+
+ <w:tcPr>
+-<w:tcW w:w="3316" w:type="dxa" />
+-<w:vMerge w:val="restart" />
++<w:tcW w:w="3316" w:type="dxa"/>
++<w:vMerge w:val="restart"/>
+ </w:tcPr>
+@@ -162,20 +156,11 @@
+
+ <w:pPr>
+-<w:jc w:val="center" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:noProof />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
+-</w:rPr>
+-<w:t />
+-</w:r>
++<w:jc w:val="center"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
++</w:rPr>
++</w:pPr>
+ </w:p>
+@@ -185,3 +170,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="662" />
++<w:trHeight w:val="662"/>
+ </w:trPr>
+@@ -189,4 +174,4 @@
+
+ <w:tcPr>
+-<w:tcW w:w="2122" w:type="dxa" />
+-<w:vAlign w:val="center" />
++<w:tcW w:w="2122" w:type="dxa"/>
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -194,9 +179,9 @@
+
+ <w:pPr>
+-<w:jc w:val="center" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:jc w:val="center"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -205,7 +190,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -217,4 +202,4 @@
+
+ <w:tcPr>
+-<w:tcW w:w="4900" w:type="dxa" />
+-<w:vAlign w:val="center" />
++<w:tcW w:w="4900" w:type="dxa"/>
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -222,18 +207,18 @@
+
+ <w:pPr>
+-<w:widowControl w:val="0" />
+-<w:autoSpaceDE w:val="0" />
+-<w:autoSpaceDN w:val="0" />
+-<w:adjustRightInd w:val="0" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:sz w:val="24" />
+-<w:szCs w:val="24" />
++<w:widowControl w:val="0"/>
++<w:autoSpaceDE w:val="0"/>
++<w:autoSpaceDN w:val="0"/>
++<w:adjustRightInd w:val="0"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:sz w:val="24"/>
++<w:szCs w:val="24"/>
+ </w:rPr>
+@@ -245,5 +230,5 @@
+
+ <w:tcPr>
+-<w:tcW w:w="3316" w:type="dxa" />
+-<w:vMerge />
+-<w:vAlign w:val="center" />
++<w:tcW w:w="3316" w:type="dxa"/>
++<w:vMerge/>
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -251,11 +236,11 @@
+
+ <w:pPr>
+-<w:widowControl w:val="0" />
+-<w:autoSpaceDE w:val="0" />
+-<w:autoSpaceDN w:val="0" />
+-<w:adjustRightInd w:val="0" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:widowControl w:val="0"/>
++<w:autoSpaceDE w:val="0"/>
++<w:autoSpaceDN w:val="0"/>
++<w:adjustRightInd w:val="0"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -267,3 +252,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="872" />
++<w:trHeight w:val="872"/>
+ </w:trPr>
+@@ -271,4 +256,4 @@
+
+ <w:tcPr>
+-<w:tcW w:w="2122" w:type="dxa" />
+-<w:vAlign w:val="center" />
++<w:tcW w:w="2122" w:type="dxa"/>
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -276,9 +261,9 @@
+
+ <w:pPr>
+-<w:jc w:val="center" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:jc w:val="center"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -287,7 +272,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -299,4 +284,4 @@
+
+ <w:tcPr>
+-<w:tcW w:w="4900" w:type="dxa" />
+-<w:vAlign w:val="center" />
++<w:tcW w:w="4900" w:type="dxa"/>
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -305,12 +290,12 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
+ </w:rPr>
+@@ -322,5 +307,5 @@
+
+ <w:tcPr>
+-<w:tcW w:w="3316" w:type="dxa" />
+-<w:vMerge />
+-<w:vAlign w:val="center" />
++<w:tcW w:w="3316" w:type="dxa"/>
++<w:vMerge/>
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -329,6 +314,6 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -340,3 +325,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="20" />
++<w:trHeight w:val="20"/>
+ </w:trPr>
+@@ -344,4 +329,4 @@
+
+ <w:tcPr>
+-<w:tcW w:w="2122" w:type="dxa" />
+-<w:vAlign w:val="center" />
++<w:tcW w:w="2122" w:type="dxa"/>
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -349,18 +334,18 @@
+
+ <w:pPr>
+-<w:jc w:val="center" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:jc w:val="center"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -372,4 +357,4 @@
+
+ <w:tcPr>
+-<w:tcW w:w="4900" w:type="dxa" />
+-<w:vAlign w:val="center" />
++<w:tcW w:w="4900" w:type="dxa"/>
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -378,10 +363,10 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
+ </w:rPr>
+@@ -393,10 +378,10 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
+ </w:rPr>
+@@ -408,5 +393,5 @@
+
+ <w:tcPr>
+-<w:tcW w:w="3316" w:type="dxa" />
+-<w:vMerge />
+-<w:vAlign w:val="center" />
++<w:tcW w:w="3316" w:type="dxa"/>
++<w:vMerge/>
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -415,4 +400,4 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
+ </w:rPr>
+@@ -426,4 +411,4 @@
+
+ <w:rPr>
+-<w:sz w:val="10" />
+-<w:szCs w:val="10" />
++<w:sz w:val="10"/>
++<w:szCs w:val="10"/>
+ </w:rPr>
+@@ -433,21 +418,21 @@
+
+ <w:tblPr>
+-<w:tblStyle w:val="a9" />
+-<w:tblW w:w="10343" w:type="dxa" />
++<w:tblStyle w:val="a9"/>
++<w:tblW w:w="10343" w:type="dxa"/>
+ <w:tblBorders>
+-<w:top w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:left w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:right w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:insideH w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:insideV w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:top w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:insideH w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:insideV w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tblBorders>
+ <w:tblCellMar>
+-<w:top w:w="57" w:type="dxa" />
+-<w:bottom w:w="57" w:type="dxa" />
++<w:top w:w="57" w:type="dxa"/>
++<w:bottom w:w="57" w:type="dxa"/>
+ </w:tblCellMar>
+-<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1" />
++<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
+ </w:tblPr>
+ <w:tblGrid>
+-<w:gridCol w:w="3539" />
+-<w:gridCol w:w="6804" />
++<w:gridCol w:w="3539"/>
++<w:gridCol w:w="6804"/>
+ </w:tblGrid>
+@@ -456,6 +441,6 @@
+
+ <w:tcPr>
+-<w:tcW w:w="10343" w:type="dxa" />
+-<w:gridSpan w:val="2" />
+-<w:shd w:val="clear" w:color="auto" w:fill="DBE5F1" w:themeFill="accent1" w:themeFillTint="33" />
+-<w:vAlign w:val="center" />
++<w:tcW w:w="10343" w:type="dxa"/>
++<w:gridSpan w:val="2"/>
++<w:shd w:val="clear" w:color="auto" w:fill="DBE5F1" w:themeFill="accent1" w:themeFillTint="33"/>
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -464,16 +449,16 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -483,7 +468,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -495,5 +480,5 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:sz w:val="16" />
+-<w:szCs w:val="16" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:sz w:val="16"/>
++<w:szCs w:val="16"/>
+ </w:rPr>
+@@ -502,5 +487,5 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:sz w:val="16" />
+-<w:szCs w:val="16" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:sz w:val="16"/>
++<w:szCs w:val="16"/>
+ </w:rPr>
+@@ -513,3 +498,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="405" />
++<w:trHeight w:val="405"/>
+ </w:trPr>
+@@ -517,7 +502,7 @@
+
+ <w:tcPr>
+-<w:tcW w:w="3539" w:type="dxa" />
++<w:tcW w:w="3539" w:type="dxa"/>
+ <w:tcBorders>
+-<w:right w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -526,16 +511,16 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -547,7 +532,7 @@
+
+ <w:tcPr>
+-<w:tcW w:w="6804" w:type="dxa" />
++<w:tcW w:w="6804" w:type="dxa"/>
+ <w:tcBorders>
+-<w:left w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -556,13 +541,6 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-</w:rPr>
+-<w:t />
+-</w:r>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++</w:rPr>
++</w:pPr>
+ </w:p>
+@@ -572,3 +550,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="405" />
++<w:trHeight w:val="405"/>
+ </w:trPr>
+@@ -576,7 +554,7 @@
+
+ <w:tcPr>
+-<w:tcW w:w="3539" w:type="dxa" />
++<w:tcW w:w="3539" w:type="dxa"/>
+ <w:tcBorders>
+-<w:right w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -585,7 +563,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -594,7 +572,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -606,20 +584,14 @@
+
+ <w:tcPr>
+-<w:tcW w:w="6804" w:type="dxa" />
++<w:tcW w:w="6804" w:type="dxa"/>
+ <w:tcBorders>
+-<w:left w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+-<w:p w:rsidR="00484CCF" w:rsidRDefault="002B1A14" w:rsidP="002321DA">
+-<w:pPr>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-<w:t />
+-</w:r>
++<w:p w:rsidR="00484CCF" w:rsidRDefault="00484CCF" w:rsidP="002321DA">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++</w:rPr>
++</w:pPr>
+ </w:p>
+@@ -629,3 +601,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="405" />
++<w:trHeight w:val="405"/>
+ </w:trPr>
+@@ -633,7 +605,7 @@
+
+ <w:tcPr>
+-<w:tcW w:w="3539" w:type="dxa" />
++<w:tcW w:w="3539" w:type="dxa"/>
+ <w:tcBorders>
+-<w:right w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -642,7 +614,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -651,7 +623,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -663,7 +635,7 @@
+
+ <w:tcPr>
+-<w:tcW w:w="6804" w:type="dxa" />
++<w:tcW w:w="6804" w:type="dxa"/>
+ <w:tcBorders>
+-<w:left w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -672,8 +644,8 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+ </w:rPr>
+@@ -686,3 +658,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="405" />
++<w:trHeight w:val="405"/>
+ </w:trPr>
+@@ -690,7 +662,7 @@
+
+ <w:tcPr>
+-<w:tcW w:w="3539" w:type="dxa" />
++<w:tcW w:w="3539" w:type="dxa"/>
+ <w:tcBorders>
+-<w:right w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -699,7 +671,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -708,7 +680,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -718,7 +690,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -728,7 +700,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -738,8 +710,8 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
+-<w:lang w:val="en-US" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
++<w:lang w:val="en-US"/>
+ </w:rPr>
+@@ -749,7 +721,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -759,7 +731,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -771,20 +743,14 @@
+
+ <w:tcPr>
+-<w:tcW w:w="6804" w:type="dxa" />
++<w:tcW w:w="6804" w:type="dxa"/>
+ <w:tcBorders>
+-<w:left w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+-<w:p w:rsidR="006F3163" w:rsidRDefault="00FC17EE" w:rsidP="002321DA">
+-<w:pPr>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-<w:t />
+-</w:r>
++<w:p w:rsidR="006F3163" w:rsidRDefault="006F3163" w:rsidP="002321DA">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++</w:rPr>
++</w:pPr>
+ </w:p>
+@@ -794,3 +760,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="405" />
++<w:trHeight w:val="405"/>
+ </w:trPr>
+@@ -798,7 +764,7 @@
+
+ <w:tcPr>
+-<w:tcW w:w="3539" w:type="dxa" />
++<w:tcW w:w="3539" w:type="dxa"/>
+ <w:tcBorders>
+-<w:right w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -807,16 +773,16 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -828,20 +794,14 @@
+
+ <w:tcPr>
+-<w:tcW w:w="6804" w:type="dxa" />
++<w:tcW w:w="6804" w:type="dxa"/>
+ <w:tcBorders>
+-<w:left w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+-<w:p w:rsidR="00484CCF" w:rsidRDefault="0084791A" w:rsidP="002321DA">
+-<w:pPr>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-<w:t />
+-</w:r>
++<w:p w:rsidR="00484CCF" w:rsidRDefault="00484CCF" w:rsidP="002321DA">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++</w:rPr>
++</w:pPr>
+ </w:p>
+@@ -851,3 +811,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="405" />
++<w:trHeight w:val="405"/>
+ </w:trPr>
+@@ -855,7 +815,7 @@
+
+ <w:tcPr>
+-<w:tcW w:w="3539" w:type="dxa" />
++<w:tcW w:w="3539" w:type="dxa"/>
+ <w:tcBorders>
+-<w:right w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -864,16 +824,16 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -885,7 +845,7 @@
+
+ <w:tcPr>
+-<w:tcW w:w="6804" w:type="dxa" />
++<w:tcW w:w="6804" w:type="dxa"/>
+ <w:tcBorders>
+-<w:left w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -894,8 +854,8 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+ </w:rPr>
+@@ -908,3 +868,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="405" />
++<w:trHeight w:val="405"/>
+ </w:trPr>
+@@ -912,7 +872,7 @@
+
+ <w:tcPr>
+-<w:tcW w:w="3539" w:type="dxa" />
++<w:tcW w:w="3539" w:type="dxa"/>
+ <w:tcBorders>
+-<w:right w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -921,16 +881,16 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -942,20 +902,14 @@
+
+ <w:tcPr>
+-<w:tcW w:w="6804" w:type="dxa" />
++<w:tcW w:w="6804" w:type="dxa"/>
+ <w:tcBorders>
+-<w:left w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+-<w:p w:rsidR="00C43977" w:rsidRDefault="004930E0" w:rsidP="002321DA">
+-<w:pPr>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-<w:t />
+-</w:r>
++<w:p w:rsidR="00C43977" w:rsidRDefault="00C43977" w:rsidP="002321DA">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++</w:rPr>
++</w:pPr>
+ </w:p>
+@@ -965,3 +919,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="405" />
++<w:trHeight w:val="405"/>
+ </w:trPr>
+@@ -969,7 +923,7 @@
+
+ <w:tcPr>
+-<w:tcW w:w="3539" w:type="dxa" />
++<w:tcW w:w="3539" w:type="dxa"/>
+ <w:tcBorders>
+-<w:right w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -978,7 +932,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -987,7 +941,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -999,7 +953,7 @@
+
+ <w:tcPr>
+-<w:tcW w:w="6804" w:type="dxa" />
++<w:tcW w:w="6804" w:type="dxa"/>
+ <w:tcBorders>
+-<w:left w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -1008,8 +962,8 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+ </w:rPr>
+@@ -1021,8 +975,8 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+ </w:rPr>
+@@ -1034,15 +988,15 @@
+
+ </w:tbl>
+-<w:p w:rsidR="00A25797" w:rsidRDefault="00A25797" />
++<w:p w:rsidR="00A25797" w:rsidRDefault="00A25797"/>
+ <w:tbl>
+ <w:tblPr>
+-<w:tblStyle w:val="a9" />
+-<w:tblW w:w="0" w:type="auto" />
++<w:tblStyle w:val="a9"/>
++<w:tblW w:w="0" w:type="auto"/>
+ <w:tblCellMar>
+-<w:top w:w="57" w:type="dxa" />
+-<w:bottom w:w="57" w:type="dxa" />
++<w:top w:w="57" w:type="dxa"/>
++<w:bottom w:w="57" w:type="dxa"/>
+ </w:tblCellMar>
+-<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1" />
++<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
+ </w:tblPr>
+ <w:tblGrid>
+-<w:gridCol w:w="10338" />
++<w:gridCol w:w="2936"/>
+ </w:tblGrid>
+@@ -1051,4 +1005,4 @@
+
+ <w:tcPr>
+-<w:tcW w:w="0" w:type="auto" />
+-<w:shd w:val="clear" w:color="auto" w:fill="DBE5F1" w:themeFill="accent1" w:themeFillTint="33" />
++<w:tcW w:w="0" w:type="auto"/>
++<w:shd w:val="clear" w:color="auto" w:fill="DBE5F1" w:themeFill="accent1" w:themeFillTint="33"/>
+ </w:tcPr>
+@@ -1057,14 +1011,13 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-</w:rPr>
+-<w:lastRenderedPageBreak />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++</w:rPr>
+ <w:t>Комментарий Агентства</w:t>
+@@ -1073,5 +1026,5 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
+ </w:rPr>
+@@ -1085,16 +1038,10 @@
+
+ <w:tcPr>
+-<w:tcW w:w="0" w:type="auto" />
++<w:tcW w:w="0" w:type="auto"/>
+ </w:tcPr>
+-<w:p w:rsidR="00C7522A" w:rsidRDefault="00307765" w:rsidP="00324897">
+-<w:pPr>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-</w:rPr>
+-<w:t />
+-</w:r>
++<w:p w:rsidR="00C7522A" w:rsidRDefault="00C7522A" w:rsidP="00324897">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++</w:rPr>
++</w:pPr>
+ </w:p>
+@@ -1106,4 +1053,4 @@
+
+ <w:rPr>
+-<w:sz w:val="10" />
+-<w:szCs w:val="10" />
++<w:sz w:val="10"/>
++<w:szCs w:val="10"/>
+ </w:rPr>
+@@ -1113,21 +1060,21 @@
+
+ <w:tblPr>
+-<w:tblStyle w:val="a9" />
+-<w:tblW w:w="0" w:type="auto" />
++<w:tblStyle w:val="a9"/>
++<w:tblW w:w="0" w:type="auto"/>
+ <w:tblBorders>
+-<w:top w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:left w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:right w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:insideH w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:insideV w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:top w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:insideH w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:insideV w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tblBorders>
+ <w:tblCellMar>
+-<w:top w:w="170" w:type="dxa" />
+-<w:bottom w:w="170" w:type="dxa" />
++<w:top w:w="170" w:type="dxa"/>
++<w:bottom w:w="170" w:type="dxa"/>
+ </w:tblCellMar>
+-<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1" />
++<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
+ </w:tblPr>
+ <w:tblGrid>
+-<w:gridCol w:w="2547" />
+-<w:gridCol w:w="7791" />
++<w:gridCol w:w="2547"/>
++<w:gridCol w:w="7791"/>
+ </w:tblGrid>
+@@ -1135,3 +1082,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="401" />
++<w:trHeight w:val="401"/>
+ </w:trPr>
+@@ -1139,8 +1086,8 @@
+
+ <w:tcPr>
+-<w:tcW w:w="0" w:type="auto" />
++<w:tcW w:w="0" w:type="auto"/>
+ <w:tcBorders>
+-<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:shd w:val="clear" w:color="auto" w:fill="DBE5F1" w:themeFill="accent1" w:themeFillTint="33" />
+-<w:vAlign w:val="center" />
++<w:shd w:val="clear" w:color="auto" w:fill="DBE5F1" w:themeFill="accent1" w:themeFillTint="33"/>
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -1148,9 +1095,9 @@
+
+ <w:pPr>
+-<w:jc w:val="center" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:jc w:val="center"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -1159,7 +1106,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -1171,8 +1118,8 @@
+
+ <w:tcPr>
+-<w:tcW w:w="0" w:type="auto" />
++<w:tcW w:w="0" w:type="auto"/>
+ <w:tcBorders>
+-<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:shd w:val="clear" w:color="auto" w:fill="DBE5F1" w:themeFill="accent1" w:themeFillTint="33" />
+-<w:vAlign w:val="center" />
++<w:shd w:val="clear" w:color="auto" w:fill="DBE5F1" w:themeFill="accent1" w:themeFillTint="33"/>
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -1180,9 +1127,9 @@
+
+ <w:pPr>
+-<w:jc w:val="center" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:jc w:val="center"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -1191,7 +1138,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -1204,3 +1151,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="997" />
++<w:trHeight w:val="997"/>
+ </w:trPr>
+@@ -1208,7 +1155,7 @@
+
+ <w:tcPr>
+-<w:tcW w:w="0" w:type="auto" />
++<w:tcW w:w="0" w:type="auto"/>
+ <w:tcBorders>
+-<w:top w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:top w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -1216,7 +1163,7 @@
+
+ <w:pPr>
+-<w:jc w:val="center" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
++<w:jc w:val="center"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
+ </w:rPr>
+@@ -1225,5 +1172,6 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-</w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++</w:rPr>
++<w:lastRenderedPageBreak/>
+ <w:t>Высшее</w:t>
+@@ -1234,6 +1182,6 @@
+
+ <w:tcPr>
+-<w:tcW w:w="0" w:type="auto" />
++<w:tcW w:w="0" w:type="auto"/>
+ <w:tcBorders>
+-<w:top w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:left w:val="nil" />
++<w:top w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:left w:val="nil"/>
+ </w:tcBorders>
+@@ -1242,7 +1190,7 @@
+
+ <w:pPr>
+-<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF" />
+-<w:textAlignment w:val="top" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:color w:val="2A3137" />
++<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
++<w:textAlignment w:val="top"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1251,5 +1199,5 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-<w:color w:val="2A3137" />
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1260,7 +1208,7 @@
+
+ <w:pPr>
+-<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF" />
+-<w:textAlignment w:val="top" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:color w:val="2A3137" />
++<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
++<w:textAlignment w:val="top"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1269,5 +1217,5 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-<w:color w:val="2A3137" />
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1278,7 +1226,7 @@
+
+ <w:pPr>
+-<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF" />
+-<w:textAlignment w:val="top" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:color w:val="2A3137" />
++<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
++<w:textAlignment w:val="top"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1287,5 +1235,5 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-<w:color w:val="2A3137" />
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1296,7 +1244,7 @@
+
+ <w:pPr>
+-<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF" />
+-<w:textAlignment w:val="top" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:color w:val="2A3137" />
++<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
++<w:textAlignment w:val="top"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1305,5 +1253,5 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-<w:color w:val="2A3137" />
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1314,7 +1262,7 @@
+
+ <w:pPr>
+-<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF" />
+-<w:textAlignment w:val="top" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:color w:val="2A3137" />
++<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
++<w:textAlignment w:val="top"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1323,5 +1271,5 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-<w:color w:val="2A3137" />
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1332,7 +1280,7 @@
+
+ <w:pPr>
+-<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF" />
+-<w:textAlignment w:val="top" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:color w:val="2A3137" />
++<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
++<w:textAlignment w:val="top"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1341,5 +1289,5 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-<w:color w:val="2A3137" />
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1350,7 +1298,7 @@
+
+ <w:pPr>
+-<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF" />
+-<w:textAlignment w:val="top" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:color w:val="2A3137" />
++<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
++<w:textAlignment w:val="top"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1359,5 +1307,5 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-<w:color w:val="2A3137" />
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1368,7 +1316,7 @@
+
+ <w:pPr>
+-<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF" />
+-<w:textAlignment w:val="top" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:color w:val="2A3137" />
++<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
++<w:textAlignment w:val="top"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1377,5 +1325,5 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
+-<w:color w:val="2A3137" />
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
++<w:color w:val="2A3137"/>
+ </w:rPr>
+@@ -1388,3 +1336,3 @@
+
+ <w:trPr>
+-<w:trHeight w:val="20" />
++<w:trHeight w:val="20"/>
+ </w:trPr>
+@@ -1392,8 +1340,8 @@
+
+ <w:tcPr>
+-<w:tcW w:w="2547" w:type="dxa" />
++<w:tcW w:w="2547" w:type="dxa"/>
+ <w:tcBorders>
+-<w:top w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:top w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+-<w:vAlign w:val="center" />
++<w:vAlign w:val="center"/>
+ </w:tcPr>
+@@ -1401,9 +1349,9 @@
+
+ <w:pPr>
+-<w:spacing w:line="276" w:lineRule="auto" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:spacing w:line="276" w:lineRule="auto"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -1412,7 +1360,7 @@
+
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:b />
+-<w:bCs />
+-<w:sz w:val="20" />
+-<w:szCs w:val="20" />
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:b/>
++<w:bCs/>
++<w:sz w:val="20"/>
++<w:szCs w:val="20"/>
+ </w:rPr>
+@@ -1424,7 +1372,7 @@
+
+ <w:tcPr>
+-<w:tcW w:w="7791" w:type="dxa" />
++<w:tcW w:w="7791" w:type="dxa"/>
+ <w:tcBorders>
+-<w:top w:val="single" w:sz="4" w:space="0" w:color="auto" />
+-<w:left w:val="nil" />
+-<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto" />
++<w:top w:val="single" w:sz="4" w:space="0" w:color="auto"/>
++<w:left w:val="nil"/>
++<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+ </w:tcBorders>
+@@ -1433,13 +1381,13 @@
+
+ <w:pPr>
+-<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF" />
+-<w:textAlignment w:val="top" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:color w:val="2A3137" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
++<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
++<w:textAlignment w:val="top"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:color w:val="2A3137"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
+ </w:rPr>
+@@ -1450,13 +1398,13 @@
+
+ <w:pPr>
+-<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF" />
+-<w:textAlignment w:val="top" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:color w:val="2A3137" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
++<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
++<w:textAlignment w:val="top"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:color w:val="2A3137"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
+ </w:rPr>
+@@ -1467,13 +1415,13 @@
+
+ <w:pPr>
+-<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF" />
+-<w:textAlignment w:val="top" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:color w:val="2A3137" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
++<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
++<w:textAlignment w:val="top"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:color w:val="2A3137"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
+ </w:rPr>
+@@ -1484,13 +1432,13 @@
+
+ <w:pPr>
+-<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF" />
+-<w:textAlignment w:val="top" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:color w:val="2A3137" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
++<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
++<w:textAlignment w:val="top"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:color w:val="2A3137"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
+ </w:rPr>
+@@ -1501,13 +1449,13 @@
+
+ <w:pPr>
+-<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF" />
+-<w:textAlignment w:val="top" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:color w:val="2A3137" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
++<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
++<w:textAlignment w:val="top"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:color w:val="2A3137"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
+ </w:rPr>
+@@ -1518,13 +1466,13 @@
+
+ <w:pPr>
+-<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF" />
+-<w:textAlignment w:val="top" />
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial" />
+-<w:color w:val="2A3137" />
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+-<w:bCs />
++<w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
++<w:textAlignment w:val="top"/>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:eastAsia="Times New Roman" w:hAnsi="Arial" w:cs="Arial"/>
++<w:color w:val="2A3137"/>
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:bCs/>
+ </w:rPr>
+@@ -1535,13 +1483,13 @@

@@ -1,0 +1,27 @@
+content_types_ok: True
+relationship_missing_targets: none
+relationship_duplicate_ids: none
+unresolved_xml_relationship_refs: none
+w14_id_stats:
+  ('word/document.xml', 'paraId', 0, 0, 0)
+  ('word/document.xml', 'textId', 0, 0, 0)
+  ('word/header1.xml', 'paraId', 0, 0, 0)
+  ('word/header1.xml', 'textId', 0, 0, 0)
+  ('word/header2.xml', 'paraId', 0, 0, 0)
+  ('word/header2.xml', 'textId', 0, 0, 0)
+  ('word/footnotes.xml', 'paraId', 0, 0, 0)
+  ('word/footnotes.xml', 'textId', 0, 0, 0)
+  ('word/endnotes.xml', 'paraId', 0, 0, 0)
+  ('word/endnotes.xml', 'textId', 0, 0, 0)
+empty_trPr_document: 0
+empty_trPr_stage2_3_original: 13
+empty_trPr_stage2_3_recovered: 0
+markers:
+  Васин Вадим Сергеевич True
+  Исполнительный директор True
+  245 000 True
+  Высшее True
+  Индустрия Поволжья True
+  СВЕДЕНИЯ О ПРЕДЫДУЩЕЙ ЗАНЯТОСТИ True
+media: ['word/media/image2.png']
+file_count: 21

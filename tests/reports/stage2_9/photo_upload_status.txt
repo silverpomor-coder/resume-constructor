@@ -1,0 +1,3 @@
+status=200
+content_type=application/json
+body=b'{"filename":"logo.png","height":1000,"ok":true,"url":"/photo/a47a416ac0f340cba10b6e6680fe9552?_=1c160106e21e4180a4b5133c74e063fe","width":1000}\n'

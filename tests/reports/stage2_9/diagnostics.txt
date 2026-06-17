@@ -1,0 +1,20 @@
+zip_ok: True
+xml_errors: []
+relationship_missing_targets: []
+relationship_duplicate_ids: []
+content_types_ok: True
+header_files: []
+footer_files: []
+header_refs: 0
+footer_refs: 0
+empty_trPr: 0
+empty_text_nodes: 0
+empty_or_format_only_runs: 0
+w14_stats: [('word/document.xml', 'paraId', 0, 0, 0), ('word/document.xml', 'textId', 0, 0, 0)]
+markers: {'fio': True, 'role': True, 'salary': True, 'citizenship_label': True, 'birth_label': True, 'family_label': True, 'education_header': True, 'courses_label': True, 'employment_header': True, 'recommendations_header': True, 'agency_comment_header': True, 'job_marker': True}
+table_count: 5
+rows_by_table: [6, 8, 3, 14, 4]
+cell_counts: [[1, 2, 2, 3, 3, 3], [1, 2, 2, 2, 2, 2, 2, 2], [2, 2, 2], [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], [1, 2, 1, 1]]
+media: ['word/media/image1.png']
+drawing_count: 1
+blip_count: 1

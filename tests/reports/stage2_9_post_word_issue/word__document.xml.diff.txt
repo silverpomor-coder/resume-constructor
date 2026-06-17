@@ -1,0 +1,3041 @@
+--- shablon/word/document.xml
+
++++ generated/word/document.xml
+
+@@ -1,32 +1,32 @@
+
+-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+-<w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex" xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex" xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink" xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:oel="http://schemas.microsoft.com/office/2019/extlst" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex" xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid" xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml" xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du" xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash" xmlns:w16sdtfl="http://schemas.microsoft.com/office/word/2024/wordml/sdtformatlock" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" mc:Ignorable="w14 w15 w16se w16cid w16 w16cex w16sdtdh w16sdtfl w16du wp14">
++<?xml version='1.0' encoding='utf-8'?>
++<w:document xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" mc:Ignorable="w14 w15 w16se w16cid w16 w16cex w16sdtdh w16sdtfl w16du wp14">
+ <w:body>
+ <w:p w:rsidR="000C3C8E" w:rsidRPr="000B2EC8" w:rsidRDefault="000C3C8E" w:rsidP="000C3C8E">
+ <w:pPr>
+-<w:ind w:right="-46"/>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:noProof/>
++<w:ind w:right="-46" />
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:noProof />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="000B2EC8">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:noProof/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:noProof />
+ </w:rPr>
+ <w:drawing>
+ <wp:inline distT="0" distB="0" distL="0" distR="0">
+-<wp:extent cx="6085572" cy="1155625"/>
+-<wp:effectExtent l="0" t="0" r="0" b="0"/>
+-<wp:docPr id="790458955" name="Рисунок 1"/>
++<wp:extent cx="6085572" cy="1155625" />
++<wp:effectExtent l="0" t="0" r="0" b="0" />
++<wp:docPr id="790458955" name="Рисунок 1" />
+ <wp:cNvGraphicFramePr>
+-<a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
++<a:graphicFrameLocks noChangeAspect="1" />
+ </wp:cNvGraphicFramePr>
+-<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
++<a:graphic>
+ <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+-<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
++<pic:pic>
+ <pic:nvPicPr>
+-<pic:cNvPr id="790458955" name="Рисунок 790458955"/>
+-<pic:cNvPicPr/>
++<pic:cNvPr id="790458955" name="Рисунок 790458955" />
++<pic:cNvPicPr />
+ </pic:nvPicPr>
+ <pic:blipFill>
+@@ -34,19 +34,19 @@
+
+ <a:extLst>
+ <a:ext uri="{28A0092B-C50C-407E-A947-70E740481C1C}">
+-<a14:useLocalDpi xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" val="0"/>
++<a14:useLocalDpi val="0" />
+ </a:ext>
+ </a:extLst>
+ </a:blip>
+ <a:stretch>
+-<a:fillRect/>
++<a:fillRect />
+ </a:stretch>
+ </pic:blipFill>
+ <pic:spPr>
+ <a:xfrm>
+-<a:off x="0" y="0"/>
+-<a:ext cx="6175723" cy="1172744"/>
++<a:off x="0" y="0" />
++<a:ext cx="6175723" cy="1172744" />
+ </a:xfrm>
+ <a:prstGeom prst="rect">
+-<a:avLst/>
++<a:avLst />
+ </a:prstGeom>
+ </pic:spPr>
+@@ -60,30 +60,36 @@
+
+ <w:tbl>
+ <w:tblPr>
+-<w:tblStyle w:val="ac"/>
+-<w:tblW w:w="0" w:type="auto"/>
+-<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
++<w:tblStyle w:val="ac" />
++<w:tblW w:w="0" w:type="auto" />
++<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1" />
+ </w:tblPr>
+ <w:tblGrid>
+-<w:gridCol w:w="3209"/>
+-<w:gridCol w:w="3210"/>
+-<w:gridCol w:w="3210"/>
++<w:gridCol w:w="3209" />
++<w:gridCol w:w="3210" />
++<w:gridCol w:w="3210" />
+ </w:tblGrid>
+ <w:tr w:rsidR="000C3C8E" w:rsidRPr="000B2EC8" w:rsidTr="0019304C">
+ <w:trPr>
+-<w:trHeight w:val="515"/>
++<w:trHeight w:val="515" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="9629" w:type="dxa"/>
+-<w:gridSpan w:val="3"/>
+-<w:shd w:val="clear" w:color="auto" w:fill="DAE9F7" w:themeFill="text2" w:themeFillTint="1A"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="9629" w:type="dxa" />
++<w:gridSpan w:val="3" />
++<w:shd w:val="clear" w:color="auto" w:fill="DAE9F7" w:themeFill="text2" w:themeFillTint="1A" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="000C3C8E" w:rsidRPr="000B2EC8" w:rsidRDefault="000C3C8E" w:rsidP="0005059A">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:b />
++</w:rPr>
++<w:t>Исполнительный директор</w:t>
++</w:r>
+ </w:p>
+ </w:tc>
+@@ -92,31 +98,31 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3209" w:type="dxa"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3209" w:type="dxa" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="000A12B9" w:rsidRPr="003F5764" w:rsidRDefault="00225C60" w:rsidP="0005059A">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-</w:rPr>
+-</w:pPr>
+-<w:proofErr w:type="spellStart"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++</w:rPr>
++</w:pPr>
++<w:proofErr w:type="spellStart" />
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:lang w:val="en-US"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:lang w:val="en-US" />
+ </w:rPr>
+ <w:t>Ожи</w:t>
+ </w:r>
+-<w:proofErr w:type="spellEnd"/>
++<w:proofErr w:type="spellEnd" />
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ <w:t>даемый размер оплаты</w:t>
+@@ -126,14 +132,18 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="6420" w:type="dxa"/>
+-<w:gridSpan w:val="2"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="6420" w:type="dxa" />
++<w:gridSpan w:val="2" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="000A12B9" w:rsidRPr="000B2EC8" w:rsidRDefault="000A12B9" w:rsidP="0005059A">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>245 000 р.</w:t>
++</w:r>
+ </w:p>
+ </w:tc>
+@@ -141,27 +151,27 @@
+
+ <w:tr w:rsidR="000A12B9" w:rsidRPr="000B2EC8" w:rsidTr="001A0A39">
+ <w:trPr>
+-<w:trHeight w:val="416"/>
++<w:trHeight w:val="416" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="6419" w:type="dxa"/>
+-<w:gridSpan w:val="2"/>
+-<w:shd w:val="clear" w:color="auto" w:fill="DAE9F7" w:themeFill="text2" w:themeFillTint="1A"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="6419" w:type="dxa" />
++<w:gridSpan w:val="2" />
++<w:shd w:val="clear" w:color="auto" w:fill="DAE9F7" w:themeFill="text2" w:themeFillTint="1A" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="000A12B9" w:rsidRPr="003F5764" w:rsidRDefault="00481B76" w:rsidP="0005059A">
+ <w:pPr>
+-<w:jc w:val="center"/>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:jc w:val="center" />
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ <w:t>Сведения о кандидате</w:t>
+@@ -171,21 +181,15 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3210" w:type="dxa"/>
+-<w:vMerge w:val="restart"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3210" w:type="dxa" />
++<w:vMerge w:val="restart" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="000A12B9" w:rsidRPr="000B2EC8" w:rsidRDefault="001A0A39" w:rsidP="001A0A39">
+ <w:pPr>
+-<w:jc w:val="center"/>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
+-<w:r>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-<w:t>ФОТО</w:t>
+-</w:r>
++<w:jc w:val="center" />
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
+ </w:p>
+ </w:tc>
+@@ -193,24 +197,24 @@
+
+ <w:tr w:rsidR="000A12B9" w:rsidRPr="000B2EC8" w:rsidTr="0005059A">
+ <w:trPr>
+-<w:trHeight w:val="848"/>
++<w:trHeight w:val="848" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3209" w:type="dxa"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3209" w:type="dxa" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="000A12B9" w:rsidRPr="003F5764" w:rsidRDefault="00481B76" w:rsidP="0005059A">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ <w:t>ФИО</w:t>
+@@ -220,25 +224,29 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3210" w:type="dxa"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3210" w:type="dxa" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="000A12B9" w:rsidRPr="000B2EC8" w:rsidRDefault="000A12B9" w:rsidP="0005059A">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
+-</w:p>
+-</w:tc>
+-<w:tc>
+-<w:tcPr>
+-<w:tcW w:w="3210" w:type="dxa"/>
+-<w:vMerge/>
+-<w:vAlign w:val="center"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Васин Вадим Сергеевич</w:t>
++</w:r>
++</w:p>
++</w:tc>
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="3210" w:type="dxa" />
++<w:vMerge />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="000A12B9" w:rsidRPr="000B2EC8" w:rsidRDefault="000A12B9" w:rsidP="0005059A">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+ </w:rPr>
+ </w:pPr>
+@@ -248,24 +256,24 @@
+
+ <w:tr w:rsidR="000A12B9" w:rsidRPr="000B2EC8" w:rsidTr="0005059A">
+ <w:trPr>
+-<w:trHeight w:val="832"/>
++<w:trHeight w:val="832" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3209" w:type="dxa"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3209" w:type="dxa" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="000A12B9" w:rsidRPr="003F5764" w:rsidRDefault="00481B76" w:rsidP="0005059A">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ <w:t>ГРАЖДАНСТВО</w:t>
+@@ -275,25 +283,29 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3210" w:type="dxa"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3210" w:type="dxa" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="000A12B9" w:rsidRPr="000B2EC8" w:rsidRDefault="000A12B9" w:rsidP="0005059A">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
+-</w:p>
+-</w:tc>
+-<w:tc>
+-<w:tcPr>
+-<w:tcW w:w="3210" w:type="dxa"/>
+-<w:vMerge/>
+-<w:vAlign w:val="center"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Россия, есть разрешение на работу: Россия</w:t>
++</w:r>
++</w:p>
++</w:tc>
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="3210" w:type="dxa" />
++<w:vMerge />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="000A12B9" w:rsidRPr="000B2EC8" w:rsidRDefault="000A12B9" w:rsidP="0005059A">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+ </w:rPr>
+ </w:pPr>
+@@ -303,24 +315,24 @@
+
+ <w:tr w:rsidR="000A12B9" w:rsidRPr="000B2EC8" w:rsidTr="0005059A">
+ <w:trPr>
+-<w:trHeight w:val="844"/>
++<w:trHeight w:val="844" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3209" w:type="dxa"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3209" w:type="dxa" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="000A12B9" w:rsidRPr="003F5764" w:rsidRDefault="00481B76" w:rsidP="0005059A">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ <w:t>ДАТА РОЖДЕНИЯ И ВОЗРАСТ</w:t>
+@@ -330,25 +342,40 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3210" w:type="dxa"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3210" w:type="dxa" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="000A12B9" w:rsidRPr="000B2EC8" w:rsidRDefault="000A12B9" w:rsidP="0005059A">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
+-</w:p>
+-</w:tc>
+-<w:tc>
+-<w:tcPr>
+-<w:tcW w:w="3210" w:type="dxa"/>
+-<w:vMerge/>
+-<w:vAlign w:val="center"/>
+-</w:tcPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>30 июля 1988</w:t>
++</w:r>
++</w:p>
+ <w:p w:rsidR="000A12B9" w:rsidRPr="000B2EC8" w:rsidRDefault="000A12B9" w:rsidP="0005059A">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Полных лет: 37</w:t>
++</w:r>
++</w:p>
++</w:tc>
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="3210" w:type="dxa" />
++<w:vMerge />
++<w:vAlign w:val="center" />
++</w:tcPr>
++<w:p w:rsidR="000A12B9" w:rsidRPr="000B2EC8" w:rsidRDefault="000A12B9" w:rsidP="0005059A">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+ </w:rPr>
+ </w:pPr>
+@@ -360,8 +387,8 @@
+
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:lang w:val="en-US"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:lang w:val="en-US" />
+ </w:rPr>
+ </w:pPr>
+@@ -369,37 +396,37 @@
+
+ <w:tbl>
+ <w:tblPr>
+-<w:tblStyle w:val="ac"/>
+-<w:tblW w:w="0" w:type="auto"/>
+-<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
++<w:tblStyle w:val="ac" />
++<w:tblW w:w="0" w:type="auto" />
++<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1" />
+ </w:tblPr>
+ <w:tblGrid>
+-<w:gridCol w:w="3256"/>
+-<w:gridCol w:w="6373"/>
++<w:gridCol w:w="3256" />
++<w:gridCol w:w="6373" />
+ </w:tblGrid>
+ <w:tr w:rsidR="00E1194B" w:rsidRPr="003F5764" w:rsidTr="00B10255">
+ <w:trPr>
+-<w:trHeight w:val="510"/>
++<w:trHeight w:val="510" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="9629" w:type="dxa"/>
+-<w:gridSpan w:val="2"/>
+-<w:shd w:val="clear" w:color="auto" w:fill="DAE9F7" w:themeFill="text2" w:themeFillTint="1A"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="9629" w:type="dxa" />
++<w:gridSpan w:val="2" />
++<w:shd w:val="clear" w:color="auto" w:fill="DAE9F7" w:themeFill="text2" w:themeFillTint="1A" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="00B10255" w:rsidRPr="003F5764" w:rsidRDefault="00B10255" w:rsidP="00B10255">
+ <w:pPr>
+-<w:jc w:val="center"/>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:jc w:val="center" />
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ <w:t>ПЕРСОНАЛЬНЫЕ ДАННЫЕ</w:t>
+@@ -410,28 +437,28 @@
+
+ <w:tr w:rsidR="00E1194B" w:rsidRPr="000B2EC8" w:rsidTr="00AB70BF">
+ <w:trPr>
+-<w:trHeight w:val="546"/>
++<w:trHeight w:val="546" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3256" w:type="dxa"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3256" w:type="dxa" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="00E1194B" w:rsidRPr="003F5764" w:rsidRDefault="00123BB0" w:rsidP="003F5764">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ <w:t>Семейное положение, дети</w:t>
+@@ -441,11 +468,11 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="6373" w:type="dxa"/>
++<w:tcW w:w="6373" w:type="dxa" />
+ </w:tcPr>
+ <w:p w:rsidR="00E1194B" w:rsidRPr="000B2EC8" w:rsidRDefault="00E1194B" w:rsidP="000C3C8E">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:lang w:val="en-US"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:lang w:val="en-US" />
+ </w:rPr>
+ </w:pPr>
+@@ -455,28 +482,28 @@
+
+ <w:tr w:rsidR="00E1194B" w:rsidRPr="000B2EC8" w:rsidTr="00AB70BF">
+ <w:trPr>
+-<w:trHeight w:val="566"/>
++<w:trHeight w:val="566" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3256" w:type="dxa"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3256" w:type="dxa" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="00E1194B" w:rsidRPr="003F5764" w:rsidRDefault="00123BB0" w:rsidP="003F5764">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ <w:t>Место регистрации</w:t>
+@@ -486,11 +513,11 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="6373" w:type="dxa"/>
++<w:tcW w:w="6373" w:type="dxa" />
+ </w:tcPr>
+ <w:p w:rsidR="00E1194B" w:rsidRPr="000B2EC8" w:rsidRDefault="00E1194B" w:rsidP="000C3C8E">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:lang w:val="en-US"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:lang w:val="en-US" />
+ </w:rPr>
+ </w:pPr>
+@@ -500,28 +527,28 @@
+
+ <w:tr w:rsidR="00E1194B" w:rsidRPr="000B2EC8" w:rsidTr="00AB70BF">
+ <w:trPr>
+-<w:trHeight w:val="544"/>
++<w:trHeight w:val="544" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3256" w:type="dxa"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3256" w:type="dxa" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="00E1194B" w:rsidRPr="003F5764" w:rsidRDefault="00123BB0" w:rsidP="003F5764">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ <w:t>Место фактического проживания</w:t>
+@@ -531,13 +558,17 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="6373" w:type="dxa"/>
++<w:tcW w:w="6373" w:type="dxa" />
+ </w:tcPr>
+ <w:p w:rsidR="00E1194B" w:rsidRPr="000B2EC8" w:rsidRDefault="00E1194B" w:rsidP="000C3C8E">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:lang w:val="en-US"/>
+-</w:rPr>
+-</w:pPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:lang w:val="en-US" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Тольятти</w:t>
++</w:r>
+ </w:p>
+ </w:tc>
+@@ -545,29 +576,29 @@
+
+ <w:tr w:rsidR="00E1194B" w:rsidRPr="000B2EC8" w:rsidTr="00AB70BF">
+ <w:trPr>
+-<w:trHeight w:val="564"/>
++<w:trHeight w:val="564" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3256" w:type="dxa"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3256" w:type="dxa" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="00E1194B" w:rsidRPr="003F5764" w:rsidRDefault="00123BB0" w:rsidP="003F5764">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
+-</w:rPr>
+-</w:pPr>
+-<w:proofErr w:type="gramStart"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
++</w:rPr>
++</w:pPr>
++<w:proofErr w:type="gramStart" />
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ <w:t>Метро</w:t>
+@@ -575,10 +606,10 @@
+
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
+-<w:lang w:val="en-US"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
++<w:lang w:val="en-US" />
+ </w:rPr>
+ <w:t>/</w:t>
+@@ -586,20 +617,20 @@
+
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ <w:t>станция</w:t>
+ </w:r>
+-<w:proofErr w:type="gramEnd"/>
++<w:proofErr w:type="gramEnd" />
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ <w:t xml:space="preserve"> электрички</w:t>
+@@ -609,11 +640,11 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="6373" w:type="dxa"/>
++<w:tcW w:w="6373" w:type="dxa" />
+ </w:tcPr>
+ <w:p w:rsidR="00E1194B" w:rsidRPr="000B2EC8" w:rsidRDefault="00E1194B" w:rsidP="000C3C8E">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:lang w:val="en-US"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:lang w:val="en-US" />
+ </w:rPr>
+ </w:pPr>
+@@ -623,28 +654,28 @@
+
+ <w:tr w:rsidR="00E1194B" w:rsidRPr="000B2EC8" w:rsidTr="00AB70BF">
+ <w:trPr>
+-<w:trHeight w:val="556"/>
++<w:trHeight w:val="556" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3256" w:type="dxa"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3256" w:type="dxa" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="00E1194B" w:rsidRPr="003F5764" w:rsidRDefault="00123BB0" w:rsidP="003F5764">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ <w:t>Наличие судимости</w:t>
+@@ -654,11 +685,11 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="6373" w:type="dxa"/>
++<w:tcW w:w="6373" w:type="dxa" />
+ </w:tcPr>
+ <w:p w:rsidR="00E1194B" w:rsidRPr="000B2EC8" w:rsidRDefault="00E1194B" w:rsidP="000C3C8E">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:lang w:val="en-US"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:lang w:val="en-US" />
+ </w:rPr>
+ </w:pPr>
+@@ -668,28 +699,28 @@
+
+ <w:tr w:rsidR="00E1194B" w:rsidRPr="000B2EC8" w:rsidTr="00AB70BF">
+ <w:trPr>
+-<w:trHeight w:val="562"/>
++<w:trHeight w:val="562" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3256" w:type="dxa"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3256" w:type="dxa" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="00E1194B" w:rsidRPr="003F5764" w:rsidRDefault="00123BB0" w:rsidP="003F5764">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ <w:t>Владение иностранными языками</w:t>
+@@ -699,13 +730,17 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="6373" w:type="dxa"/>
++<w:tcW w:w="6373" w:type="dxa" />
+ </w:tcPr>
+ <w:p w:rsidR="00E1194B" w:rsidRPr="000B2EC8" w:rsidRDefault="00E1194B" w:rsidP="000C3C8E">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:lang w:val="en-US"/>
+-</w:rPr>
+-</w:pPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:lang w:val="en-US" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Русский — Родной</w:t>
++</w:r>
+ </w:p>
+ </w:tc>
+@@ -714,24 +749,24 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3256" w:type="dxa"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3256" w:type="dxa" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="00E1194B" w:rsidRPr="003F5764" w:rsidRDefault="003F5764" w:rsidP="003F5764">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="003F5764">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:sz w:val="20"/>
+-<w:szCs w:val="20"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:sz w:val="20" />
++<w:szCs w:val="20" />
+ </w:rPr>
+ <w:t>Водительские права, стаж, собственный автомобиль</w:t>
+@@ -741,12 +776,27 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="6373" w:type="dxa"/>
++<w:tcW w:w="6373" w:type="dxa" />
+ </w:tcPr>
+ <w:p w:rsidR="00E1194B" w:rsidRPr="003F5764" w:rsidRDefault="00E1194B" w:rsidP="000C3C8E">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Имеется собственный автомобиль</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="00E1194B" w:rsidRPr="003F5764" w:rsidRDefault="00E1194B" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Права категории B</w:t>
++</w:r>
+ </w:p>
+ </w:tc>
+@@ -756,5 +806,5 @@
+
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+ </w:rPr>
+ </w:pPr>
+@@ -762,37 +812,37 @@
+
+ <w:tbl>
+ <w:tblPr>
+-<w:tblStyle w:val="ac"/>
+-<w:tblW w:w="0" w:type="auto"/>
+-<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
++<w:tblStyle w:val="ac" />
++<w:tblW w:w="0" w:type="auto" />
++<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1" />
+ </w:tblPr>
+ <w:tblGrid>
+-<w:gridCol w:w="3256"/>
+-<w:gridCol w:w="6373"/>
++<w:gridCol w:w="3256" />
++<w:gridCol w:w="6373" />
+ </w:tblGrid>
+ <w:tr w:rsidR="003513BD" w:rsidRPr="00B5788C" w:rsidTr="00B5788C">
+ <w:trPr>
+-<w:trHeight w:val="438"/>
++<w:trHeight w:val="438" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3256" w:type="dxa"/>
+-<w:shd w:val="clear" w:color="auto" w:fill="DAE9F7" w:themeFill="text2" w:themeFillTint="1A"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="3256" w:type="dxa" />
++<w:shd w:val="clear" w:color="auto" w:fill="DAE9F7" w:themeFill="text2" w:themeFillTint="1A" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="003513BD" w:rsidRPr="00B5788C" w:rsidRDefault="00B5788C" w:rsidP="00B5788C">
+ <w:pPr>
+-<w:jc w:val="center"/>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
+-<w:lang w:val="en-US"/>
++<w:jc w:val="center" />
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
++<w:lang w:val="en-US" />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="00B5788C">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ <w:t>ОБРАЗОВАНИЕ</w:t>
+@@ -802,22 +852,22 @@
+
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="6373" w:type="dxa"/>
+-<w:shd w:val="clear" w:color="auto" w:fill="DAE9F7" w:themeFill="text2" w:themeFillTint="1A"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="6373" w:type="dxa" />
++<w:shd w:val="clear" w:color="auto" w:fill="DAE9F7" w:themeFill="text2" w:themeFillTint="1A" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="003513BD" w:rsidRPr="00B5788C" w:rsidRDefault="00B5788C" w:rsidP="00B5788C">
+ <w:pPr>
+-<w:jc w:val="center"/>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:jc w:val="center" />
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="00B5788C">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ <w:t>УЧЕБНОЕ ЗАВЕДЕНИЕ, ГОД ОКОНЧАНИЯ</w:t>
+@@ -828,28 +878,113 @@
+
+ <w:tr w:rsidR="00B5788C" w:rsidRPr="003F5764" w:rsidTr="001A0A39">
+ <w:trPr>
+-<w:trHeight w:val="416"/>
++<w:trHeight w:val="416" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3256" w:type="dxa"/>
++<w:tcW w:w="3256" w:type="dxa" />
+ </w:tcPr>
+ <w:p w:rsidR="00B5788C" w:rsidRPr="003F5764" w:rsidRDefault="00B5788C" w:rsidP="000C3C8E">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
+-</w:p>
+-</w:tc>
+-<w:tc>
+-<w:tcPr>
+-<w:tcW w:w="6373" w:type="dxa"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Высшее</w:t>
++</w:r>
++</w:p>
++</w:tc>
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="6373" w:type="dxa" />
+ </w:tcPr>
+ <w:p w:rsidR="00B5788C" w:rsidRPr="003F5764" w:rsidRDefault="00B5788C" w:rsidP="000C3C8E">
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>2013</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="00B5788C" w:rsidRPr="003F5764" w:rsidRDefault="00B5788C" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Высшее</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="00B5788C" w:rsidRPr="003F5764" w:rsidRDefault="00B5788C" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Российский институт политических технологий и бизнеса (Институт мировых цивилизаций), Москва</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="00B5788C" w:rsidRPr="003F5764" w:rsidRDefault="00B5788C" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Юриспруденция, Гражданское право</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="00B5788C" w:rsidRPr="003F5764" w:rsidRDefault="00B5788C" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>2010</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="00B5788C" w:rsidRPr="003F5764" w:rsidRDefault="00B5788C" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Высшее</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="00B5788C" w:rsidRPr="003F5764" w:rsidRDefault="00B5788C" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Самарский государственный социально-педагогический университет, Самара</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="00B5788C" w:rsidRPr="003F5764" w:rsidRDefault="00B5788C" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Экономика, управление и сервис, Экономика</w:t>
++</w:r>
+ </w:p>
+ </w:tc>
+@@ -857,28 +992,201 @@
+
+ <w:tr w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidTr="001A0A39">
+ <w:trPr>
+-<w:trHeight w:val="408"/>
++<w:trHeight w:val="408" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="3256" w:type="dxa"/>
+-</w:tcPr>
+-<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
+-<w:pPr>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
+-</w:p>
+-</w:tc>
+-<w:tc>
+-<w:tcPr>
+-<w:tcW w:w="6373" w:type="dxa"/>
+-</w:tcPr>
+-<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
+-<w:pPr>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
++<w:tcW w:w="3256" w:type="dxa" />
++</w:tcPr>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Повышение квалификации, курсы</w:t>
++</w:r>
++</w:p>
++</w:tc>
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="6373" w:type="dxa" />
++</w:tcPr>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>2022</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Управление маркетингом</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>ЧУ ДПО "Открытая школа управления"</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>2018</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>«Требования и практика внедрения IATF 16949:2016. Аудиты первой и второй стороны в соответствии с требованиями IATF 16949:2016, ISO 19011:2011»</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Ассоциация предприятий машиностроения «Кластер автомобильной промышленности Самарской области»</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Тесты, экзамены</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>2020</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Сертификат ISO 14001:2015. Система экологического менеджмента.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Центр развития качества процессов, ISO 14001:2015. Система экологического менеджмента.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>2020</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Сертификат ISO 45001:2018 Система менеджмента охраны здоровья и обеспечения безопасности труда.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Центр развития качества процессов, ISO 45001:2018 Система менеджмента охраны здоровья и обеспечения безопасности труда.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>2018</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Сертификат ТРЕБОВАНИЯ И ПРАКТИКА ВНЕДРЕНИЯ IATF 10425 2918 АУДИТ ПЕРВОЙ И ВТОРОЙ СТОРОНЫ НА СООТВЕТСТВИЕ ТРЕБОВАНИЯМ IATF 18945-3946 ISO 19011:2011.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>ООО «ТМС РУС», ТРЕБОВАНИЯ И ПРАКТИКА ВНЕДРЕНИЯ IATF 10425 2918 АУДИТ ПЕРВ. И ВТОР. СТОРОНЫ НА СООТВЕТСТВИЕ ТРЕБ. IATF 18945-3946 ISO 19011:2011</w:t>
++</w:r>
+ </w:p>
+ </w:tc>
+@@ -888,5 +1196,5 @@
+
+ <w:pPr>
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
+ </w:rPr>
+ </w:pPr>
+@@ -894,37 +1202,37 @@
+
+ <w:tbl>
+ <w:tblPr>
+-<w:tblStyle w:val="ac"/>
+-<w:tblW w:w="0" w:type="auto"/>
+-<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
++<w:tblStyle w:val="ac" />
++<w:tblW w:w="0" w:type="auto" />
++<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1" />
+ </w:tblPr>
+ <w:tblGrid>
+-<w:gridCol w:w="3256"/>
+-<w:gridCol w:w="6373"/>
++<w:gridCol w:w="3256" />
++<w:gridCol w:w="6373" />
+ </w:tblGrid>
+ <w:tr w:rsidR="00B5788C" w:rsidRPr="003F5764" w:rsidTr="00CB75A9">
+ <w:trPr>
+-<w:trHeight w:val="502"/>
++<w:trHeight w:val="502" />
+ </w:trPr>
+ <w:tc>
+ <w:tcPr>
+-<w:tcW w:w="9629" w:type="dxa"/>
+-<w:gridSpan w:val="2"/>
+-<w:shd w:val="clear" w:color="auto" w:fill="DAE9F7" w:themeFill="text2" w:themeFillTint="1A"/>
+-<w:vAlign w:val="center"/>
++<w:tcW w:w="9629" w:type="dxa" />
++<w:gridSpan w:val="2" />
++<w:shd w:val="clear" w:color="auto" w:fill="DAE9F7" w:themeFill="text2" w:themeFillTint="1A" />
++<w:vAlign w:val="center" />
+ </w:tcPr>
+ <w:p w:rsidR="00B5788C" w:rsidRPr="00CB75A9" w:rsidRDefault="00CB75A9" w:rsidP="00CB75A9">
+ <w:pPr>
+-<w:jc w:val="center"/>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:jc w:val="center" />
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ </w:pPr>
+ <w:r w:rsidRPr="00CB75A9">
+ <w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-<w:b/>
+-<w:bCs/>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++<w:b />
++<w:bCs />
+ </w:rPr>
+ <w:t>СВЕДЕНИЯ О ПРЕДЫДУЩЕЙ ЗАНЯТОСТИ</w:t>
+@@ -934,87 +1242,2833 @@
+
+ </w:tr>
+ <w:tr w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidTr="001A0A39">
+-<w:trPr>
+-<w:trHeight w:val="415"/>
+-</w:trPr>
+-<w:tc>
+-<w:tcPr>
+-<w:tcW w:w="3256" w:type="dxa"/>
+-</w:tcPr>
+-<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
+-<w:pPr>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
+-</w:p>
+-</w:tc>
+-<w:tc>
+-<w:tcPr>
+-<w:tcW w:w="6373" w:type="dxa"/>
+-</w:tcPr>
+-<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
+-<w:pPr>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="3256" w:type="dxa" />
++</w:tcPr>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Ноябрь 2025 — настоящее время</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>(7 мес.)</w:t>
++</w:r>
++</w:p>
++</w:tc>
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="6373" w:type="dxa" />
++</w:tcPr>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:b />
++</w:rPr>
++<w:t>Место работы: Индустрия Поволжья</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Тольятти</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Функционал:</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Металлургия, металлообработка</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>• Металлические изделия, металлоконструкции (производство)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Директор по развитию</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Основные обязанности и зоны ответственности:</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Оптимизация затрат и повышение экономической эффективности производства.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Развитие бизнеса: поиск и запуск новых проектов, наращивание клиентской базы.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Снижение закупочных цен и совершенствование логистики снабжения.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Формирование планов развития и координация их реализации в подразделениях.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Анализ рынка и выявление перспективных направлений для масштабирования бизнеса.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Управление проектами: контроль сроков, бюджетов и целевых показателей.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Укрепление отношений с ключевыми клиентами и поставщиками.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Разработка коммерческих предложений и участие в переговорах с потенциальными заказчиками.</w:t>
++</w:r>
+ </w:p>
+ </w:tc>
+ </w:tr>
+ <w:tr w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidTr="001A0A39">
+-<w:trPr>
+-<w:trHeight w:val="420"/>
+-</w:trPr>
+-<w:tc>
+-<w:tcPr>
+-<w:tcW w:w="3256" w:type="dxa"/>
+-</w:tcPr>
+-<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
+-<w:pPr>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
+-</w:p>
+-</w:tc>
+-<w:tc>
+-<w:tcPr>
+-<w:tcW w:w="6373" w:type="dxa"/>
+-</w:tcPr>
+-<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
+-<w:pPr>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="3256" w:type="dxa" />
++</w:tcPr>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Февраль 2024 — Сентябрь 2025</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>(1 г. 7 мес.)</w:t>
++</w:r>
++</w:p>
++</w:tc>
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="6373" w:type="dxa" />
++</w:tcPr>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:b />
++</w:rPr>
++<w:t>Место работы: Балткабель ГК Акрон Холдинг</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Сосновый Бор (Ленинградская область)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Функционал:</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Промышленное оборудование, техника, станки и комплектующие</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>• Оборудование и станки для добывающей, энергетической, нефтегазовой и химической отрасли (производство)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Электроника, приборостроение, бытовая техника, компьютеры и оргтехника</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>• Промышленное, бытовое электрооборудование и электротехника (продвижение, оптовая торговля)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>• Промышленное, бытовое электрооборудование и электротехника (монтаж, сервис, ремонт)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>• Промышленное, бытовое электрооборудование и электротехника (производство)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Энергетика</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>• Передача, распределение электроэнергии</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Исполнительный директор</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Основные обязанности и зоны ответственности:</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Полное операционное управление</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Стратегическое и оперативное планирование, бюджетирование, контроль исполнения бюджета.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Производственное планирование</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Ответственность за финансовый результат завода и новых направлений.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Запуск и интеграция новых проектов.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Разработка и реализация стратегий продаж и закупок.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Руководство отделами продаж и закупок. Ценообразование, переговоры с ключевыми поставщиками и клиентами, сорсинг. -Контроль дебиторской и кредиторской задолженности.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Организация технологического процесса, контроль качества, минимизация потерь. Обеспечение ритмичности производства и бесперебойных поставок сырья.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Формирование организационной структуры, найм и адаптация ключевых сотрудников, разработка регламентов и системы документооборота. Развитие вовлеченности персонала.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Численность предприятия &gt; 150 человек.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Ключевые достижения:</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Увеличение объема выпуска продукции на 21% без роста штатной численности.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Повышение маржинальности бизнеса на 6-8% за счет комплексной оптимизации издержек.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Запуск с нуля и вывод в точку безубыточности за 8 месяцев двух новых направлений: производство деревянной тары и трейдинг медной продукции.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Увеличение общего объема продаж на 15% за счет разработки и внедрения успешных коммерческих стратегий.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Снижение сырьевой себестоимости до 10% по ключевым позициям и на 30% по вспомогательным</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Снижение накладных расходов за счет увеличения производительности труда и внедрения производственной системы.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Успешный перенос производственной площадки и ее запуск на новом месте менее чем за 3 месяца.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Внедрение KPI, регламентов и производственных систем (ПС "Акрон", 5С).</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Снижение текучести кадров (19% год к году) и формирование эффективных команд для всех направлений деятельности.</w:t>
++</w:r>
+ </w:p>
+ </w:tc>
+ </w:tr>
+ <w:tr w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidTr="001A0A39">
+-<w:trPr>
+-<w:trHeight w:val="417"/>
+-</w:trPr>
+-<w:tc>
+-<w:tcPr>
+-<w:tcW w:w="3256" w:type="dxa"/>
+-</w:tcPr>
+-<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
+-<w:pPr>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
+-</w:p>
+-</w:tc>
+-<w:tc>
+-<w:tcPr>
+-<w:tcW w:w="6373" w:type="dxa"/>
+-</w:tcPr>
+-<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
+-<w:pPr>
+-<w:rPr>
+-<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+-</w:rPr>
+-</w:pPr>
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="3256" w:type="dxa" />
++</w:tcPr>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Май 2023 — Февраль 2024</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>(9 мес.)</w:t>
++</w:r>
++</w:p>
++</w:tc>
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="6373" w:type="dxa" />
++</w:tcPr>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:b />
++</w:rPr>
++<w:t>Место работы: АКРОН ХОЛДИНГ</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Тольятти</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Функционал:</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Директор по проектной деятельности</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Основные обязанности и зоны ответственности:</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Полный цикл управления проектами: от инициации и планирования до реализации, мониторинга и успешного закрытия.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Стратегическое и оперативное планирование проектов: разработка устава, целей, дорожных карт, планов по срокам, бюджетам и ресурсам.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Глубокий анализ и диагностика: анализ текущей загрузки, производительности и бизнес-процессов для выявления «узких мест» и точек роста.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Формирование и руководство проектными командами: подбор участников, постановка задач, мотивация и контроль исполнения.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Управление ресурсами и бюджетами: оценка затрат, бюджетирование, контроль расходов, инвентаризация и мониторинг материальных остатков (в рамках проектов).</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Организация эффективной коммуникации: налаживание взаимодействия между подразделениями, коммуникация с подрядчиками и поставщиками.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>-Управление рисками и оптимизация: оценка проектных рисков, разработка и реализация мер по их минимизации; общая оптимизация процессов для увеличения производительности.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Ключевые достижения:</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Повышение общей производительности по ключевым операциям за счет внедрения системы мониторинга загрузки и последовательной ликвидации «узких мест» в процессах (от 10% до 20% по отдельным направлениям)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Снижение сроков реализации стратегических проектов благодаря внедрению стандартизированных методик планирования (дорожные карты, WBS) и усилению контроля исполнения.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Оптимизация проектных бюджетов и снижение затрат на 13% ежегодно за счет строгого контроля ресурсов, пересмотра договоров с подрядчиками и эффективного управления запасами.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Успешный запуск и интеграция комплексных проектов (автоматизация складского учета, снижение "недогрузов") в запланированные сроки и в рамках утвержденного бюджета.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Обеспечение бесшовного взаимодействия подразделений за счет внедрения регулярных кросс-функциональных встреч и единой системы коммуникации</w:t>
++</w:r>
++</w:p>
++</w:tc>
++</w:tr>
++<w:tr w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidTr="001A0A39">
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="3256" w:type="dxa" />
++</w:tcPr>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Октябрь 2017 — Август 2023</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>(5 г. 10 мес.)</w:t>
++</w:r>
++</w:p>
++</w:tc>
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="6373" w:type="dxa" />
++</w:tcPr>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:b />
++</w:rPr>
++<w:t>Место работы: ЗАО "Автополимер"</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Пенза</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Функционал:</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Автомобильный бизнес</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>• Автокомпоненты, запчасти (производство)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Генеральный директор</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Основные обязанности и зоны ответственности</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Полное руководство предприятием: обеспечение стабильного, бесперебойного и рентабельного функционирования. Контроль всех зон ответственности и конечного финансового результата.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Стратегическое и оперативное планирование: участие в разработке стратегии компании, бюджетирование и обеспечение исполнения бюджетных показателей.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Производственное планирование. Постановка и контроль исполнения производственного плана. Снижение издержек и контроль отсутствия брака.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Повышение прибыльности бизнеса: комплексная работа по увеличению доходов, оптимизации затрат и минимизации производственных и непроизводственных потерь.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Оптимизация бизнес-процессов и производственной системы: организация технологического процесса, контроль работы подразделений, рационализация использования сырья и ТМЦ.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Контроль и повышение качества продукции в соответствии с утвержденными стандартами, подготовка и успешное прохождение аудитов.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Развитие производственных мощностей: увеличение объемов производства за счет оптимизации существующих процессов.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Ведение переговоров высшего уровня: работа с ключевыми контрагентами и представление интересов компании в органах государственной власти.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Управление персоналом и развитие организационной культуры: руководство коллективом, обеспечение вовлеченности и высокой производительности труда.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- В прямом подчинении &gt;70 человек</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Ключевые достижения:</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Увеличение объемов производства без значительного расширения штата (довольно бюджетное решение в области модернизации оборудования, рост до 37 %)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Снижение непрямых расходов (до 11%) в результате внедрения системы бережливого производства и жесткого контроля за рациональным использованием сырья и запасов.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Снижение уровня производственных потерь и брака за счет внедрения системы системы самоконтроля и мотивационной системы для персонала.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Снижение накладных расходов за счет комплекса оптимизационных мер (уменьшение переработки брака, уменьшение сверхурочных, снижение простоев и переналадок за счет перехода на производство "долгого цикла" и перераспределения зон ответственности)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Успешное прохождение международных аудитов и аудитов ключевых клиентов.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Оптимизация складских запасов ТМЦ (сырье и СГП).</w:t>
++</w:r>
++</w:p>
++</w:tc>
++</w:tr>
++<w:tr w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidTr="001A0A39">
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="3256" w:type="dxa" />
++</w:tcPr>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Октябрь 2020 — Май 2023</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>(2 г. 7 мес.)</w:t>
++</w:r>
++</w:p>
++</w:tc>
++<w:tc>
++<w:tcPr>
++<w:tcW w:w="6373" w:type="dxa" />
++</w:tcPr>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr>
++<w:b />
++</w:rPr>
++<w:t>Место работы: Полад, АО</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Тольятти</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Функционал:</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Автомобильный бизнес</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>• Легковые, грузовые автомобили, мототехника, автобусы, троллейбусы (производство)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>• Автокомпоненты, запчасти, шины (продвижение, оптовая торговля)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>• Автокомпоненты, запчасти (производство)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>• Розничная торговля автомобилями (дилерский центр)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>• Легковые, грузовые автомобили, мототехника, автобусы, троллейбусы (продвижение, оптовая торговля)</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Исполнительный директор</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>Основные обязанности и зоны ответственности:</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Полное операционное управление предприятием: обеспечение стабильного, бесперебойного и рентабельного функционирования в соответствии со стратегией развития, утвержденной собственником.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Участие в стратегическом планировании, оперативное бюджетирование и контроль исполнения бюджетных показателей.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Оптимизация бизнес-процессов и затрат: проведение работ по контролю и снижению издержек во всех операционных областях.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Управление производством: организация технологического процесса, контроль работы подразделений, установка и обеспечение выполнения производственного плана.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>
++<w:r>
++<w:rPr />
++<w:t>- Управление снабжением и запасами: взаимодействие с поставщиками (сорсинг, переговоры), контроль сохранности и рациональности использования сырья и ТМЦ.</w:t>
++</w:r>
++</w:p>
++<w:p w:rsidR="003513BD" w:rsidRPr="003F5764" w:rsidRDefault="003513BD" w:rsidP="000C3C8E">
++<w:pPr>
++<w:rPr>
++<w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial" />
++</w:rPr>
++</w:pPr>

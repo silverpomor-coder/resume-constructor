@@ -38,27 +38,19 @@ TEMPLATE_DOCX_NAME = "CV_sample_v2.docx"
 TEMPLATE_DOCX = RESOURCE_DIR / TEMPLATE_DOCX_NAME
 if not TEMPLATE_DOCX.exists():
     TEMPLATE_DOCX = START_DIR / TEMPLATE_DOCX_NAME
-SHABLON_DOCX_NAME = "shablon.docx"
-SHABLON_DOCX = RESOURCE_DIR / SHABLON_DOCX_NAME
-if not SHABLON_DOCX.exists():
-    SHABLON_DOCX = START_DIR / SHABLON_DOCX_NAME
 
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 NS = {"w": W_NS}
 ET.register_namespace("w", W_NS)
 A_NS = "http://schemas.openxmlformats.org/drawingml/2006/main"
-W14_NS = "http://schemas.microsoft.com/office/word/2010/wordml"
 WP_NS = "http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
 R_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
 REL_NS = "http://schemas.openxmlformats.org/package/2006/relationships"
 PIC_NS = "http://schemas.openxmlformats.org/drawingml/2006/picture"
-MC_NS = "http://schemas.openxmlformats.org/markup-compatibility/2006"
 ET.register_namespace("a", A_NS)
-ET.register_namespace("w14", W14_NS)
 ET.register_namespace("wp", WP_NS)
 ET.register_namespace("r", R_NS)
 ET.register_namespace("pic", PIC_NS)
-ET.register_namespace("mc", MC_NS)
 PHOTO_REL_ID = "rId8"
 PHOTO_MEDIA_PREFIX = "word/media/candidate_photo"
 PHOTO_BOX_EMU = 1967865
@@ -291,28 +283,6 @@ def delete_session_photo(session_data):
 
 def normalize_to_text(source_path):
     suffix = source_path.suffix.lower()
-    data = source_path.read_bytes()
-    stripped = data.lstrip()
-    lower_prefix = stripped[:256].lower()
-    if stripped.startswith(b"{\\rtf"):
-        return rtf_to_text(source_path)
-    if data.startswith(b"PK"):
-        try:
-            with zipfile.ZipFile(source_path, "r") as archive:
-                names = set(archive.namelist())
-        except zipfile.BadZipFile as exc:
-            raise RuntimeError("Не удалось прочитать ZIP/DOCX-файл") from exc
-        if "word/document.xml" in names:
-            return docx_to_text(source_path)
-        if "content.xml" in names:
-            return odt_to_text(source_path)
-        raise RuntimeError("ZIP-файл не похож на поддерживаемый DOCX/ODT")
-    if data.startswith(b"%PDF"):
-        raise RuntimeError("PDF пока не поддерживается. Загрузите резюме в DOC, DOCX, RTF или TXT.")
-    if data.startswith(bytes.fromhex("D0CF11E0A1B11AE1")):
-        return binary_doc_to_text(source_path)
-    if lower_prefix.startswith((b"<!doctype html", b"<html", b"<meta", b"<?xml")) or b"<html" in lower_prefix:
-        return html_to_text(source_path)
     if suffix == ".txt":
         return read_text_file(source_path)
     if shutil.which("textutil"):
@@ -370,129 +340,11 @@ def odt_to_text(source_path):
     return xml_text_from_zip(source_path, "content.xml")
 
 
-def html_to_text(source_path):
-    text = read_text_file(source_path)
-    text = re.sub(r"(?is)<(script|style).*?>.*?</\1>", " ", text)
-    text = re.sub(r"(?i)<br\s*/?>", "\n", text)
-    text = re.sub(r"(?i)</p\s*>", "\n", text)
-    text = re.sub(r"(?s)<[^>]+>", " ", text)
-    text = (text
-        .replace("&nbsp;", " ")
-        .replace("&amp;", "&")
-        .replace("&lt;", "<")
-        .replace("&gt;", ">")
-        .replace("&quot;", '"')
-    )
-    return "\n".join(line.strip() for line in text.splitlines() if line.strip())
-
-
 def rtf_to_text(source_path):
-    raw = source_path.read_bytes()
-    source = raw.decode("latin1", errors="ignore")
-    codepage_match = re.search(r"\\ansicpg(\d+)", source)
-    encoding = f"cp{codepage_match.group(1)}" if codepage_match else "cp1251"
-    try:
-        b"\x80".decode(encoding)
-    except LookupError:
-        encoding = "cp1251"
-
-    result = []
-    stack = []
-    skip_depth = 0
-    index = 0
-    destinations_to_skip = {
-        "fonttbl", "colortbl", "stylesheet", "info", "pict", "object",
-        "header", "footer", "footnote", "annotation",
-    }
-    while index < len(source):
-        char = source[index]
-        if char == "{":
-            stack.append(skip_depth)
-            index += 1
-            continue
-        if char == "}":
-            skip_depth = stack.pop() if stack else 0
-            index += 1
-            continue
-        if skip_depth:
-            index += 1
-            continue
-        if char != "\\":
-            if char not in "\r\n":
-                result.append(char)
-            index += 1
-            continue
-
-        index += 1
-        if index >= len(source):
-            break
-        control = source[index]
-        if control == "'":
-            hex_value = source[index + 1:index + 3]
-            if re.fullmatch(r"[0-9a-fA-F]{2}", hex_value):
-                result.append(bytes.fromhex(hex_value).decode(encoding, errors="ignore"))
-                index += 3
-                continue
-        if control in "{}\\":
-            result.append(control)
-            index += 1
-            continue
-        if control in "~_-":
-            result.append(" ")
-            index += 1
-            continue
-
-        match = re.match(r"([a-zA-Z]+)(-?\d+)? ?", source[index:])
-        if not match:
-            index += 1
-            continue
-        word, argument = match.group(1), match.group(2)
-        index += len(match.group(0))
-        if word in destinations_to_skip:
-            skip_depth = 1
-            continue
-        if word in {"par", "line"}:
-            result.append("\n")
-        elif word == "tab":
-            result.append("\t")
-        elif word == "u" and argument is not None:
-            value = int(argument)
-            if value < 0:
-                value += 65536
-            result.append(chr(value))
-
-    text = "".join(result)
-    text = re.sub(r"[ \t]+", " ", text)
-    text = re.sub(r"\n{3,}", "\n\n", text)
-    return normalize_extracted_resume_text("\n".join(line.strip() for line in text.splitlines() if line.strip()))
-
-
-def normalize_extracted_resume_text(text):
-    text = str(text or "").replace("\u00a0", " ")
-    labels = [
-        "Желаемая должность и зарплата",
-        "Опыт работы",
-        "Образование",
-        "Повышение квалификации, курсы",
-        "Навыки",
-        "Знание языков",
-        "Опыт вождения",
-        "Дополнительная информация",
-        "Обо мне",
-        "Комментарии к резюме",
-        "Гражданство",
-    ]
-    for label in labels:
-        escaped = re.escape(label)
-        text = re.sub(rf"(?<!^)(?<!\n)({escaped})", r"\n\1", text)
-        text = re.sub(rf"({escaped})(?=\S)", r"\1\n", text)
-
-    months = "Январь|Февраль|Март|Апрель|Май|Июнь|Июль|Август|Сентябрь|Октябрь|Ноябрь|Декабрь"
-    text = re.sub(rf"(?<=[А-Яа-яЁё.)])(?=({months})\s+\d{{4}}\b)", "\n", text)
-    text = re.sub(r"(?<=[А-Яа-яЁё)])(?=\d{2,3}(?: \d{3})+(?:\s*(?:₽|руб|р\.)))", "\n", text)
-    text = re.sub(r"(?<=[А-Яа-яЁё])(?=\d{4})", "\n", text)
-    text = re.sub(r"(?<=\b\d{4})(?=[А-ЯЁ])", "\n", text)
-    text = re.sub(r"\n{3,}", "\n\n", text)
+    text = read_text_file(source_path)
+    text = re.sub(r"\\'[0-9a-fA-F]{2}", " ", text)
+    text = re.sub(r"\\[a-zA-Z]+-?\d* ?", " ", text)
+    text = text.replace("{", " ").replace("}", " ").replace("\\", " ")
     return "\n".join(line.strip() for line in text.splitlines() if line.strip())
 
 
@@ -525,10 +377,10 @@ def value_after_label(lines, labels):
                 if ":" in original:
                     after = original.split(":", 1)[1].strip()
                     if after:
-                        return normalize_spaces(after).lstrip(": ").strip()
+                        return after
                 for next_line in lines[index + 1 :]:
                     if next_line and not re.fullmatch(r"\d+\.?", next_line):
-                        return normalize_spaces(next_line).lstrip(": ").strip()
+                        return next_line
     return ""
 
 
@@ -674,7 +526,7 @@ def value_after_label_filtered(lines, labels, validator=None, max_lookahead=3):
                     candidates.append(original.split(":", 1)[1].strip())
                 candidates.extend(lines[index + 1:index + 1 + max_lookahead])
                 for candidate in candidates:
-                    candidate = normalize_spaces(candidate).lstrip(": ").strip()
+                    candidate = normalize_spaces(candidate)
                     if candidate and not re.fullmatch(r"\d+\.?", candidate) and validator(candidate):
                         return candidate
     return ""
@@ -747,11 +599,7 @@ def line_after_exact(lines, label):
     target = label.lower().strip(": ")
     for index, line in enumerate(lines):
         if line.lower().strip(": ") == target:
-            for next_line in lines[index + 1:]:
-                value = normalize_spaces(next_line).lstrip(": ").strip()
-                if value:
-                    return value
-            return ""
+            return lines[index + 1] if index + 1 < len(lines) else ""
     return ""
 
 
@@ -774,23 +622,19 @@ def block_after_exact(lines, start_label, stop_labels):
 
 
 def hh_experience_block(lines):
-    candidates = []
+    start = None
     for index, line in enumerate(lines):
         if line.lower().startswith("опыт работы"):
             start = index + 1
-            end = len(lines)
-            for stop in range(start, len(lines)):
-                if lines[stop].lower().strip(": ") == "образование":
-                    end = stop
-                    break
-            block_lines = lines[start:end]
-            candidates.append(block_lines)
-    if not candidates:
+            break
+    if start is None:
         return ""
-    for block_lines in reversed(candidates):
-        if any(is_hh_period(line) for line in block_lines):
-            return "\n".join(block_lines).strip()
-    return "\n".join(candidates[-1]).strip()
+    end = len(lines)
+    for index in range(start, len(lines)):
+        if lines[index].lower().strip(": ") == "образование":
+            end = index
+            break
+    return "\n".join(lines[start:end]).strip()
 
 
 def hh_salary(lines):
@@ -934,20 +778,14 @@ def hh_fio(lines):
     for index, line in enumerate(lines):
         if re.match(r"^(женщина|мужчина),", line.lower()):
             for previous in reversed(lines[:index]):
-                previous = previous.strip()
-                if not previous:
-                    continue
-                if "резюме обновлено" in previous.lower():
-                    match = re.search(r"(?:\d{1,2}:\d{2}\s+)?([А-ЯЁ][а-яё-]+(?:\s+[А-ЯЁ][а-яё-]+){1,3})$", previous)
-                    if match:
-                        return match.group(1).strip()
-                return previous
+                if previous.strip():
+                    return previous.strip()
     return ""
 
 
 def is_hh_period(line):
     month_names = "январь|февраль|март|апрель|май|июнь|июль|август|сентябрь|октябрь|ноябрь|декабрь"
-    return bool(re.fullmatch(rf"({month_names})\s+\d{{4}}\s+(?:—\s+)?(настоящее время|({month_names})\s+\d{{4}})", line.lower()))
+    return bool(re.fullmatch(rf"({month_names})\s+\d{{4}}\s+—\s+(настоящее время|({month_names})\s+\d{{4}})", line.lower()))
 
 
 def is_hh_duration(line):
@@ -1206,75 +1044,6 @@ def register_document_namespaces(xml_content):
             continue
 
 
-def remove_word_generated_ids(root):
-    for element in root.iter():
-        element.attrib.pop(f"{{{W14_NS}}}paraId", None)
-        element.attrib.pop(f"{{{W14_NS}}}textId", None)
-
-
-def remove_markup_compatibility_ignorable(root):
-    root.attrib.pop(f"{{{MC_NS}}}Ignorable", None)
-
-
-def remove_empty_row_properties(root):
-    removed = 0
-    for row in root.findall(".//w:tr", NS):
-        trpr = row.find("./w:trPr", NS)
-        if trpr is not None and not trpr.attrib and not list(trpr):
-            row.remove(trpr)
-            removed += 1
-    return removed
-
-
-def remove_empty_text_runs(root):
-    removed_texts = 0
-    removed_runs = 0
-    parent_map = {child: parent for parent in root.iter() for child in parent}
-
-    for text_node in list(root.findall(".//w:t", NS)):
-        if text_node.text not in (None, ""):
-            continue
-        run = parent_map.get(text_node)
-        if run is None or run.tag != f"{{{W_NS}}}r":
-            continue
-        run.remove(text_node)
-        removed_texts += 1
-
-    parent_map = {child: parent for parent in root.iter() for child in parent}
-    for run in list(root.findall(".//w:r", NS)):
-        children = list(run)
-        if children and any(child.tag != f"{{{W_NS}}}rPr" for child in children):
-            continue
-        parent = parent_map.get(run)
-        if parent is None:
-            continue
-        parent.remove(run)
-        removed_runs += 1
-
-    return removed_texts, removed_runs
-
-
-def should_clean_word_generated_ids(part_name):
-    return (
-        part_name == "word/document.xml"
-        or part_name.startswith("word/header")
-        or part_name.startswith("word/footer")
-        or part_name in {"word/footnotes.xml", "word/endnotes.xml"}
-    )
-
-
-def clean_word_generated_ids_in_parts(files):
-    for name, content in list(files.items()):
-        if not should_clean_word_generated_ids(name):
-            continue
-        try:
-            root = ET.fromstring(content)
-        except ET.ParseError:
-            continue
-        remove_word_generated_ids(root)
-        files[name] = ET.tostring(root, encoding="utf-8", xml_declaration=True)
-
-
 def set_cell_text(cell, value, bold_first_line=False):
     paragraphs = cell.findall("./w:p", NS)
     template_paragraph = deepcopy(paragraphs[0]) if paragraphs else ET.Element(f"{{{W_NS}}}p")
@@ -1435,8 +1204,6 @@ def clear_row_height(row):
         return
     for height in list(trpr.findall("./w:trHeight", NS)):
         trpr.remove(height)
-    if not trpr.attrib and not list(trpr):
-        row.remove(trpr)
 
 
 def remove_table_rows(table, start_index, count):
@@ -1513,30 +1280,6 @@ def set_photo_relationship(rels_root, target):
     })
 
 
-def next_relationship_id(rels_root):
-    used = {rel.attrib.get("Id", "") for rel in rels_root}
-    index = 1
-    while f"rId{index}" in used:
-        index += 1
-    return f"rId{index}"
-
-
-def remove_relationships_by_target_prefix(rels_root, target_prefix):
-    for rel in list(rels_root):
-        if rel.attrib.get("Target", "").startswith(target_prefix):
-            rels_root.remove(rel)
-
-
-def add_image_relationship(rels_root, target):
-    rel_id = next_relationship_id(rels_root)
-    ET.SubElement(rels_root, f"{{{REL_NS}}}Relationship", {
-        "Id": rel_id,
-        "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
-        "Target": target,
-    })
-    return rel_id
-
-
 def update_photo_drawing_size(photo_cell, width, height):
     cx, cy = fitted_photo_extent(width, height)
     for extent in photo_cell.findall(f".//{{{WP_NS}}}extent"):
@@ -1578,92 +1321,7 @@ def update_template_photo(files, tables, photo_path):
     files[rels_name] = ET.tostring(rels_root, encoding="utf-8", xml_declaration=True)
 
 
-def build_inline_picture(rel_id, width, height, name="candidate_photo"):
-    cx, cy = fitted_photo_extent(width, height)
-    drawing = ET.Element(f"{{{W_NS}}}drawing")
-    inline = ET.SubElement(drawing, f"{{{WP_NS}}}inline", {
-        "distT": "0",
-        "distB": "0",
-        "distL": "0",
-        "distR": "0",
-    })
-    ET.SubElement(inline, f"{{{WP_NS}}}extent", {"cx": str(cx), "cy": str(cy)})
-    ET.SubElement(inline, f"{{{WP_NS}}}effectExtent", {"l": "0", "t": "0", "r": "0", "b": "0"})
-    ET.SubElement(inline, f"{{{WP_NS}}}docPr", {"id": str(uuid.uuid4().int % 100000), "name": name})
-    frame = ET.SubElement(inline, f"{{{WP_NS}}}cNvGraphicFramePr")
-    ET.SubElement(frame, f"{{{A_NS}}}graphicFrameLocks", {"noChangeAspect": "1"})
-    graphic = ET.SubElement(inline, f"{{{A_NS}}}graphic")
-    graphic_data = ET.SubElement(graphic, f"{{{A_NS}}}graphicData", {
-        "uri": "http://schemas.openxmlformats.org/drawingml/2006/picture",
-    })
-    picture = ET.SubElement(graphic_data, f"{{{PIC_NS}}}pic")
-    non_visual = ET.SubElement(picture, f"{{{PIC_NS}}}nvPicPr")
-    ET.SubElement(non_visual, f"{{{PIC_NS}}}cNvPr", {"id": "1", "name": name})
-    ET.SubElement(non_visual, f"{{{PIC_NS}}}cNvPicPr")
-    blip_fill = ET.SubElement(picture, f"{{{PIC_NS}}}blipFill")
-    blip = ET.SubElement(blip_fill, f"{{{A_NS}}}blip")
-    blip.set(f"{{{R_NS}}}embed", rel_id)
-    stretch = ET.SubElement(blip_fill, f"{{{A_NS}}}stretch")
-    ET.SubElement(stretch, f"{{{A_NS}}}fillRect")
-    shape = ET.SubElement(picture, f"{{{PIC_NS}}}spPr")
-    transform = ET.SubElement(shape, f"{{{A_NS}}}xfrm")
-    ET.SubElement(transform, f"{{{A_NS}}}off", {"x": "0", "y": "0"})
-    ET.SubElement(transform, f"{{{A_NS}}}ext", {"cx": str(cx), "cy": str(cy)})
-    geometry = ET.SubElement(shape, f"{{{A_NS}}}prstGeom", {"prst": "rect"})
-    ET.SubElement(geometry, f"{{{A_NS}}}avLst")
-    return drawing
-
-
-def set_cell_picture(cell, rel_id, width, height, name="candidate_photo"):
-    for child in list(cell):
-        if child.tag == f"{{{W_NS}}}p":
-            cell.remove(child)
-    paragraph = ET.SubElement(cell, f"{{{W_NS}}}p")
-    paragraph_properties = ET.SubElement(paragraph, f"{{{W_NS}}}pPr")
-    ET.SubElement(paragraph_properties, f"{{{W_NS}}}jc", {f"{{{W_NS}}}val": "center"})
-    run = ET.SubElement(paragraph, f"{{{W_NS}}}r")
-    run.append(build_inline_picture(rel_id, width, height, name=name))
-
-
-def update_template_photo_v3(files, tables, photo_path):
-    try:
-        photo_cell = tables[0].findall("./w:tr", NS)[2].findall("./w:tc", NS)[1]
-    except IndexError:
-        return
-    rels_name, rels_root = document_relationships(files)
-    remove_relationships_by_target_prefix(rels_root, "media/candidate_photo")
-    files.pop("word/media/candidate_photo.jpeg", None)
-    files.pop("word/media/candidate_photo.png", None)
-
-    if not photo_path:
-        set_cell_text(photo_cell, "")
-        files[rels_name] = ET.tostring(rels_root, encoding="utf-8", xml_declaration=True)
-        return
-
-    photo_bytes = Path(photo_path).read_bytes()
-    extension, content_type, dimensions = image_info(photo_bytes)
-    if not dimensions:
-        set_cell_text(photo_cell, "")
-        files[rels_name] = ET.tostring(rels_root, encoding="utf-8", xml_declaration=True)
-        return
-    media_name = f"{PHOTO_MEDIA_PREFIX}{extension}"
-    files[media_name] = photo_bytes
-    rel_id = add_image_relationship(rels_root, media_name.replace("word/", ""))
-    ensure_content_type(files, extension, content_type)
-    set_cell_picture(photo_cell, rel_id, *dimensions)
-    files[rels_name] = ET.tostring(rels_root, encoding="utf-8", xml_declaration=True)
-
-
-def sanitize_document_xml(root, files):
-    remove_word_generated_ids(root)
-    remove_markup_compatibility_ignorable(root)
-    remove_empty_row_properties(root)
-    remove_empty_text_runs(root)
-    files["word/document.xml"] = ET.tostring(root, encoding="utf-8", xml_declaration=True)
-    clean_word_generated_ids_in_parts(files)
-
-
-def fill_template_legacy(data, output_path, photo_path=None):
+def fill_template(data, output_path, photo_path=None):
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_docx = Path(temp_dir) / "work.docx"
         shutil.copy2(TEMPLATE_DOCX, temp_docx)
@@ -1722,86 +1380,10 @@ def fill_template_legacy(data, output_path, photo_path=None):
             set_cell_text(cells[1], job_summary(data, index), bold_first_line=True)
         set_by_pos(5, 1, 1, "recommendations")
 
-        sanitize_document_xml(root, files)
+        files["word/document.xml"] = ET.tostring(root, encoding="utf-8", xml_declaration=True)
         with zipfile.ZipFile(output_path, "w", zipfile.ZIP_DEFLATED) as zout:
             for name, content in files.items():
                 zout.writestr(name, content)
-
-
-def fill_template_v3(data, output_path, photo_path=None):
-    with tempfile.TemporaryDirectory() as temp_dir:
-        temp_docx = Path(temp_dir) / "work.docx"
-        shutil.copy2(SHABLON_DOCX, temp_docx)
-        with zipfile.ZipFile(temp_docx, "r") as zin:
-            files = {name: zin.read(name) for name in zin.namelist()}
-        register_document_namespaces(files["word/document.xml"])
-        root = ET.fromstring(files["word/document.xml"])
-        tables = root.findall(".//w:tbl", NS)
-
-        def set_by_pos(table_index, row_index, cell_index, key, bold_first_line=False, transform=None):
-            try:
-                row = tables[table_index].findall("./w:tr", NS)[row_index]
-                cell = row.findall("./w:tc", NS)[cell_index]
-            except IndexError:
-                return
-            value = data.get(key, "")
-            if transform:
-                value = transform(value)
-            set_cell_text(cell, value, bold_first_line=bold_first_line)
-
-        update_template_photo_v3(files, tables, photo_path)
-
-        set_by_pos(0, 0, 0, "role", bold_first_line=True)
-        set_by_pos(0, 1, 1, "salary")
-        set_by_pos(0, 3, 1, "fio")
-        set_by_pos(0, 4, 1, "citizenship")
-        set_by_pos(0, 5, 1, "birth_place_date", transform=age_text)
-
-        set_by_pos(1, 1, 1, "family")
-        set_by_pos(1, 2, 1, "registration")
-        set_by_pos(1, 3, 1, "location")
-        set_by_pos(1, 4, 1, "metro")
-        set_by_pos(1, 5, 1, "criminal_record")
-        set_by_pos(1, 6, 1, "languages")
-        set_by_pos(1, 7, 1, "driving")
-
-        set_by_pos(2, 1, 0, "education_level")
-        set_by_pos(2, 1, 1, "education")
-        try:
-            course_row = tables[2].findall("./w:tr", NS)[2]
-            course_cells = course_row.findall("./w:tc", NS)
-            if len(course_cells) >= 2:
-                set_cell_text(course_cells[0], "Повышение квалификации, курсы")
-                set_cell_text(course_cells[1], data.get("courses", ""))
-        except IndexError:
-            pass
-
-        job_count = count_jobs(data)
-        expand_employment_table(tables[3], job_count)
-        for index in range(1, max(job_count, 1) + 1):
-            try:
-                row = tables[3].findall("./w:tr", NS)[index]
-                cells = row.findall("./w:tc", NS)
-            except IndexError:
-                continue
-            clear_row_height(row)
-            if len(cells) >= 2:
-                set_cell_text(cells[0], period_with_duration(data.get(f"job{index}_period", "")))
-                set_cell_text(cells[1], job_summary(data, index), bold_first_line=True)
-
-        set_by_pos(4, 1, 1, "recommendations")
-        set_by_pos(4, 3, 0, "agency_comment")
-
-        sanitize_document_xml(root, files)
-        with zipfile.ZipFile(output_path, "w", zipfile.ZIP_DEFLATED) as zout:
-            for name, content in files.items():
-                zout.writestr(name, content)
-
-
-def fill_template(data, output_path, photo_path=None):
-    if SHABLON_DOCX.exists():
-        return fill_template_v3(data, output_path, photo_path)
-    return fill_template_legacy(data, output_path, photo_path)
 
 
 def load_settings():
@@ -1930,11 +1512,7 @@ def upload():
     uploaded.save(saved_path)
     if not IS_CLOUD:
         shutil.copy2(saved_path, START_DIR / original_name)
-    try:
-        text = normalize_to_text(saved_path)
-    except Exception as exc:
-        saved_path.unlink(missing_ok=True)
-        return jsonify({"error": str(exc) or "Не удалось прочитать файл"}), 400
+    text = normalize_to_text(saved_path)
     data = parse_hh_resume(text) if source == "hh" else parse_resume(text)
     now = time.time()
     SESSIONS[session_id] = {"source": str(saved_path), "filename": original_name, "text": text, "data": data, "created_at": now, "updated_at": now}

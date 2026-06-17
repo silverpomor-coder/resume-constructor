@@ -1,0 +1,18 @@
+zip_ok: True
+xml_errors: []
+relationship_missing_targets: []
+relationship_duplicate_ids: []
+content_types_ok: True
+mc_ignorable: None
+missing_ignorable_prefixes: []
+document_tag_has_mc_ignorable_text: False
+header_refs: 0
+footer_refs: 0
+empty_trPr: 0
+empty_text_nodes: 0
+empty_or_format_only_runs: 0
+w14_stats: [('word/document.xml', 'paraId', 0, 0, 0), ('word/document.xml', 'textId', 0, 0, 0)]
+table_count: 5
+drawing_count: 1
+blip_count: 1
+markers: {'fio': True, 'role': True, 'salary': True, 'education': True, 'courses': True, 'employment': True, 'job': True, 'recommendations': True, 'agency_comment': True}

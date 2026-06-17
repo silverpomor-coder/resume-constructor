@@ -1,0 +1,31 @@
+[template_v3]
+zip: True
+tables: 6
+drawings: 2
+blips: ['rId9', 'rId8']
+header_refs: 0
+footer_refs: 0
+media: ['word/media/image1.jpeg', 'word/media/logo_1.png']
+rel_info: [{'Id': 'rId8', 'Type': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/image', 'Target': 'media/image1.jpeg'}, {'Id': 'rId12', 'Type': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme', 'Target': 'theme/theme1.xml'}, {'Id': 'rId11', 'Type': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/fontTable', 'Target': 'fontTable.xml'}, {'Id': 'rId9', 'Type': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/image', 'Target': 'media/logo_1.png'}]
+missing_rels: []
+duplicate_rels: []
+empty_t: 0
+empty_trpr: 0
+w14: [('paraId', 105, 105, 0), ('textId', 105, 55, 1)]
+markers: {'Васин Вадим Сергеевич': False, 'Исполнительный директор': False, '245 000': False, 'СВЕДЕНИЯ О ПРЕДЫДУЩЕЙ ЗАНЯТОСТИ': True}
+
+[generated_v3]
+zip: True
+tables: 6
+drawings: 1
+blips: ['rId9']
+header_refs: 0
+footer_refs: 0
+media: ['word/media/logo_1.png']
+rel_info: [{'Id': 'rId12', 'Type': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme', 'Target': 'theme/theme1.xml'}, {'Id': 'rId11', 'Type': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/fontTable', 'Target': 'fontTable.xml'}, {'Id': 'rId9', 'Type': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/image', 'Target': 'media/logo_1.png'}]
+missing_rels: []
+duplicate_rels: []
+empty_t: 0
+empty_trpr: 0
+w14: [('paraId', 0, 0, 0), ('textId', 0, 0, 0)]
+markers: {'Васин Вадим Сергеевич': True, 'Исполнительный директор': True, '245 000': True, 'СВЕДЕНИЯ О ПРЕДЫДУЩЕЙ ЗАНЯТОСТИ': True}

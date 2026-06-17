@@ -1,0 +1,45 @@
+{
+  "zip_ok": true,
+  "xml_errors": [],
+  "relationship_missing_targets": [],
+  "relationship_duplicate_ids": [],
+  "content_types_ok": true,
+  "mc_ignorable": null,
+  "missing_ignorable_prefixes": [],
+  "document_tag_has_mc_ignorable_text": false,
+  "header_refs": 0,
+  "footer_refs": 0,
+  "empty_trPr": 0,
+  "empty_text_nodes": 0,
+  "empty_or_format_only_runs": 0,
+  "w14_stats": [
+    [
+      "word/document.xml",
+      "paraId",
+      0,
+      0,
+      0
+    ],
+    [
+      "word/document.xml",
+      "textId",
+      0,
+      0,
+      0
+    ]
+  ],
+  "table_count": 5,
+  "drawing_count": 1,
+  "blip_count": 1,
+  "markers": {
+    "fio": true,
+    "role": true,
+    "salary": true,
+    "education": true,
+    "courses": true,
+    "employment": true,
+    "job": true,
+    "recommendations": true,
+    "agency_comment": true
+  }
+}

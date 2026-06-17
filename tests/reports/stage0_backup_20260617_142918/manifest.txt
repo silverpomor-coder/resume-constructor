@@ -1,0 +1,10 @@
+app.py
+frontend/tilda/app.js
+frontend/tilda/index.html
+frontend/tilda/tilda_single_block.html
+CV_sample_v2.docx
+logo_1.png
+requirements.txt
+README.md
+frontend/tilda/README_TILDA.md
+GENPLAN.md

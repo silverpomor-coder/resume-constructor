@@ -1,0 +1,850 @@
+{
+  "checks": {
+    "zip_ok": true,
+    "xml_errors": [],
+    "relationship_missing_targets": [],
+    "relationship_duplicate_ids": [],
+    "content_types_ok": true,
+    "header_files": [],
+    "footer_files": [],
+    "header_refs_in_document": 0,
+    "footer_refs_in_document": 0,
+    "media_files": [
+      "word/media/image1.png"
+    ],
+    "w14_stats_document": [
+      {
+        "attr": "paraId",
+        "total": 0,
+        "unique": 0,
+        "duplicate_values": 0
+      },
+      {
+        "attr": "textId",
+        "total": 0,
+        "unique": 0,
+        "duplicate_values": 0
+      }
+    ],
+    "empty_trPr_document": 0,
+    "empty_text_nodes_document": 0,
+    "empty_or_format_only_runs_document": 0,
+    "table_count": 5
+  },
+  "tables": [
+    {
+      "table": 0,
+      "row_count": 6,
+      "row_cell_counts": [
+        1,
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "has_images": false,
+      "has_merged_cells": true,
+      "empty_rows": [
+        0
+      ],
+      "rows": [
+        {
+          "row": 0,
+          "cell_count": 1,
+          "texts": [
+            ""
+          ],
+          "cells": [
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "3",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": true,
+          "has_images": false,
+          "is_empty": true,
+          "classification": "empty"
+        },
+        {
+          "row": 1,
+          "cell_count": 2,
+          "texts": [
+            "Ожидаемый размер оплаты",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "Ожидаемый размер оплаты",
+              "text_preview": "Ожидаемый размер оплаты",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "2",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": true,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "single_text_row"
+        },
+        {
+          "row": 2,
+          "cell_count": 2,
+          "texts": [
+            "Сведения о кандидате",
+            "ФОТО"
+          ],
+          "cells": [
+            {
+              "text": "Сведения о кандидате",
+              "text_preview": "Сведения о кандидате",
+              "gridSpan": "2",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "ФОТО",
+              "text_preview": "ФОТО",
+              "gridSpan": "",
+              "vMerge": "restart",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": true,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "possible_header_or_block"
+        },
+        {
+          "row": 3,
+          "cell_count": 3,
+          "texts": [
+            "ФИО",
+            "",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "ФИО",
+              "text_preview": "ФИО",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "continue",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": true,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "single_text_row"
+        },
+        {
+          "row": 4,
+          "cell_count": 3,
+          "texts": [
+            "ГРАЖДАНСТВО",
+            "",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "ГРАЖДАНСТВО",
+              "text_preview": "ГРАЖДАНСТВО",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "continue",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": true,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "single_text_row"
+        },
+        {
+          "row": 5,
+          "cell_count": 3,
+          "texts": [
+            "ДАТА РОЖДЕНИЯ И ВОЗРАСТ",
+            "",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "ДАТА РОЖДЕНИЯ И ВОЗРАСТ",
+              "text_preview": "ДАТА РОЖДЕНИЯ И ВОЗРАСТ",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "continue",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": true,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "single_text_row"
+        }
+      ]
+    },
+    {
+      "table": 1,
+      "row_count": 8,
+      "row_cell_counts": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "has_images": false,
+      "has_merged_cells": true,
+      "empty_rows": [],
+      "rows": [
+        {
+          "row": 0,
+          "cell_count": 1,
+          "texts": [
+            "ПЕРСОНАЛЬНЫЕ ДАННЫЕ"
+          ],
+          "cells": [
+            {
+              "text": "ПЕРСОНАЛЬНЫЕ ДАННЫЕ",
+              "text_preview": "ПЕРСОНАЛЬНЫЕ ДАННЫЕ",
+              "gridSpan": "2",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": true,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "single_text_row"
+        },
+        {
+          "row": 1,
+          "cell_count": 2,
+          "texts": [
+            "Семейное положение, дети",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "Семейное положение, дети",
+              "text_preview": "Семейное положение, дети",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": false,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "single_text_row"
+        },
+        {
+          "row": 2,
+          "cell_count": 2,
+          "texts": [
+            "Место регистрации",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "Место регистрации",
+              "text_preview": "Место регистрации",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": false,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "single_text_row"
+        },
+        {
+          "row": 3,
+          "cell_count": 2,
+          "texts": [
+            "Место фактического проживания",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "Место фактического проживания",
+              "text_preview": "Место фактического проживания",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": false,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "single_text_row"
+        },
+        {
+          "row": 4,
+          "cell_count": 2,
+          "texts": [
+            "Метро/станция электрички",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "Метро/станция электрички",
+              "text_preview": "Метро/станция электрички",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": false,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "single_text_row"
+        },
+        {
+          "row": 5,
+          "cell_count": 2,
+          "texts": [
+            "Наличие судимости",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "Наличие судимости",
+              "text_preview": "Наличие судимости",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": false,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "single_text_row"
+        },
+        {
+          "row": 6,
+          "cell_count": 2,
+          "texts": [
+            "Владение иностранными языками",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "Владение иностранными языками",
+              "text_preview": "Владение иностранными языками",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": false,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "single_text_row"
+        },
+        {
+          "row": 7,
+          "cell_count": 2,
+          "texts": [
+            "Водительские права, стаж, собственный автомобиль",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "Водительские права, стаж, собственный автомобиль",
+              "text_preview": "Водительские права, стаж, собственный автомобиль",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": false,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "single_text_row"
+        }
+      ]
+    },
+    {
+      "table": 2,
+      "row_count": 3,
+      "row_cell_counts": [
+        2,
+        2,
+        2
+      ],
+      "has_images": false,
+      "has_merged_cells": false,
+      "empty_rows": [
+        1,
+        2
+      ],
+      "rows": [
+        {
+          "row": 0,
+          "cell_count": 2,
+          "texts": [
+            "ОБРАЗОВАНИЕ",
+            "УЧЕБНОЕ ЗАВЕДЕНИЕ, ГОД ОКОНЧАНИЯ"
+          ],
+          "cells": [
+            {
+              "text": "ОБРАЗОВАНИЕ",
+              "text_preview": "ОБРАЗОВАНИЕ",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "УЧЕБНОЕ ЗАВЕДЕНИЕ, ГОД ОКОНЧАНИЯ",
+              "text_preview": "УЧЕБНОЕ ЗАВЕДЕНИЕ, ГОД ОКОНЧАНИЯ",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": false,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "possible_header_or_block"
+        },
+        {
+          "row": 1,
+          "cell_count": 2,
+          "texts": [
+            "",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": false,
+          "has_images": false,
+          "is_empty": true,
+          "classification": "empty"
+        },
+        {
+          "row": 2,
+          "cell_count": 2,
+          "texts": [
+            "",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": false,
+          "has_images": false,
+          "is_empty": true,
+          "classification": "empty"
+        }
+      ]
+    },
+    {
+      "table": 3,
+      "row_count": 4,
+      "row_cell_counts": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "has_images": false,
+      "has_merged_cells": true,
+      "empty_rows": [
+        1,
+        2,
+        3
+      ],
+      "rows": [
+        {
+          "row": 0,
+          "cell_count": 1,
+          "texts": [
+            "СВЕДЕНИЯ О ПРЕДЫДУЩЕЙ ЗАНЯТОСТИ"
+          ],
+          "cells": [
+            {
+              "text": "СВЕДЕНИЯ О ПРЕДЫДУЩЕЙ ЗАНЯТОСТИ",
+              "text_preview": "СВЕДЕНИЯ О ПРЕДЫДУЩЕЙ ЗАНЯТОСТИ",
+              "gridSpan": "2",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": true,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "possible_header_or_block"
+        },
+        {
+          "row": 1,
+          "cell_count": 2,
+          "texts": [
+            "",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": false,
+          "has_images": false,
+          "is_empty": true,
+          "classification": "empty"
+        },
+        {
+          "row": 2,
+          "cell_count": 2,
+          "texts": [
+            "",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": false,
+          "has_images": false,
+          "is_empty": true,
+          "classification": "empty"
+        },
+        {
+          "row": 3,
+          "cell_count": 2,
+          "texts": [
+            "",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": false,
+          "has_images": false,
+          "is_empty": true,
+          "classification": "empty"
+        }
+      ]
+    },
+    {
+      "table": 4,
+      "row_count": 4,
+      "row_cell_counts": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "has_images": false,
+      "has_merged_cells": true,
+      "empty_rows": [
+        3
+      ],
+      "rows": [
+        {
+          "row": 0,
+          "cell_count": 1,
+          "texts": [
+            "РЕКОМЕНДАЦИИ ПРЕЖНИХ НАНИМАТЕЛЕЙ"
+          ],
+          "cells": [
+            {
+              "text": "РЕКОМЕНДАЦИИ ПРЕЖНИХ НАНИМАТЕЛЕЙ",
+              "text_preview": "РЕКОМЕНДАЦИИ ПРЕЖНИХ НАНИМАТЕЛЕЙ",
+              "gridSpan": "2",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": true,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "possible_header_or_block"
+        },
+        {
+          "row": 1,
+          "cell_count": 2,
+          "texts": [
+            "Наличие",
+            ""
+          ],
+          "cells": [
+            {
+              "text": "Наличие",
+              "text_preview": "Наличие",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            },
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": false,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "single_text_row"
+        },
+        {
+          "row": 2,
+          "cell_count": 1,
+          "texts": [
+            "КОММЕНТАРИЙ АГЕНТСТВА"
+          ],
+          "cells": [
+            {
+              "text": "КОММЕНТАРИЙ АГЕНТСТВА",
+              "text_preview": "КОММЕНТАРИЙ АГЕНТСТВА",
+              "gridSpan": "2",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": true,
+          "has_images": false,
+          "is_empty": false,
+          "classification": "possible_header_or_block"
+        },
+        {
+          "row": 3,
+          "cell_count": 1,
+          "texts": [
+            ""
+          ],
+          "cells": [
+            {
+              "text": "",
+              "text_preview": "",
+              "gridSpan": "2",
+              "vMerge": "",
+              "drawings": 0,
+              "picts": 0
+            }
+          ],
+          "has_merged_cells": true,
+          "has_images": false,
+          "is_empty": true,
+          "classification": "empty"
+        }
+      ]
+    }
+  ]
+}

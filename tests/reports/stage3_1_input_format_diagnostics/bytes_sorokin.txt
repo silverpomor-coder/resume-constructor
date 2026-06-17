@@ -1,0 +1,6 @@
+size: 93806
+first_32_bytes: b'{\\rtf1\\ansi\\ansicpg1251\\deff0\\de'
+starts_rtf: True
+starts_zip: False
+starts_doc_ole: False
+starts_html: False

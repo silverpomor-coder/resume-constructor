@@ -1,0 +1,14 @@
+Archive:  tests/reports/stage2_8/shablon_original.docx
+    testing: [Content_Types].xml      OK
+    testing: _rels/.rels              OK
+    testing: word/document.xml        OK
+    testing: word/_rels/document.xml.rels   OK
+    testing: word/media/image1.png    OK
+    testing: word/theme/theme1.xml    OK
+    testing: word/settings.xml        OK
+    testing: word/styles.xml          OK
+    testing: word/webSettings.xml     OK
+    testing: word/fontTable.xml       OK
+    testing: docProps/core.xml        OK
+    testing: docProps/app.xml         OK
+No errors detected in compressed data of tests/reports/stage2_8/shablon_original.docx.

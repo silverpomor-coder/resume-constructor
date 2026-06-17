@@ -1,0 +1,154 @@
+{
+  "template": "shablon.docx",
+  "status": "draft_for_review_only",
+  "notes": [
+    "Generated from structural analysis only; app.py was not changed.",
+    "Rows/cells must be confirmed visually in Word before generator adaptation."
+  ],
+  "static_blocks": [
+    {
+      "table": 0,
+      "reason": "no obvious repeated/dynamic keywords detected"
+    },
+    {
+      "table": 1,
+      "reason": "no obvious repeated/dynamic keywords detected"
+    },
+    {
+      "table": 4,
+      "reason": "no obvious repeated/dynamic keywords detected"
+    }
+  ],
+  "dynamic_blocks": [
+    {
+      "block": "education_courses_candidate",
+      "table": 2,
+      "reason": "table text contains education/course keywords"
+    },
+    {
+      "block": "previous_employment_candidate",
+      "table": 3,
+      "reason": "table text contains employment/work keywords"
+    }
+  ],
+  "field_candidates": {
+    "salary": [
+      {
+        "table": 0,
+        "row": 1,
+        "row_text": "Ожидаемый размер оплаты | "
+      }
+    ],
+    "fio": [
+      {
+        "table": 0,
+        "row": 3,
+        "row_text": "ФИО |  | "
+      }
+    ],
+    "citizenship": [
+      {
+        "table": 0,
+        "row": 4,
+        "row_text": "ГРАЖДАНСТВО |  | "
+      }
+    ],
+    "birth_place_date": [
+      {
+        "table": 0,
+        "row": 5,
+        "row_text": "ДАТА РОЖДЕНИЯ И ВОЗРАСТ |  | "
+      }
+    ],
+    "family": [
+      {
+        "table": 1,
+        "row": 1,
+        "row_text": "Семейное положение, дети | "
+      }
+    ],
+    "registration": [
+      {
+        "table": 1,
+        "row": 2,
+        "row_text": "Место регистрации | "
+      }
+    ],
+    "location": [
+      {
+        "table": 1,
+        "row": 3,
+        "row_text": "Место фактического проживания | "
+      }
+    ],
+    "metro": [
+      {
+        "table": 1,
+        "row": 4,
+        "row_text": "Метро/станция электрички | "
+      }
+    ],
+    "criminal_record": [
+      {
+        "table": 1,
+        "row": 5,
+        "row_text": "Наличие судимости | "
+      }
+    ],
+    "languages": [
+      {
+        "table": 1,
+        "row": 6,
+        "row_text": "Владение иностранными языками | "
+      }
+    ],
+    "driving": [
+      {
+        "table": 1,
+        "row": 7,
+        "row_text": "Водительские права, стаж, собственный автомобиль | "
+      }
+    ],
+    "agency_comment": [
+      {
+        "table": 4,
+        "row": 2,
+        "row_text": "КОММЕНТАРИЙ АГЕНТСТВА"
+      }
+    ],
+    "education_level": [
+      {
+        "table": 2,
+        "row": 0,
+        "row_text": "ОБРАЗОВАНИЕ | УЧЕБНОЕ ЗАВЕДЕНИЕ, ГОД ОКОНЧАНИЯ"
+      }
+    ],
+    "education": [
+      {
+        "table": 2,
+        "row": 0,
+        "row_text": "ОБРАЗОВАНИЕ | УЧЕБНОЕ ЗАВЕДЕНИЕ, ГОД ОКОНЧАНИЯ"
+      }
+    ],
+    "recommendations": [
+      {
+        "table": 4,
+        "row": 0,
+        "row_text": "РЕКОМЕНДАЦИИ ПРЕЖНИХ НАНИМАТЕЛЕЙ"
+      }
+    ],
+    "photo": [
+      {
+        "table": 0,
+        "row": 2,
+        "row_text": "Сведения о кандидате | ФОТО"
+      }
+    ]
+  },
+  "missing_project_fields_in_template_text": [
+    "role",
+    "medical_book",
+    "courses"
+  ],
+  "new_template_fields_not_in_project_json": []
+}

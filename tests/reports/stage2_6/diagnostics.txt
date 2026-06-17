@@ -1,0 +1,46 @@
+zip_is_docx: True
+content_types_ok: True
+relationship_missing_targets: none
+relationship_duplicate_ids: none
+empty_trPr_document: 0
+empty_text_nodes_document: 0
+empty_or_format_only_runs_document: 0
+stage2_5_empty_text_nodes_document: 9
+stage2_5_empty_or_format_only_runs_document: 0
+w14_id_stats:
+  word/document.xml paraId: total=0; unique=0; duplicate_values=0
+  word/document.xml textId: total=0; unique=0; duplicate_values=0
+  word/header1.xml paraId: total=0; unique=0; duplicate_values=0
+  word/header1.xml textId: total=0; unique=0; duplicate_values=0
+  word/header2.xml paraId: total=0; unique=0; duplicate_values=0
+  word/header2.xml textId: total=0; unique=0; duplicate_values=0
+  word/footnotes.xml paraId: total=0; unique=0; duplicate_values=0
+  word/footnotes.xml textId: total=0; unique=0; duplicate_values=0
+  word/endnotes.xml paraId: total=0; unique=0; duplicate_values=0
+  word/endnotes.xml textId: total=0; unique=0; duplicate_values=0
+important_elements_stage2_6:
+  tab: 0
+  br: 0
+  drawing: 0
+  pict: 0
+  fldChar: 0
+  instrText: 0
+  footnoteReference: 0
+  endnoteReference: 0
+important_elements_stage2_5_original:
+  tab: 0
+  br: 0
+  drawing: 0
+  pict: 0
+  fldChar: 0
+  instrText: 0
+  footnoteReference: 0
+  endnoteReference: 0
+markers:
+  Васин Вадим Сергеевич: True
+  Исполнительный директор: True
+  245 000: True
+  СВЕДЕНИЯ О ПРЕДЫДУЩЕЙ ЗАНЯТОСТИ: True
+  Индустрия Поволжья: True
+media:
+  image2.png: 82857
