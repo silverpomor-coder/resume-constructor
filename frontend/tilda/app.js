@@ -64,6 +64,23 @@
     statusLine.textContent = text;
   }
 
+  function applyFieldStyles(label, title, input) {
+    label.style.display = "block";
+    label.style.padding = "10px 0";
+    label.style.borderBottom = "1px solid #eeeeee";
+    title.style.display = "block";
+    title.style.marginBottom = "6px";
+    title.style.fontWeight = "700";
+    input.style.width = "100%";
+    input.style.minHeight = "38px";
+    input.style.resize = "vertical";
+    input.style.padding = "8px";
+    input.style.border = "1px solid #bbbbbb";
+    input.style.borderRadius = "4px";
+    input.style.font = "inherit";
+    input.style.lineHeight = "1.35";
+  }
+
   function visibleFields(fields) {
     return (fields || []).filter((field) => {
       const key = field.key || "";
@@ -92,6 +109,7 @@
       const input = document.createElement("textarea");
       input.name = field.key;
       input.rows = 2;
+      applyFieldStyles(label, title, input);
       label.append(title, input);
       editorForm.appendChild(label);
     }

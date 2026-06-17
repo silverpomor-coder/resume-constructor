@@ -75,7 +75,7 @@
 
 #resume-constructor-widget .rc-workspace {
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) minmax(260px, 1fr) minmax(280px, 0.9fr);
+  grid-template-columns: minmax(260px, 40%) minmax(360px, 60%);
   gap: 10px;
   padding: 10px;
 }
@@ -106,26 +106,6 @@
   word-break: break-word;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.45;
-}
-
-#resume-constructor-widget .rc-preview {
-  padding-top: 12px;
-  line-height: 1.45;
-}
-
-#resume-constructor-widget .rc-preview-block {
-  margin-bottom: 14px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eeeeee;
-}
-
-#resume-constructor-widget .rc-preview-title {
-  margin-bottom: 4px;
-  font-weight: 700;
-}
-
-#resume-constructor-widget .rc-preview-value {
-  white-space: pre-wrap;
 }
 
 #resume-constructor-widget .rc-photo-block,
