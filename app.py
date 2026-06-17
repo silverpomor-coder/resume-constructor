@@ -43,11 +43,13 @@ W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 NS = {"w": W_NS}
 ET.register_namespace("w", W_NS)
 A_NS = "http://schemas.openxmlformats.org/drawingml/2006/main"
+W14_NS = "http://schemas.microsoft.com/office/word/2010/wordml"
 WP_NS = "http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
 R_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
 REL_NS = "http://schemas.openxmlformats.org/package/2006/relationships"
 PIC_NS = "http://schemas.openxmlformats.org/drawingml/2006/picture"
 ET.register_namespace("a", A_NS)
+ET.register_namespace("w14", W14_NS)
 ET.register_namespace("wp", WP_NS)
 ET.register_namespace("r", R_NS)
 ET.register_namespace("pic", PIC_NS)
@@ -1044,6 +1046,12 @@ def register_document_namespaces(xml_content):
             continue
 
 
+def remove_word_generated_ids(root):
+    for element in root.iter():
+        element.attrib.pop(f"{{{W14_NS}}}paraId", None)
+        element.attrib.pop(f"{{{W14_NS}}}textId", None)
+
+
 def set_cell_text(cell, value, bold_first_line=False):
     paragraphs = cell.findall("./w:p", NS)
     template_paragraph = deepcopy(paragraphs[0]) if paragraphs else ET.Element(f"{{{W_NS}}}p")
@@ -1380,6 +1388,7 @@ def fill_template(data, output_path, photo_path=None):
             set_cell_text(cells[1], job_summary(data, index), bold_first_line=True)
         set_by_pos(5, 1, 1, "recommendations")
 
+        remove_word_generated_ids(root)
         files["word/document.xml"] = ET.tostring(root, encoding="utf-8", xml_declaration=True)
         with zipfile.ZipFile(output_path, "w", zipfile.ZIP_DEFLATED) as zout:
             for name, content in files.items():
