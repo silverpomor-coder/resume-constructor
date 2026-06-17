@@ -1052,6 +1052,37 @@ def remove_word_generated_ids(root):
         element.attrib.pop(f"{{{W14_NS}}}textId", None)
 
 
+def remove_empty_row_properties(root):
+    removed = 0
+    for row in root.findall(".//w:tr", NS):
+        trpr = row.find("./w:trPr", NS)
+        if trpr is not None and not trpr.attrib and not list(trpr):
+            row.remove(trpr)
+            removed += 1
+    return removed
+
+
+def should_clean_word_generated_ids(part_name):
+    return (
+        part_name == "word/document.xml"
+        or part_name.startswith("word/header")
+        or part_name.startswith("word/footer")
+        or part_name in {"word/footnotes.xml", "word/endnotes.xml"}
+    )
+
+
+def clean_word_generated_ids_in_parts(files):
+    for name, content in list(files.items()):
+        if not should_clean_word_generated_ids(name):
+            continue
+        try:
+            root = ET.fromstring(content)
+        except ET.ParseError:
+            continue
+        remove_word_generated_ids(root)
+        files[name] = ET.tostring(root, encoding="utf-8", xml_declaration=True)
+
+
 def set_cell_text(cell, value, bold_first_line=False):
     paragraphs = cell.findall("./w:p", NS)
     template_paragraph = deepcopy(paragraphs[0]) if paragraphs else ET.Element(f"{{{W_NS}}}p")
@@ -1212,6 +1243,8 @@ def clear_row_height(row):
         return
     for height in list(trpr.findall("./w:trHeight", NS)):
         trpr.remove(height)
+    if not trpr.attrib and not list(trpr):
+        row.remove(trpr)
 
 
 def remove_table_rows(table, start_index, count):
@@ -1389,7 +1422,9 @@ def fill_template(data, output_path, photo_path=None):
         set_by_pos(5, 1, 1, "recommendations")
 
         remove_word_generated_ids(root)
+        remove_empty_row_properties(root)
         files["word/document.xml"] = ET.tostring(root, encoding="utf-8", xml_declaration=True)
+        clean_word_generated_ids_in_parts(files)
         with zipfile.ZipFile(output_path, "w", zipfile.ZIP_DEFLATED) as zout:
             for name, content in files.items():
                 zout.writestr(name, content)
