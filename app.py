@@ -1062,6 +1062,34 @@ def remove_empty_row_properties(root):
     return removed
 
 
+def remove_empty_text_runs(root):
+    removed_texts = 0
+    removed_runs = 0
+    parent_map = {child: parent for parent in root.iter() for child in parent}
+
+    for text_node in list(root.findall(".//w:t", NS)):
+        if text_node.text not in (None, ""):
+            continue
+        run = parent_map.get(text_node)
+        if run is None or run.tag != f"{{{W_NS}}}r":
+            continue
+        run.remove(text_node)
+        removed_texts += 1
+
+    parent_map = {child: parent for parent in root.iter() for child in parent}
+    for run in list(root.findall(".//w:r", NS)):
+        children = list(run)
+        if children and any(child.tag != f"{{{W_NS}}}rPr" for child in children):
+            continue
+        parent = parent_map.get(run)
+        if parent is None:
+            continue
+        parent.remove(run)
+        removed_runs += 1
+
+    return removed_texts, removed_runs
+
+
 def should_clean_word_generated_ids(part_name):
     return (
         part_name == "word/document.xml"
@@ -1423,6 +1451,7 @@ def fill_template(data, output_path, photo_path=None):
 
         remove_word_generated_ids(root)
         remove_empty_row_properties(root)
+        remove_empty_text_runs(root)
         files["word/document.xml"] = ET.tostring(root, encoding="utf-8", xml_declaration=True)
         clean_word_generated_ids_in_parts(files)
         with zipfile.ZipFile(output_path, "w", zipfile.ZIP_DEFLATED) as zout:
