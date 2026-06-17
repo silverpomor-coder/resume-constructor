@@ -10,7 +10,6 @@
     { key: "salary", label: "Ожидаемый размер оплаты" },
     { key: "fio", label: "ФИО" },
     { key: "phone", label: "Телефон" },
-    { key: "email", label: "Электронная почта" },
     { key: "citizenship", label: "Гражданство" },
     { key: "birth_place_date", label: "Место и дата рождения" },
     { key: "family", label: "Семейное положение / дети" },
@@ -39,7 +38,6 @@
   const statusLine = root.querySelector("[data-rc-status]");
   const sourceText = root.querySelector("[data-rc-source-text]");
   const editorForm = root.querySelector("[data-rc-editor]");
-  const preview = root.querySelector("[data-rc-preview]");
   const photoInput = root.querySelector("[data-rc-photo]");
   const photoPreview = root.querySelector("[data-rc-photo-preview]");
   const photoPlaceholder = root.querySelector("[data-rc-photo-placeholder]");
@@ -67,8 +65,16 @@
     statusLine.textContent = text;
   }
 
+  function visibleFields(fields) {
+    return (fields || []).filter((field) => {
+      const key = field.key || "";
+      return key !== "email" && !/^job\d+_(site|url|website)$/i.test(key);
+    });
+  }
+
   function rebuildForm(fields) {
-    fieldDefs = fields && fields.length ? fields : DEFAULT_FIELDS;
+    const nextFields = visibleFields(fields && fields.length ? fields : DEFAULT_FIELDS);
+    fieldDefs = nextFields.length ? nextFields : visibleFields(DEFAULT_FIELDS);
     editorForm.innerHTML = "";
     for (const field of fieldDefs) {
       const label = document.createElement("label");
@@ -92,29 +98,11 @@
     return data;
   }
 
-  function renderPreview() {
-    const data = collectFormData();
-    preview.innerHTML = "";
-    for (const field of fieldDefs) {
-      const block = document.createElement("div");
-      block.className = "rc-preview-block";
-      const title = document.createElement("div");
-      title.className = "rc-preview-title";
-      title.textContent = field.label;
-      const value = document.createElement("div");
-      value.className = "rc-preview-value";
-      value.textContent = data[field.key] || "";
-      block.append(title, value);
-      preview.appendChild(block);
-    }
-  }
-
   function fillForm(data) {
     for (const field of fieldDefs) {
       const input = editorForm.elements[field.key];
       if (input) input.value = data[field.key] || "";
     }
-    renderPreview();
   }
 
   function resetPhotoBlock() {
@@ -149,6 +137,13 @@
     } catch (error) {
       return { error: text };
     }
+  }
+
+  function downloadFilename(disposition) {
+    const encoded = disposition.match(/filename\*=UTF-8''([^;]+)/i);
+    if (encoded) return decodeURIComponent(encoded[1]);
+    const plain = disposition.match(/filename="?([^";]+)"?/i);
+    return plain ? plain[1] : "resume.docx";
   }
 
   async function uploadSelectedFile() {
@@ -222,8 +217,7 @@
     if (response.ok && contentType.includes("application/vnd.openxmlformats-officedocument")) {
       const blob = await response.blob();
       const disposition = response.headers.get("Content-Disposition") || "";
-      const match = disposition.match(/filename\*=UTF-8''([^;]+)|filename="?([^"]+)"?/);
-      const filename = match ? decodeURIComponent(match[1] || match[2]) : "resume.docx";
+      const filename = downloadFilename(disposition);
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
       link.download = filename;
@@ -257,8 +251,6 @@
   deletePhotoButton.addEventListener("click", deletePhoto);
   saveButton.addEventListener("click", saveDocx);
   healthButton.addEventListener("click", checkHealth);
-  editorForm.addEventListener("input", renderPreview);
 
   rebuildForm(DEFAULT_FIELDS);
-  renderPreview();
 }());

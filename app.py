@@ -109,7 +109,6 @@ FIELDS = [
     {"key": "salary", "label": "Ожидаемый размер оплаты"},
     {"key": "fio", "label": "ФИО"},
     {"key": "phone", "label": "Телефон"},
-    {"key": "email", "label": "Электронная почта"},
     {"key": "citizenship", "label": "Гражданство"},
     {"key": "birth_place_date", "label": "Место и дата рождения"},
     {"key": "family", "label": "Семейное положение / дети"},
@@ -134,7 +133,6 @@ def job_fields(job_count):
         fields.extend([
             {"key": f"job{index}_period", "label": f"Работа {index}: период"},
             {"key": f"job{index}_city", "label": f"Работа {index}: компания / город"},
-            {"key": f"job{index}_site", "label": f"Работа {index}: сайт / информация"},
             {"key": f"job{index}_description", "label": f"Работа {index}: должность и обязанности"},
         ])
     return fields
@@ -552,6 +550,12 @@ def is_money_value(value):
 
 def clean_salary_value(value):
     value = normalize_spaces(value)
+    value = re.sub(
+        r"^(?:зарплата|ожидаемый размер оплаты|ожидаемый размер зарплаты|желаемый доход|уровень дохода|желаемый уровень заработной платы)\s*:?\s*",
+        "",
+        value,
+        flags=re.IGNORECASE,
+    )
     if ":" in value:
         after = value.split(":", 1)[1].strip()
         if is_money_value(after):
@@ -569,6 +573,27 @@ def extract_salary_from_lines(lines, labels):
                 if is_money_value(candidate):
                     return clean_salary_value(candidate)
     return ""
+
+
+def clean_web_references(value):
+    text = str(value or "")
+    if not text:
+        return ""
+    site_pattern = r"(?:https?://)?(?:www\.)?[A-Za-z0-9А-Яа-яЁё-]+(?:\.[A-Za-zА-Яа-яЁё]{2,})(?:/[^\s,;)\]]*)?"
+    text = re.sub(rf"\[\[?[^\]\n]*{site_pattern}[^\]\n]*\]\([^)]+\)\]?(?:\([^)]+\))?", "", text, flags=re.IGNORECASE)
+    text = re.sub(rf"\[[^\]\n]*{site_pattern}[^\]\n]*\]\([^)]+\)", "", text, flags=re.IGNORECASE)
+    text = re.sub(site_pattern, "", text, flags=re.IGNORECASE)
+    text = re.sub(r"[ \t]*,[ \t]*(?=\n|$)", "", text)
+    text = re.sub(r",[ \t]*,", ",", text)
+    text = re.sub(r"[ \t]{2,}", " ", text)
+    return "\n".join(line.strip(" ,;") for line in text.splitlines()).strip()
+
+
+def clean_job_fields(data):
+    for key in list(data.keys()):
+        if re.fullmatch(r"job\d+_(city|site|description)", key):
+            data[key] = clean_web_references(data.get(key, ""))
+    return data
 
 
 def line_after_exact(lines, label):
@@ -619,15 +644,14 @@ def hh_salary(lines):
         if line.lower().strip(": ") == "желаемая должность и зарплата":
             start = index + 1
             break
-    if start is None:
-        return ""
-    for line in lines[start:]:
-        lowered = line.lower()
-        if lowered.startswith("опыт работы"):
-            break
-        if is_money_value(line):
-            return normalize_spaces(line)
-    return ""
+    if start is not None:
+        for line in lines[start:]:
+            lowered = line.lower()
+            if lowered.startswith("опыт работы"):
+                break
+            if is_money_value(line):
+                return normalize_spaces(line)
+    return extract_salary_from_lines(lines, ["Ожидаемый размер зарплаты"])
 
 
 def split_location_metro(value):
@@ -829,7 +853,7 @@ def parse_hh_resume(text):
         data[f"job{index}_description"] = job.get("description", "")
     data["_job_count"] = len(jobs)
 
-    return data
+    return clean_job_fields(data)
 
 
 def parse_resume(text):
@@ -904,7 +928,7 @@ def parse_resume(text):
         data[f"job{index}_description"] = job.get("description", "")
     data["_job_count"] = len(jobs)
 
-    return data
+    return clean_job_fields(data)
 
 
 def extract_jobs(lines, text):
@@ -1158,14 +1182,11 @@ def period_with_duration(period):
 
 
 def job_summary(data, index):
-    city = str(data.get(f"job{index}_city", "") or "").strip()
-    site = str(data.get(f"job{index}_site", "") or "").strip()
-    description = str(data.get(f"job{index}_description", "") or "").strip()
+    city = clean_web_references(data.get(f"job{index}_city", ""))
+    description = clean_web_references(data.get(f"job{index}_description", ""))
     lines = []
     if city:
         lines.append(f"Место работы: {city}")
-    if site:
-        lines.append(f"Сайт / информация: {site}")
     if description:
         lines.append(f"Функционал:\n{description}")
     return "\n".join(lines)
@@ -1196,6 +1217,16 @@ def remove_table_rows(table, start_index, count):
     rows = table.findall("./w:tr", NS)
     for row in rows[start_index:start_index + count]:
         table.remove(row)
+
+
+def row_text(row):
+    return "".join(row.itertext())
+
+
+def remove_rows_with_text(table, needle):
+    for row in list(table.findall("./w:tr", NS)):
+        if needle.lower() in row_text(row).lower():
+            table.remove(row)
 
 
 def insert_label_value_rows(table, insert_index, items):
@@ -1335,8 +1366,8 @@ def fill_template(data, output_path, photo_path=None):
         set_by_pos(1, 8, 1, "driving")
         insert_label_value_rows(tables[1], 1, [
             ("Телефон", data.get("phone", "")),
-            ("Электронная почта", data.get("email", "")),
         ])
+        remove_rows_with_text(tables[1], "Электронная почта")
         set_by_pos(2, 3, 0, "agency_comment")
         try:
             remove_table_rows(tables[2], 0, 2)
