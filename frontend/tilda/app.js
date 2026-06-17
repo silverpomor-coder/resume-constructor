@@ -9,7 +9,6 @@
     { key: "role", label: "Должность / желаемая роль" },
     { key: "salary", label: "Ожидаемый размер оплаты" },
     { key: "fio", label: "ФИО" },
-    { key: "phone", label: "Телефон" },
     { key: "citizenship", label: "Гражданство" },
     { key: "birth_place_date", label: "Место и дата рождения" },
     { key: "family", label: "Семейное положение / дети" },
@@ -68,8 +67,17 @@
   function visibleFields(fields) {
     return (fields || []).filter((field) => {
       const key = field.key || "";
-      return key !== "email" && !/^job\d+_(site|url|website)$/i.test(key);
+      return !["email", "phone", "telephone", "mobile", "candidate_phone"].includes(key)
+        && !/^job\d+_(site|url|website)$/i.test(key);
     });
+  }
+
+  function savePayload() {
+    const data = collectFormData();
+    for (const key of ["email", "phone", "telephone", "mobile", "candidate_phone"]) {
+      delete data[key];
+    }
+    return data;
   }
 
   function rebuildForm(fields) {
@@ -211,7 +219,7 @@
     const response = await fetch(apiUrl("/save"), requestOptions({
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ session_id: currentSession, data: collectFormData() }),
+      body: JSON.stringify({ session_id: currentSession, data: savePayload() }),
     }));
     const contentType = response.headers.get("Content-Type") || "";
     if (response.ok && contentType.includes("application/vnd.openxmlformats-officedocument")) {

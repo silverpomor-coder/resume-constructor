@@ -108,7 +108,6 @@ FIELDS = [
     {"key": "role", "label": "Должность / желаемая роль"},
     {"key": "salary", "label": "Ожидаемый размер оплаты"},
     {"key": "fio", "label": "ФИО"},
-    {"key": "phone", "label": "Телефон"},
     {"key": "citizenship", "label": "Гражданство"},
     {"key": "birth_place_date", "label": "Место и дата рождения"},
     {"key": "family", "label": "Семейное положение / дети"},
@@ -829,7 +828,6 @@ def parse_hh_resume(text):
 
     data["fio"] = hh_fio(lines)
     data["email"] = extract_email(text)
-    data["phone"] = extract_phone(text)
     data["role"] = line_after_exact(lines, "Желаемая должность и зарплата")
     data["salary"] = hh_salary(lines)
     data["citizenship"] = value_after_label(lines, ["Гражданство"])
@@ -861,11 +859,6 @@ def parse_resume(text):
     data = {field["key"]: "" for field in fields_for_job_count(2)}
 
     data["email"] = extract_email(text)
-    data["phone"] = (
-        value_after_label_filtered(lines, ["Контактный телефон", "Телефон"], is_valid_phone)
-        or extract_phone(text)
-    )
-
     data["fio"] = (
         value_after_label(lines, ["Ф.И.О.", "ФИО"])
         or first_match(r"^([А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+)$", "\n".join(lines[:8]))
@@ -1364,9 +1357,7 @@ def fill_template(data, output_path, photo_path=None):
         set_by_pos(1, 6, 1, "languages")
         set_by_pos(1, 7, 1, "medical_book")
         set_by_pos(1, 8, 1, "driving")
-        insert_label_value_rows(tables[1], 1, [
-            ("Телефон", data.get("phone", "")),
-        ])
+        remove_rows_with_text(tables[1], "Телефон")
         remove_rows_with_text(tables[1], "Электронная почта")
         set_by_pos(2, 3, 0, "agency_comment")
         try:
