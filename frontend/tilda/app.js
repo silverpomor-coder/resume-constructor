@@ -64,6 +64,17 @@
     statusLine.textContent = text;
   }
 
+  function setButtonState(button, active) {
+    button.style.background = active ? "#222222" : "#ffffff";
+    button.style.color = active ? "#ffffff" : "#222222";
+  }
+
+  function setDisabledButton(button, disabled) {
+    button.disabled = disabled;
+    button.style.color = disabled ? "#999999" : "#222222";
+    button.style.cursor = disabled ? "default" : "pointer";
+  }
+
   function applyFieldStyles(label, title, input) {
     label.style.display = "block";
     label.style.padding = "10px 0";
@@ -137,7 +148,7 @@
     photoPreview.removeAttribute("src");
     photoPlaceholder.hidden = false;
     photoStatus.textContent = "Фото не загружено";
-    deletePhotoButton.disabled = true;
+    setDisabledButton(deletePhotoButton, true);
   }
 
   function showPhoto(url, filename) {
@@ -145,13 +156,15 @@
     photoPreview.hidden = false;
     photoPlaceholder.hidden = true;
     photoStatus.textContent = filename ? `Фото загружено: ${filename}` : "Фото загружено";
-    deletePhotoButton.disabled = false;
+    setDisabledButton(deletePhotoButton, false);
   }
 
   function setSource(source) {
     currentSource = source;
     sourceButtons.forEach((button) => {
-      button.classList.toggle("rc-active", button.dataset.rcSource === currentSource);
+      const isActive = button.dataset.rcSource === currentSource;
+      button.classList.toggle("rc-active", isActive);
+      setButtonState(button, isActive);
     });
   }
 
@@ -190,7 +203,7 @@
     rebuildForm(result.fields);
     fillForm(result.data || {});
     resetPhotoBlock();
-    saveButton.disabled = false;
+    setDisabledButton(saveButton, false);
     setStatus(`Загружен файл: ${result.filename}`);
   }
 
@@ -278,5 +291,8 @@
   saveButton.addEventListener("click", saveDocx);
   healthButton.addEventListener("click", checkHealth);
 
+  setSource(currentSource);
+  setDisabledButton(saveButton, true);
+  setDisabledButton(deletePhotoButton, true);
   rebuildForm(DEFAULT_FIELDS);
 }());

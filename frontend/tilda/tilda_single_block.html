@@ -187,47 +187,47 @@
 
 </style>
 
-<div id="resume-constructor-widget">
-  <div class="rc-shell">
-    <div class="rc-topbar">
+<div id="resume-constructor-widget" style="width:100%;color:#222222;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+  <div class="rc-shell" style="width:100%;min-height:760px;background:#11b2d0;border:1px solid #0f9bb5;box-sizing:border-box;">
+    <div class="rc-topbar" style="display:flex;justify-content:space-between;gap:16px;padding:12px 14px;background:#ffffff;border-bottom:1px solid #d0d0d0;box-sizing:border-box;">
       <div>
-        <h2 class="rc-title">Конструктор резюме</h2>
-        <p class="rc-status" data-rc-status>Загрузите исходный файл резюме</p>
+        <h2 class="rc-title" style="margin:0;font-size:20px;line-height:1.2;">Конструктор резюме</h2>
+        <p class="rc-status" data-rc-status style="margin:4px 0 0;color:#666666;">Загрузите исходный файл резюме</p>
       </div>
-      <div class="rc-actions">
-        <button type="button" class="rc-button rc-active" data-rc-source="auto">Авто</button>
-        <button type="button" class="rc-button" data-rc-source="hh">HH</button>
-        <label class="rc-file-button">
+      <div class="rc-actions" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <button type="button" class="rc-button rc-active" data-rc-source="auto" style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 14px;border:1px solid #999999;border-radius:4px;background:#222222;color:#ffffff;cursor:pointer;font:inherit;text-decoration:none;">Авто</button>
+        <button type="button" class="rc-button" data-rc-source="hh" style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 14px;border:1px solid #999999;border-radius:4px;background:#ffffff;color:#222222;cursor:pointer;font:inherit;text-decoration:none;">HH</button>
+        <label class="rc-file-button" style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 14px;border:1px solid #999999;border-radius:4px;background:#ffffff;color:#222222;cursor:pointer;font:inherit;text-decoration:none;">
           Загрузить
-          <input class="rc-hidden-input" data-rc-file type="file" accept=".doc,.docx,.rtf,.txt,.odt">
+          <input class="rc-hidden-input" data-rc-file type="file" accept=".doc,.docx,.rtf,.txt,.odt" style="display:none;">
         </label>
-        <button type="button" class="rc-button" data-rc-save disabled>Сохранить DOCX</button>
-        <button type="button" class="rc-button" data-rc-health>Проверить backend</button>
+        <button type="button" class="rc-button" data-rc-save disabled style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 14px;border:1px solid #999999;border-radius:4px;background:#ffffff;color:#999999;cursor:default;font:inherit;text-decoration:none;">Сохранить DOCX</button>
+        <button type="button" class="rc-button" data-rc-health style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 14px;border:1px solid #999999;border-radius:4px;background:#ffffff;color:#222222;cursor:pointer;font:inherit;text-decoration:none;">Проверить backend</button>
       </div>
     </div>
 
-    <div class="rc-workspace">
-      <section class="rc-pane">
-        <h3 class="rc-pane-title">Исходный текст</h3>
-        <pre class="rc-source-text" data-rc-source-text>Файл пока не загружен.</pre>
+    <div class="rc-workspace" style="display:grid;grid-template-columns:minmax(260px,40%) minmax(360px,60%);gap:10px;padding:10px;box-sizing:border-box;">
+      <section class="rc-pane" style="min-width:0;height:660px;overflow:auto;padding:0 12px 12px;background:#ffffff;border:1px solid #d8d8d8;box-sizing:border-box;">
+        <h3 class="rc-pane-title" style="position:sticky;top:0;z-index:1;margin:0;padding:10px 0;background:#ffffff;border-bottom:1px solid #dddddd;font-size:15px;">Исходный текст</h3>
+        <pre class="rc-source-text" data-rc-source-text style="margin:12px 0 0;white-space:pre-wrap;word-break:break-word;font-family:Arial,Helvetica,sans-serif;line-height:1.45;">Файл пока не загружен.</pre>
       </section>
 
-      <section class="rc-pane">
-        <h3 class="rc-pane-title">Редактирование</h3>
-        <div class="rc-photo-block">
-          <span class="rc-photo-title">Фото кандидата</span>
-          <div class="rc-photo-preview">
+      <section class="rc-pane" style="min-width:0;height:660px;overflow:auto;padding:0 12px 12px;background:#ffffff;border:1px solid #d8d8d8;box-sizing:border-box;">
+        <h3 class="rc-pane-title" style="position:sticky;top:0;z-index:1;margin:0;padding:10px 0;background:#ffffff;border-bottom:1px solid #dddddd;font-size:15px;">Редактирование</h3>
+        <div class="rc-photo-block" style="display:block;padding:10px 0;border-bottom:1px solid #eeeeee;">
+          <span class="rc-photo-title" style="display:block;margin-bottom:6px;font-weight:700;">Фото кандидата</span>
+          <div class="rc-photo-preview" style="width:150px;height:150px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;border:1px solid #bbbbbb;background:#f7f7f7;color:#666666;text-align:center;">
             <img data-rc-photo-preview alt="Фото кандидата" hidden>
             <span data-rc-photo-placeholder>Фото не загружено</span>
           </div>
-          <div class="rc-photo-actions">
-            <label class="rc-file-button">
+          <div class="rc-photo-actions" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+            <label class="rc-file-button" style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 14px;border:1px solid #999999;border-radius:4px;background:#ffffff;color:#222222;cursor:pointer;font:inherit;text-decoration:none;">
               Загрузить фото
-              <input class="rc-hidden-input" data-rc-photo type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png">
+              <input class="rc-hidden-input" data-rc-photo type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png" style="display:none;">
             </label>
-            <button type="button" class="rc-button" data-rc-delete-photo disabled>Удалить фото</button>
+            <button type="button" class="rc-button" data-rc-delete-photo disabled style="display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 14px;border:1px solid #999999;border-radius:4px;background:#ffffff;color:#999999;cursor:default;font:inherit;text-decoration:none;">Удалить фото</button>
           </div>
-          <div class="rc-photo-status" data-rc-photo-status>Фото не загружено</div>
+          <div class="rc-photo-status" data-rc-photo-status style="min-height:20px;margin-top:6px;color:#666666;">Фото не загружено</div>
         </div>
         <form data-rc-editor></form>
       </section>
@@ -303,6 +303,34 @@
     statusLine.textContent = text;
   }
 
+  function setButtonState(button, active) {
+    button.style.background = active ? "#222222" : "#ffffff";
+    button.style.color = active ? "#ffffff" : "#222222";
+  }
+
+  function setDisabledButton(button, disabled) {
+    button.disabled = disabled;
+    button.style.color = disabled ? "#999999" : "#222222";
+    button.style.cursor = disabled ? "default" : "pointer";
+  }
+
+  function applyFieldStyles(label, title, input) {
+    label.style.display = "block";
+    label.style.padding = "10px 0";
+    label.style.borderBottom = "1px solid #eeeeee";
+    title.style.display = "block";
+    title.style.marginBottom = "6px";
+    title.style.fontWeight = "700";
+    input.style.width = "100%";
+    input.style.minHeight = "38px";
+    input.style.resize = "vertical";
+    input.style.padding = "8px";
+    input.style.border = "1px solid #bbbbbb";
+    input.style.borderRadius = "4px";
+    input.style.font = "inherit";
+    input.style.lineHeight = "1.35";
+  }
+
   function visibleFields(fields) {
     return (fields || []).filter((field) => {
       const key = field.key || "";
@@ -331,6 +359,7 @@
       const input = document.createElement("textarea");
       input.name = field.key;
       input.rows = 2;
+      applyFieldStyles(label, title, input);
       label.append(title, input);
       editorForm.appendChild(label);
     }
@@ -358,7 +387,7 @@
     photoPreview.removeAttribute("src");
     photoPlaceholder.hidden = false;
     photoStatus.textContent = "Фото не загружено";
-    deletePhotoButton.disabled = true;
+    setDisabledButton(deletePhotoButton, true);
   }
 
   function showPhoto(url, filename) {
@@ -366,13 +395,15 @@
     photoPreview.hidden = false;
     photoPlaceholder.hidden = true;
     photoStatus.textContent = filename ? `Фото загружено: ${filename}` : "Фото загружено";
-    deletePhotoButton.disabled = false;
+    setDisabledButton(deletePhotoButton, false);
   }
 
   function setSource(source) {
     currentSource = source;
     sourceButtons.forEach((button) => {
-      button.classList.toggle("rc-active", button.dataset.rcSource === currentSource);
+      const isActive = button.dataset.rcSource === currentSource;
+      button.classList.toggle("rc-active", isActive);
+      setButtonState(button, isActive);
     });
   }
 
@@ -411,7 +442,7 @@
     rebuildForm(result.fields);
     fillForm(result.data || {});
     resetPhotoBlock();
-    saveButton.disabled = false;
+    setDisabledButton(saveButton, false);
     setStatus(`Загружен файл: ${result.filename}`);
   }
 
@@ -499,6 +530,9 @@
   saveButton.addEventListener("click", saveDocx);
   healthButton.addEventListener("click", checkHealth);
 
+  setSource(currentSource);
+  setDisabledButton(saveButton, true);
+  setDisabledButton(deletePhotoButton, true);
   rebuildForm(DEFAULT_FIELDS);
 }());
 
