@@ -442,6 +442,9 @@
     rebuildForm(result.fields);
     fillForm(result.data || {});
     resetPhotoBlock();
+    if (result.photo && result.photo.url) {
+      showPhoto(result.photo.url, result.photo.filename);
+    }
     setDisabledButton(saveButton, false);
     setStatus(`Загружен файл: ${result.filename}`);
   }

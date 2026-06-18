@@ -268,6 +268,117 @@ def image_info(data):
     return "", "", None
 
 
+def select_largest_image(candidates, min_size=120):
+    best = None
+    for data, source_name in candidates:
+        extension, content_type, dimensions = image_info(data)
+        if not dimensions:
+            continue
+        width, height = dimensions
+        if width < min_size or height < min_size:
+            continue
+        area = width * height
+        if not best or area > best["area"]:
+            best = {
+                "data": data,
+                "extension": extension,
+                "content_type": content_type,
+                "dimensions": dimensions,
+                "source_name": source_name,
+                "area": area,
+            }
+    return best
+
+
+def extract_docx_photo(source_path):
+    candidates = []
+    try:
+        with zipfile.ZipFile(source_path, "r") as archive:
+            for name in archive.namelist():
+                if not name.lower().startswith("word/media/"):
+                    continue
+                data = archive.read(name)
+                candidates.append((data, Path(name).name))
+    except zipfile.BadZipFile:
+        return None
+    return select_largest_image(candidates)
+
+
+def rtf_group_at(source, marker_index):
+    start = source.rfind("{", 0, marker_index)
+    if start < 0:
+        return ""
+    depth = 0
+    index = start
+    while index < len(source):
+        char = source[index]
+        if char == "\\":
+            index += 2
+            continue
+        if char == "{":
+            depth += 1
+        elif char == "}":
+            depth -= 1
+            if depth == 0:
+                return source[start:index + 1]
+        index += 1
+    return ""
+
+
+def image_from_rtf_pict_group(group):
+    lowered = group.lower()
+    if "\\pngblip" not in lowered and "\\jpegblip" not in lowered:
+        return None
+    marker = "\\pngblip" if "\\pngblip" in lowered else "\\jpegblip"
+    body = group[lowered.find(marker) + len(marker):]
+    body = re.sub(r"\\[a-zA-Z]+-?\d* ?", " ", body)
+    body = re.sub(r"\\'([0-9a-fA-F]{2})", r"\1", body)
+    hex_data = re.sub(r"[^0-9a-fA-F]", "", body)
+    if len(hex_data) < 20 or len(hex_data) % 2:
+        return None
+    try:
+        data = bytes.fromhex(hex_data)
+    except ValueError:
+        return None
+    return data if image_info(data)[2] else None
+
+
+def extract_rtf_photo(source_path):
+    source = source_path.read_bytes().decode("latin1", errors="ignore")
+    candidates = []
+    for match in re.finditer(r"\\pict\b", source):
+        group = rtf_group_at(source, match.start())
+        if not group:
+            continue
+        data = image_from_rtf_pict_group(group)
+        if data:
+            candidates.append((data, "rtf_picture"))
+    return select_largest_image(candidates)
+
+
+def extract_hh_resume_photo(source_path, session_id):
+    data = source_path.read_bytes()
+    stripped = data.lstrip()
+    photo = None
+    if data.startswith(b"PK"):
+        photo = extract_docx_photo(source_path)
+    elif stripped.startswith(b"{\\rtf"):
+        photo = extract_rtf_photo(source_path)
+    if not photo:
+        return None
+
+    photo_name = f"{session_id}_auto_photo{photo['extension']}"
+    photo_path = UPLOAD_DIR / photo_name
+    photo_path.write_bytes(photo["data"])
+    return {
+        "photo_path": str(photo_path),
+        "photo_filename": "Фото из резюме",
+        "url": url_for("photo_preview", session_id=session_id, _=uuid.uuid4().hex),
+        "width": photo["dimensions"][0],
+        "height": photo["dimensions"][1],
+    }
+
+
 def photo_dimensions(photo_path):
     data = Path(photo_path).read_bytes()
     _, _, size = image_info(data)
@@ -1936,15 +2047,28 @@ def upload():
         saved_path.unlink(missing_ok=True)
         return jsonify({"error": str(exc) or "Не удалось прочитать файл"}), 400
     data = parse_hh_resume(text) if source == "hh" else parse_resume(text)
+    auto_photo = extract_hh_resume_photo(saved_path, session_id) if source == "hh" else None
     now = time.time()
-    SESSIONS[session_id] = {"source": str(saved_path), "filename": original_name, "text": text, "data": data, "created_at": now, "updated_at": now}
-    return jsonify({
+    session_data = {"source": str(saved_path), "filename": original_name, "text": text, "data": data, "created_at": now, "updated_at": now}
+    if auto_photo:
+        session_data["photo_path"] = auto_photo["photo_path"]
+        session_data["photo_filename"] = auto_photo["photo_filename"]
+    SESSIONS[session_id] = session_data
+    response = {
         "session_id": session_id,
         "filename": original_name,
         "text": text,
         "data": data,
         "fields": fields_for_job_count(data.get("_job_count", 0)),
-    })
+    }
+    if auto_photo:
+        response["photo"] = {
+            "url": auto_photo["url"],
+            "filename": auto_photo["photo_filename"],
+            "width": auto_photo["width"],
+            "height": auto_photo["height"],
+        }
+    return jsonify(response)
 
 
 @app.post("/upload-photo")

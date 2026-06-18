@@ -120,6 +120,9 @@ async function uploadSelectedFile() {
   rebuildForm(result.fields || window.FIELD_DEFS);
   fillForm(result.data || {});
   resetPhotoBlock();
+  if (result.photo && result.photo.url) {
+    showPhoto(result.photo.url, result.photo.filename);
+  }
   saveButton.disabled = false;
   openFolderButton.disabled = true;
   statusLine.textContent = `Загружен файл: ${result.filename}`;
